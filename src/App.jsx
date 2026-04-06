@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -11,10 +11,6 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  Briefcase,
-  GraduationCap,
-  BarChart3,
-  Sparkles,
 } from "lucide-react";
 
 const profile = {
@@ -47,9 +43,7 @@ const projects = [
       "분산된 병원 데이터를 통합·구조화하여 시장 규모와 타겟 병원을 정의하고, 데이터 기반 영업 전략 수립이 가능한 TAM/SAM 분석 체계를 설계했습니다.",
     tags: ["Strategy", "Market Sizing", "Data Structuring", "Healthcare"],
     cover: "/projects/serveone-tamsam/cover.png",
-    details: [
-      "/projects/serveone-tamsam/detail-1.png",
-    ],
+    details: ["/projects/serveone-tamsam/detail-1.png"],
     summary: {
       problem:
         "병원 정보가 분산되어 있어 시장 규모 산정과 우선 타겟 병원 선정이 어려운 비정형 데이터 환경이었습니다.",
@@ -63,7 +57,10 @@ const projects = [
     },
     downloads: [],
     links: [
-      { label: "관련 링크", href: "https://www.medipana.com/news/articleView.html?idxno=314328" },
+      {
+        label: "관련 링크",
+        href: "https://www.medipana.com/news/articleView.html?idxno=314328",
+      },
     ],
   },
   {
@@ -92,9 +89,7 @@ const projects = [
         "잠재 매출을 구조적으로 관리할 수 있는 KPI와 조직 실행 체계를 구축했고, 경영진 중심 관리 지표로 운영되며 매출 회수 및 상담 프로세스 개선 기반을 마련했습니다.",
     },
     downloads: [],
-    links: [
-      { label: "관련 링크", href: "https://www.idhospital.com/" },
-    ],
+    links: [{ label: "관련 링크", href: "https://www.idhospital.com/" }],
   },
   {
     slug: "beyond-strategy-growth",
@@ -120,11 +115,14 @@ const projects = [
         "기존 계획 외 성장 확보를 위해 전략적 제휴 확대 아이디어와 매출 회복 시나리오를 제안했습니다.",
       ],
       impact:
-  "데이터 기반으로 매출 부진 원인을 진단하고 전략적 제휴 확대 아이디어를 제안했으며, 이후 관련 협업이 실제 추진되어 서비스 확장으로 이어졌습니다. 후속 실행 결과 매출이 약 20% 이상 개선된 것으로 확인했습니다.",
+        "데이터 기반으로 매출 부진 원인을 진단하고 전략적 제휴 확대 아이디어를 제안했으며, 이후 관련 협업이 실제 추진되어 서비스 확장으로 이어졌습니다. 후속 실행 결과 매출이 약 20% 이상 개선된 것으로 확인했습니다.",
     },
     downloads: [],
     links: [
-      { label: "관련 링크", href: "https://www.beyondinc.co.kr/html/service/walk-delivery-service.html" },
+      {
+        label: "관련 링크",
+        href: "https://www.beyondinc.co.kr/html/service/walk-delivery-service.html",
+      },
     ],
   },
   {
@@ -167,9 +165,7 @@ const projects = [
       "정산 프로세스를 Python 기반으로 자동화하여 반복 업무를 제거하고, 4시간 소요 작업을 40분으로 단축했습니다.",
     tags: ["Automation", "Python", "Efficiency", "Operations"],
     cover: "/projects/beyond-settlement-automation/cover.png",
-    details: [
-      "/projects/beyond-settlement-automation/detail-1.png",
-    ],
+    details: ["/projects/beyond-settlement-automation/detail-1.png"],
     summary: {
       problem:
         "정산 프로세스가 수작업 중심으로 운영되어 시간 소요가 크고, 반복 업무 부담이 높은 구조였습니다.",
@@ -183,7 +179,10 @@ const projects = [
     },
     downloads: [],
     links: [
-      { label: "관련 링크", href: "https://www.beyondinc.co.kr/html/service/order-brokerage-service.html" },
+      {
+        label: "관련 링크",
+        href: "https://www.beyondinc.co.kr/html/service/order-brokerage-service.html",
+      },
     ],
   },
   {
@@ -253,11 +252,11 @@ const projects = [
     ],
     links: [],
   },
-    {
+  {
     slug: "jeonse-risk-dashboard",
     section: "ai-analytics",
     category: "학업 프로젝트 · Public Data / Risk Analytics",
-    title: "전세사기 조기탐지 리스크 모델 및 대시보드 설계",
+    title: "전세사기 조기 리스크 탐지 모델 및 대시보드 설계",
     oneLiner:
       "공공데이터를 결합해 지역 단위 전세사기 위험을 조기 탐지하고, B2G·B2C 활용이 가능한 리스크 평가 대시보드 구조를 설계했습니다.",
     tags: ["Risk Model", "Public Data", "Dashboard", "B2G", "Early Warning"],
@@ -286,7 +285,7 @@ const projects = [
       },
     ],
     links: [],
-  }
+  },
 ];
 
 const experiences = [
@@ -351,37 +350,75 @@ const strengths = [
   },
 ];
 
-const education = [
+const additionalExperience = [
   {
-    period: "2025.03 - 2026.08",
-    title: "고려대학교 일반대학원",
-    subtitle: "경영학과 Business Analytics 석사과정 · 졸업예정",
+    title: "Project Management",
+    desc: "홈페이지 리뉴얼 및 공공빅데이터 인턴십 프로젝트에서 PM 역할 수행",
+    tags: ["PM", "Coordination", "Execution"],
   },
   {
-    period: "2015.03 - 2021.08",
-    title: "연세대학교 미래캠퍼스",
-    subtitle: "경제학과 학사",
+    title: "Service Operations",
+    desc: "운영 데이터 분석과 병목 구간 개선을 통한 서비스 효율화 경험",
+    tags: ["Operations", "KPI", "Process"],
+  },
+  {
+    title: "Quality Assurance",
+    desc: "e-commerce 플랫폼 테스트 시나리오 설계 및 품질 검증 경험",
+    tags: ["QA", "Testing", "Platform"],
+  },
+  {
+    title: "Governance & Reporting",
+    desc: "비상장사 이사회·주총 대응 및 경영 보고 체계 지원 경험",
+    tags: ["IR", "Reporting", "Governance"],
   },
 ];
 
-const certifications = ["SQLD", "ADsP", "ISTQB CTFL"];
+const fallbackImage =
+  "data:image/svg+xml;utf8," +
+  encodeURIComponent(`
+  <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720">
+    <rect width="100%" height="100%" fill="#111827"/>
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#9ca3af" font-size="28" font-family="Arial">이미지 파일을 public/projects 경로에 넣어주세요</text>
+  </svg>
+`);
 
-const documents = [
-  { label: "RESUME PDF", href: "/projects/common/장은찬_이력서_(국문).pdf" },
-  { label: "신용카드 세그먼트 프로젝트 보고서", href: "/projects/card-segment/장은찬_신용카드_고객세그먼트_분류_프로젝트_보고서.pdf" },
-  { label: "LG CNS 산학협력 프로젝트 보고서", href: "/projects/dab-location/2025년_통계데이터_활용대회보고서.pdf" },
-];
+function useBreakpoint() {
+  const [screen, setScreen] = useState({
+    isMobile: false,
+    isTablet: false,
+  });
 
-const sectionStyle = {
-  maxWidth: 1180,
-  margin: "0 auto",
-  padding: "0 24px",
-};
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setScreen({
+        isMobile: width <= 768,
+        isTablet: width <= 1024,
+      });
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return screen;
+}
 
 export default function EunchanPortfolioRefined() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [keyword, setKeyword] = useState("");
+  const { isMobile, isTablet } = useBreakpoint();
+
+  const sectionStyle = useMemo(
+    () => ({
+      maxWidth: 1180,
+      margin: "0 auto",
+      padding: isMobile ? "0 16px" : "0 24px",
+    }),
+    [isMobile]
+  );
 
   const filteredProjects = useMemo(() => {
     const q = keyword.trim().toLowerCase();
@@ -397,12 +434,20 @@ export default function EunchanPortfolioRefined() {
   const openProject = (project) => {
     setSelectedProject(project);
     setActiveImageIndex(0);
+    document.body.style.overflow = "hidden";
   };
 
   const closeProject = () => {
     setSelectedProject(null);
     setActiveImageIndex(0);
+    document.body.style.overflow = "";
   };
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   const moveImage = (direction) => {
     if (!selectedProject?.details?.length) return;
@@ -416,8 +461,10 @@ export default function EunchanPortfolioRefined() {
       <div style={styles.bgGlowTwo} />
 
       <header style={styles.header}>
-        <div style={{ ...sectionStyle, ...styles.headerInner }}>
-          <a href="#top" style={styles.logo}>EUNCHAN JANG</a>
+        <div style={{ ...sectionStyle, ...styles.headerInner(isMobile) }}>
+          <a href="#top" style={styles.logo}>
+            EUNCHAN JANG
+          </a>
           <nav style={styles.nav}>
             <a href="#projects" style={styles.navLink}>프로젝트</a>
             <a href="#experience" style={styles.navLink}>경력</a>
@@ -429,30 +476,47 @@ export default function EunchanPortfolioRefined() {
       </header>
 
       <main id="top">
-        <section style={{ ...sectionStyle, ...styles.heroSection }}>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <section style={{ ...sectionStyle, ...styles.heroSection(isMobile) }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <div style={styles.heroName}>Business Analyst & Data Strategy</div>
-            <h1 style={styles.heroRole}>데이터와 AI를 활용해 의사결정을 설계하는 Business Analyst</h1>
-            <p style={styles.heroDesc}>{profile.summary}</p>
+            <h1 style={styles.heroRole(isMobile)}>
+              데이터와 AI를 활용해 의사결정을 설계하는 Business Analyst
+            </h1>
+            <p style={styles.heroDesc(isMobile)}>{profile.summary}</p>
 
             <div style={styles.heroButtonRow}>
-              <a href="#projects" style={styles.primaryButton}>
+              <a href="#projects" style={styles.primaryButton(isMobile)}>
                 프로젝트 보기 <ArrowRight size={16} />
               </a>
-              <a href="/projects/common/장은찬_이력서_(국문).pdf" style={styles.secondaryButton} target="_blank" rel="noreferrer">
+              <a
+                href="/projects/common/장은찬_이력서_(국문).pdf"
+                style={styles.secondaryButton(isMobile)}
+                target="_blank"
+                rel="noreferrer"
+              >
                 이력서 다운로드 <Download size={16} />
               </a>
             </div>
 
-            <div style={styles.contactLine}>
-              <a href={`mailto:${profile.email}`} style={styles.contactPill}><Mail size={15} /> {profile.email}</a>
-              <a href={`tel:${profile.phone.replace(/-/g, "")}`} style={styles.contactPill}><Phone size={15} /> {profile.phone}</a>
-              <span style={styles.contactPill}><MapPin size={15} /> {profile.location}</span>
+            <div style={styles.contactLine(isMobile)}>
+              <a href={`mailto:${profile.email}`} style={styles.contactPill}>
+                <Mail size={15} /> {profile.email}
+              </a>
+              <a href={`tel:${profile.phone.replace(/-/g, "")}`} style={styles.contactPill}>
+                <Phone size={15} /> {profile.phone}
+              </a>
+              <span style={styles.contactPill}>
+                <MapPin size={15} /> {profile.location}
+              </span>
             </div>
           </motion.div>
         </section>
 
-        <section style={{ ...sectionStyle, paddingBottom: 82 }}>
+        <section style={{ ...sectionStyle, paddingBottom: isMobile ? 64 : 82 }}>
           <div style={styles.statsGrid}>
             {stats.map((stat) => (
               <div key={stat.label} style={styles.statCard}>
@@ -464,11 +528,13 @@ export default function EunchanPortfolioRefined() {
           </div>
         </section>
 
-        <section id="projects" style={{ ...sectionStyle, paddingBottom: 110 }}>
-          <div style={styles.sectionTop}>
+        <section id="projects" style={{ ...sectionStyle, paddingBottom: isMobile ? 80 : 110 }}>
+          <div style={styles.sectionTop(isMobile)}>
             <div>
               <div style={styles.sectionEyebrow}>FEATURED PROJECTS</div>
-              <h2 style={styles.sectionTitle}>Data-Driven 기반 BT(Business Transformation) 프로젝트 및 문제 해결 사례</h2>
+              <h2 style={styles.sectionTitle}>
+                Data-Driven 기반 BT(Business Transformation) 프로젝트 및 문제 해결 사례
+              </h2>
               <p style={styles.sectionDesc}>
                 실무와 프로젝트에서 데이터, 전략, AI를 활용해 비즈니스 문제를 정의하고 실행 구조까지 설계한 주요 사례입니다.
               </p>
@@ -486,7 +552,7 @@ export default function EunchanPortfolioRefined() {
               <motion.button
                 key={project.slug}
                 onClick={() => openProject(project)}
-                whileHover={{ y: -6, scale: 1.01 }}
+                whileHover={isMobile ? undefined : { y: -6, scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
                 style={styles.projectCard}
               >
@@ -500,13 +566,15 @@ export default function EunchanPortfolioRefined() {
                     }}
                   />
                 </div>
-                <div style={styles.projectCardBody}>
+                <div style={styles.projectCardBody(isMobile)}>
                   <div style={styles.projectCategory}>{project.category}</div>
-                  <div style={styles.projectTitle}>{project.title}</div>
-                  <div style={styles.projectOneLiner}>{project.oneLiner}</div>
+                  <div style={styles.projectTitle(isMobile)}>{project.title}</div>
+                  <div style={styles.projectOneLiner(isMobile)}>{project.oneLiner}</div>
                   <div style={styles.tagWrap}>
                     {project.tags.map((tag) => (
-                      <span key={tag} style={styles.tag}>{tag}</span>
+                      <span key={tag} style={styles.tag}>
+                        {tag}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -515,41 +583,31 @@ export default function EunchanPortfolioRefined() {
           </div>
         </section>
 
-        <section id="experience" style={{ ...sectionStyle, paddingBottom: 110 }}>
+        <section id="experience" style={{ ...sectionStyle, paddingBottom: isMobile ? 80 : 110 }}>
           <div style={styles.sectionEyebrow}>EXPERIENCE</div>
-
-          <h2 style={styles.sectionTitle}>
-            실무 경험 및 역할 확장 과정
-          </h2>
-
+          <h2 style={styles.sectionTitle}>실무 경험 및 역할 확장 과정</h2>
           <p style={styles.sectionDesc}>
-            운영과 데이터 분석을 기반으로 커리어를 시작해,
-            KPI와 성과관리 체계를 설계하고 이후 사업성 분석과 전략 의사결정 영역까지 단계적으로 역할을 확장해왔습니다.
+            운영과 데이터 분석을 기반으로 커리어를 시작해, KPI와 성과관리 체계를 설계하고 이후 사업성 분석과 전략 의사결정 영역까지 단계적으로 역할을 확장해왔습니다.
           </p>
 
           <div style={styles.timelineWrap}>
             {experiences.map((item, index) => (
-              <div key={`${item.company}-${item.period}`} style={styles.timelineRow}>
-
-                {/* LEFT */}
-                <div style={styles.timelineLeft}>
+              <div key={`${item.company}-${item.period}`} style={styles.timelineRow(isMobile)}>
+                <div style={styles.timelineLeft(isMobile)}>
                   <div style={styles.timelinePeriodBadge}>{item.period}</div>
-                  <div style={styles.timelineCompanyName}>{item.company}</div>
+                  <div style={styles.timelineCompanyName(isMobile)}>{item.company}</div>
                   <div style={styles.timelineRoleText}>{item.role}</div>
                 </div>
 
-                {/* CENTER */}
-                <div style={styles.timelineCenter}>
+                <div style={styles.timelineCenter(isMobile)}>
                   <div style={styles.timelineLine} />
                   <div style={styles.timelineDot}>{index + 1}</div>
                 </div>
 
-                {/* RIGHT */}
-                <div style={styles.timelineRight}>
+                <div style={styles.timelineRight(isMobile)}>
                   <div style={styles.timelineContentCard}>
-                    <div style={styles.timelineHeadline}>{item.headline}</div>
+                    <div style={styles.timelineHeadline(isMobile)}>{item.headline}</div>
                     <div style={styles.timelineDescription}>{item.description}</div>
-
                     <ul style={styles.timelineList}>
                       {item.bullets.map((bullet) => (
                         <li key={bullet} style={styles.timelineListItem}>
@@ -559,19 +617,14 @@ export default function EunchanPortfolioRefined() {
                     </ul>
                   </div>
                 </div>
-
               </div>
             ))}
           </div>
         </section>
 
-        <section id="strengths" style={{ ...sectionStyle, paddingBottom: 110 }}>
+        <section id="strengths" style={{ ...sectionStyle, paddingBottom: isMobile ? 80 : 110 }}>
           <div style={styles.sectionEyebrow}>CORE CAPABILITIES</div>
-
-          <h2 style={styles.sectionTitle}>
-            비즈니스 문제를 해결하기 위해 활용한 핵심 역량
-          </h2>
-
+          <h2 style={styles.sectionTitle}>비즈니스 문제를 해결하기 위해 활용한 핵심 역량</h2>
           <p style={styles.sectionDesc}>
             데이터를 분석하는 데 그치지 않고, 전략 수립·성과관리·운영 개선까지 연결하는 구조를 설계해왔습니다.
           </p>
@@ -582,7 +635,9 @@ export default function EunchanPortfolioRefined() {
                 <div style={styles.strengthTitle}>{group.title}</div>
                 <div style={styles.strengthTags}>
                   {group.items.map((item) => (
-                    <span key={item} style={styles.strengthTag}>{item}</span>
+                    <span key={item} style={styles.strengthTag}>
+                      {item}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -590,17 +645,14 @@ export default function EunchanPortfolioRefined() {
           </div>
         </section>
 
-        <section id="education" style={{ ...sectionStyle, paddingBottom: 110 }}>
+        <section id="education" style={{ ...sectionStyle, paddingBottom: isMobile ? 80 : 110 }}>
           <div style={styles.sectionEyebrow}>EDUCATION</div>
-
           <h2 style={styles.sectionTitle}>학업 배경</h2>
-
           <p style={styles.sectionDesc}>
-            경제학을 기반으로 통계·재무·핀테크 관련 학습을 확장해왔고,
-            이후 Business Analytics 석사과정을 통해 데이터 기반 의사결정과 AI 활용 역량으로 연결해왔습니다.
+            경제학을 기반으로 통계·재무·핀테크 관련 학습을 확장해왔고, 이후 Business Analytics 석사과정을 통해 데이터 기반 의사결정과 AI 활용 역량으로 연결해왔습니다.
           </p>
 
-          <div style={styles.educationOnlyGrid}>
+          <div style={styles.educationOnlyGrid(isMobile)}>
             <div style={styles.educationDetailCard}>
               <div style={styles.eduPeriod}>2025.03 - 2026.08</div>
               <div style={styles.eduTitle}>고려대학교 일반대학원</div>
@@ -616,90 +668,64 @@ export default function EunchanPortfolioRefined() {
               <div style={styles.eduTitle}>연세대학교 미래캠퍼스</div>
               <div style={styles.eduSubtitle}>경제학 학사</div>
               <ul style={styles.eduBulletList}>
-                <li>관련 수업: Eoconomics, Statistics, Investment, Fintech, Financial Analysis, Accounting, Time Series Analysis, Liner Algebra</li>
+                <li>관련 수업: Economics, Statistics, Investment, Fintech, Financial Analysis, Accounting, Time Series Analysis, Linear Algebra</li>
                 <li>통계·재무·핀테크 기반의 정량 분석과 데이터 기반 문제 해결 관련 과목 중점 이수</li>
               </ul>
             </div>
           </div>
         </section>
-        
-        <section id="credentials" style={{ ...sectionStyle, paddingBottom: 110 }}>
+
+        <section id="credentials" style={{ ...sectionStyle, paddingBottom: isMobile ? 80 : 110 }}>
           <div style={styles.sectionEyebrow}>CERTIFICATIONS & TRAINING COURSES</div>
+          <h2 style={styles.sectionTitle}>자격증, 교육 이수 및 수상 내역</h2>
+          <p style={styles.sectionDesc}>
+            데이터 기반 역량을 확장하기 위해 자격 취득과 교육, 프로젝트를 통해 지속적으로 전문성을 보완해왔습니다.
+          </p>
 
-            <h2 style={styles.sectionTitle}>자격증, 교육 이수 및 수상 내역</h2>
-
-            <p style={styles.sectionDesc}>
-              데이터 기반 역량을 확장하기 위해 자격 취득과 교육, 프로젝트를 통해
-              지속적으로 전문성을 보완해왔습니다.
-            </p>
-
-            <div style={styles.credentialsGrid}>
-              <div style={styles.credentialsCard}>
-                <div style={styles.credentialBlock}>
-                  <div style={styles.credentialTitle}>자격증</div>
-                  <div style={styles.credentialTags}>
-                    <span style={styles.certTag}>SQLD</span>
-                    <span style={styles.certTag}>ADsP</span>
-                    <span style={styles.certTag}>ISTQB CTFL</span>
-                  </div>
-                </div>
-
-                <div style={styles.credentialDivider} />
-
-                <div style={styles.credentialBlock}>
-                  <div style={styles.credentialTitle}>교육 이수</div>
-                  <ul style={styles.credentialList}>
-                    <li>Tableau 데이터 시각화 부트캠프 수료 (Salesforce)</li>                    
-                    <li>K-Digital Training · 핀테크 AI 알고리즘 개발자 과정 수료 (비트컴퓨터)</li>
-                    <li>공공빅데이터 인턴십 수료 (NIA)</li>
-                  </ul>
-                </div>
-
-                <div style={styles.credentialDivider} />
-
-                <div style={styles.credentialBlock}>
-                  <div style={styles.credentialTitle}>성과 및 수상</div>
-                  <ul style={styles.credentialList}>
-                    <li>2025학년도 고려대학교 MSBA 캡스톤 프로젝트 우수상 (LG CNS AI Agent)</li>
-                    <li>2020년도 DB GAPS 자산배분대회 본선 진출</li>
-                  </ul>
+          <div style={styles.credentialsGrid}>
+            <div style={styles.credentialsCard}>
+              <div style={styles.credentialBlock}>
+                <div style={styles.credentialTitle}>자격증</div>
+                <div style={styles.credentialTags}>
+                  <span style={styles.certTag}>SQLD</span>
+                  <span style={styles.certTag}>ADsP</span>
+                  <span style={styles.certTag}>ISTQB CTFL</span>
                 </div>
               </div>
+
+              <div style={styles.credentialDivider} />
+
+              <div style={styles.credentialBlock}>
+                <div style={styles.credentialTitle}>교육 이수</div>
+                <ul style={styles.credentialList}>
+                  <li>Tableau 데이터 시각화 부트캠프 수료 (Salesforce)</li>
+                  <li>K-Digital Training · 핀테크 AI 알고리즘 개발자 과정 수료 (비트컴퓨터)</li>
+                  <li>공공빅데이터 인턴십 수료 (NIA)</li>
+                </ul>
+              </div>
+
+              <div style={styles.credentialDivider} />
+
+              <div style={styles.credentialBlock}>
+                <div style={styles.credentialTitle}>성과 및 수상</div>
+                <ul style={styles.credentialList}>
+                  <li>2025학년도 고려대학교 MSBA 캡스톤 프로젝트 우수상 (LG CNS AI Agent)</li>
+                  <li>2020년도 DB GAPS 자산배분대회 본선 진출</li>
+                </ul>
+              </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-        <section id="additional" style={{ ...sectionStyle, paddingBottom: 110 }}>
+        <section id="additional" style={{ ...sectionStyle, paddingBottom: isMobile ? 80 : 110 }}>
           <div style={styles.sectionEyebrow}>ADDITIONAL EXPERIENCE</div>
-
           <h2 style={styles.sectionTitle}>추가 업무경험</h2>
-
           <p style={styles.sectionDesc}>
             전략 실행을 뒷받침하는 운영, 품질, 프로젝트 관리 경험도 함께 보유하고 있습니다.
           </p>
 
-          <div style={styles.additionalListGrid}>
-            {[
-              {
-                title: "Project Management",
-                desc: "홈페이지 리뉴얼 및 공공빅데이터 인턴십 프로젝트에서 PM 역할 수행",
-                tags: ["PM", "Coordination", "Execution"],
-              },
-              {
-                title: "Service Operations",
-                desc: "운영 데이터 분석과 병목 구간 개선을 통한 서비스 효율화 경험",
-                tags: ["Operations", "KPI", "Process"],
-              },
-              {
-                title: "Quality Assurance",
-                desc: "e-commerce 플랫폼 테스트 시나리오 설계 및 품질 검증 경험",
-                tags: ["QA", "Testing", "Platform"],
-              },
-              {
-                title: "Governance & Reporting",
-                desc: "비상장사 이사회·주총 대응 및 경영 보고 체계 지원 경험",
-                tags: ["IR", "Reporting", "Governance"],
-              },
-            ].map((item, i) => (
+          <div style={styles.additionalListGrid(isMobile)}>
+            {additionalExperience.map((item, i) => (
               <div key={i} style={styles.additionalListCard}>
                 <div style={styles.additionalListTitle}>{item.title}</div>
                 <div style={styles.additionalListDesc}>{item.desc}</div>
@@ -715,7 +741,7 @@ export default function EunchanPortfolioRefined() {
           </div>
         </section>
 
-        <section id="contact" style={{ ...sectionStyle, paddingBottom: 120 }}>
+        <section id="contact" style={{ ...sectionStyle, paddingBottom: isMobile ? 96 : 120 }}>
           <div style={styles.contactCtaWrap}>
             <h2 style={styles.contactCtaTitle}>포트폴리오를 봐주셔서 감사합니다</h2>
             <p style={styles.contactCtaDesc}>
@@ -723,7 +749,7 @@ export default function EunchanPortfolioRefined() {
             </p>
 
             <div style={styles.contactCtaButtons}>
-              <a href={`mailto:${profile.email}`} style={styles.primaryButton}>
+              <a href={`mailto:${profile.email}`} style={styles.primaryButton(isMobile)}>
                 <Mail size={16} /> 이메일 보내기
               </a>
 
@@ -731,7 +757,7 @@ export default function EunchanPortfolioRefined() {
                 href={profile.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                style={styles.secondaryButton}
+                style={styles.secondaryButton(isMobile)}
               >
                 LinkedIn
               </a>
@@ -740,7 +766,7 @@ export default function EunchanPortfolioRefined() {
                 href="/projects/common/장은찬_이력서_(국문).pdf"
                 target="_blank"
                 rel="noreferrer"
-                style={styles.secondaryButton}
+                style={styles.secondaryButton(isMobile)}
               >
                 <FolderOpen size={16} /> 이력서 보기
               </a>
@@ -755,7 +781,7 @@ export default function EunchanPortfolioRefined() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={styles.modalOverlay}
+            style={styles.modalOverlay(isMobile)}
             onClick={closeProject}
           >
             <motion.div
@@ -763,22 +789,22 @@ export default function EunchanPortfolioRefined() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.98 }}
               transition={{ duration: 0.22 }}
-              style={styles.modalCard}
+              style={styles.modalCard(isMobile)}
               onClick={(e) => e.stopPropagation()}
             >
-              <button onClick={closeProject} style={styles.closeButton}>
+              <button onClick={closeProject} style={styles.closeButton(isMobile)}>
                 <X size={18} />
               </button>
 
-              <div style={styles.modalHeader}>
+              <div style={styles.modalHeader(isMobile)}>
                 <div style={styles.projectCategory}>{selectedProject.category}</div>
-                <h3 style={styles.modalTitle}>{selectedProject.title}</h3>
+                <h3 style={styles.modalTitle(isMobile)}>{selectedProject.title}</h3>
                 <p style={styles.modalDesc}>{selectedProject.oneLiner}</p>
               </div>
 
-              <div style={styles.modalGrid}>
+              <div style={styles.modalGrid(isTablet)}>
                 <div>
-                  <div style={styles.viewerWrap}>
+                  <div style={styles.viewerWrap(isMobile)}>
                     <img
                       src={selectedProject.details?.[activeImageIndex] || selectedProject.cover}
                       alt={`${selectedProject.title}-${activeImageIndex + 1}`}
@@ -787,12 +813,19 @@ export default function EunchanPortfolioRefined() {
                         e.currentTarget.src = fallbackImage;
                       }}
                     />
+
                     {!!selectedProject.details?.length && selectedProject.details.length > 1 && (
                       <>
-                        <button style={{ ...styles.viewerNavButton, left: 10 }} onClick={() => moveImage(-1)}>
+                        <button
+                          style={{ ...styles.viewerNavButton, left: 10 }}
+                          onClick={() => moveImage(-1)}
+                        >
                           <ChevronLeft size={18} />
                         </button>
-                        <button style={{ ...styles.viewerNavButton, right: 10 }} onClick={() => moveImage(1)}>
+                        <button
+                          style={{ ...styles.viewerNavButton, right: 10 }}
+                          onClick={() => moveImage(1)}
+                        >
                           <ChevronRight size={18} />
                         </button>
                       </>
@@ -806,8 +839,11 @@ export default function EunchanPortfolioRefined() {
                           key={image}
                           onClick={() => setActiveImageIndex(index)}
                           style={{
-                            ...styles.thumbButton,
-                            borderColor: activeImageIndex === index ? "#7c3aed" : "rgba(255,255,255,0.12)",
+                            ...styles.thumbButton(isMobile),
+                            borderColor:
+                              activeImageIndex === index
+                                ? "#7c3aed"
+                                : "rgba(255,255,255,0.12)",
                           }}
                         >
                           <img
@@ -834,7 +870,9 @@ export default function EunchanPortfolioRefined() {
                     <div style={styles.infoLabel}>접근 방법</div>
                     <ul style={styles.infoList}>
                       {selectedProject.summary.approach.map((item) => (
-                        <li key={item} style={styles.infoListItem}>{item}</li>
+                        <li key={item} style={styles.infoListItem}>
+                          {item}
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -845,53 +883,51 @@ export default function EunchanPortfolioRefined() {
                   </div>
 
                   {selectedProject.section === "real-business" ? (
-                      <>
-                        <div style={styles.infoBlock}>
-                          <div style={styles.infoLabel}>관련 링크</div>
-                          {selectedProject.links?.length > 0 ? (
-                            <div style={styles.linkList}>
-                              {selectedProject.links.map((link) => (
-                                <a
-                                  key={link.href}
-                                  href={link.href}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                  style={styles.linkButton}
-                                >
-                                  <span>{link.label}</span>
-                                  <ArrowRight size={15} />
-                                </a>
-                              ))}
-                            </div>
-                          ) : (
-                            <div style={styles.infoText}>
-                              외부에 공개 가능한 참고 링크가 없는 실무 사례입니다.
-                            </div>
-                          )}
+                    <div style={styles.infoBlock}>
+                      <div style={styles.infoLabel}>관련 링크</div>
+                      {selectedProject.links?.length > 0 ? (
+                        <div style={styles.linkList}>
+                          {selectedProject.links.map((link) => (
+                            <a
+                              key={link.href}
+                              href={link.href}
+                              target="_blank"
+                              rel="noreferrer"
+                              style={styles.linkButton}
+                            >
+                              <span>{link.label}</span>
+                              <ArrowRight size={15} />
+                            </a>
+                          ))}
                         </div>
-                      </>
-                    ) : (
-                      selectedProject.downloads?.length > 0 && (
-                        <div style={styles.infoBlock}>
-                          <div style={styles.infoLabel}>첨부 자료</div>
-                          <div style={styles.downloadList}>
-                            {selectedProject.downloads.map((file) => (
-                              <a
-                                key={file.href}
-                                href={file.href}
-                                target="_blank"
-                                rel="noreferrer"
-                                style={styles.downloadButton}
-                              >
-                                <FileText size={16} />
-                                <span>{file.label}</span>
-                                <Download size={15} />
-                              </a>
-                            ))}
-                          </div>
+                      ) : (
+                        <div style={styles.infoText}>
+                          외부에 공개 가능한 참고 링크가 없는 실무 사례입니다.
                         </div>
-                      )
-                    )}
+                      )}
+                    </div>
+                  ) : (
+                    selectedProject.downloads?.length > 0 && (
+                      <div style={styles.infoBlock}>
+                        <div style={styles.infoLabel}>첨부 자료</div>
+                        <div style={styles.downloadList}>
+                          {selectedProject.downloads.map((file) => (
+                            <a
+                              key={file.href}
+                              href={file.href}
+                              target="_blank"
+                              rel="noreferrer"
+                              style={styles.downloadButton}
+                            >
+                              <FileText size={16} />
+                              <span>{file.label}</span>
+                              <Download size={15} />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -902,15 +938,6 @@ export default function EunchanPortfolioRefined() {
   );
 }
 
-const fallbackImage =
-  "data:image/svg+xml;utf8," +
-  encodeURIComponent(`
-  <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720">
-    <rect width="100%" height="100%" fill="#111827"/>
-    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#9ca3af" font-size="28" font-family="Arial">이미지 파일을 public/projects 경로에 넣어주세요</text>
-  </svg>
-`);
-
 const styles = {
   page: {
     background: "#070b16",
@@ -920,61 +947,6 @@ const styles = {
     position: "relative",
     overflow: "hidden",
   },
-
-    additionalListGrid: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: 16,
-    marginTop: 24,
-  },
-
-  additionalListCard: {
-    borderRadius: 20,
-    padding: 18,
-    background: "rgba(255,255,255,0.04)",
-    border: "1px solid rgba(255,255,255,0.08)",
-  },
-
-  additionalListTitle: {
-    fontSize: 17,
-    fontWeight: 700,
-    marginBottom: 8,
-  },
-
-  additionalListDesc: {
-    color: "#cbd5e1",
-    fontSize: 14,
-    lineHeight: 1.6,
-    marginBottom: 12,
-  },
-
-  additionalListTags: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 8,
-  },
-
-  additionalListTag: {
-    fontSize: 12,
-    color: "#e2e8f0",
-    background: "rgba(255,255,255,0.06)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: 999,
-    padding: "6px 10px",
-  },
-  additionalTitle: {
-    fontSize: 18,
-    fontWeight: 700,
-    marginBottom: 10,
-  },
-
-  additionalDesc: {
-    color: "#cbd5e1",
-    fontSize: 14,
-    lineHeight: 1.6,
-  },
-
-
   bgGlowOne: {
     position: "fixed",
     top: -160,
@@ -993,49 +965,23 @@ const styles = {
     background: "radial-gradient(circle, rgba(34,197,94,0.16) 0%, rgba(34,197,94,0) 70%)",
     pointerEvents: "none",
   },
-  contactCtaWrap: {
-    textAlign: "center",
-    padding: "72px 24px",
-    borderTop: "1px solid rgba(255,255,255,0.06)",
-  },
-
-  contactCtaTitle: {
-    fontSize: "clamp(2rem, 4vw, 3rem)",
-    fontWeight: 700,
-    margin: 0,
-    marginBottom: 16,
-  },
-
-  contactCtaDesc: {
-    color: "#cbd5e1",
-    fontSize: 16,
-    lineHeight: 1.8,
-    maxWidth: 680,
-    margin: "0 auto 28px auto",
-  },
-
-  contactCtaButtons: {
-    display: "flex",
-    justifyContent: "center",
-    gap: 14,
-    flexWrap: "wrap",
-  },
-
   header: {
     position: "sticky",
     top: 0,
     zIndex: 20,
     backdropFilter: "blur(18px)",
-    background: "rgba(7,11,22,0.7)",
+    background: "rgba(7,11,22,0.72)",
     borderBottom: "1px solid rgba(255,255,255,0.08)",
   },
-  headerInner: {
+  headerInner: (isMobile) => ({
     display: "flex",
-    alignItems: "center",
+    alignItems: isMobile ? "flex-start" : "center",
+    flexDirection: isMobile ? "column" : "row",
     justifyContent: "space-between",
+    gap: isMobile ? 12 : 0,
     paddingTop: 18,
     paddingBottom: 18,
-  },
+  }),
   logo: {
     fontWeight: 700,
     fontSize: 14,
@@ -1045,76 +991,90 @@ const styles = {
   },
   nav: {
     display: "flex",
-    gap: 24,
+    gap: 16,
     fontSize: 14,
-    flexWrap: "wrap",
+    flexWrap: "nowrap",
+    overflowX: "auto",
+    whiteSpace: "nowrap",
+    msOverflowStyle: "none",
+    scrollbarWidth: "none",
+    width: "100%",
   },
   navLink: {
     color: "#cbd5e1",
     textDecoration: "none",
+    paddingRight: 4,
+    flexShrink: 0,
   },
-  heroSection: {
-    paddingTop: 88,
-    paddingBottom: 72,
-  },
+  heroSection: (isMobile) => ({
+    paddingTop: isMobile ? 56 : 88,
+    paddingBottom: isMobile ? 48 : 72,
+  }),
   heroName: {
     display: "inline-block",
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 700,
     letterSpacing: "0.08em",
     color: "#c4b5fd",
     marginBottom: 18,
   },
-  heroRole: {
-    fontSize: "clamp(2rem, 4vw, 3rem)",
-    lineHeight: 1.08,
+  heroRole: (isMobile) => ({
+    fontSize: isMobile ? "2rem" : "clamp(2rem, 4vw, 3rem)",
+    lineHeight: 1.12,
     maxWidth: 980,
     margin: 0,
     letterSpacing: "-0.04em",
-  },
-  heroDesc: {
+  }),
+  heroDesc: (isMobile) => ({
     maxWidth: 850,
     color: "#cbd5e1",
     lineHeight: 1.8,
-    fontSize: 17,
-    marginTop: 24,
+    fontSize: isMobile ? 15 : 17,
+    marginTop: 20,
     marginBottom: 0,
-  },
+  }),
   heroButtonRow: {
     display: "flex",
-    gap: 14,
+    gap: 12,
     flexWrap: "wrap",
-    marginTop: 34,
+    marginTop: 28,
   },
-  primaryButton: {
+  primaryButton: (isMobile) => ({
     display: "inline-flex",
     alignItems: "center",
+    justifyContent: "center",
     gap: 10,
     textDecoration: "none",
     background: "linear-gradient(135deg, #7c3aed 0%, #2563eb 100%)",
     color: "white",
     borderRadius: 18,
-    padding: "14px 18px",
+    padding: isMobile ? "13px 16px" : "14px 18px",
     fontWeight: 600,
-  },
-  secondaryButton: {
+    width: isMobile ? "100%" : "auto",
+    boxSizing: "border-box",
+  }),
+  secondaryButton: (isMobile) => ({
     display: "inline-flex",
     alignItems: "center",
+    justifyContent: "center",
     gap: 10,
     textDecoration: "none",
     background: "rgba(255,255,255,0.05)",
     color: "#e2e8f0",
     borderRadius: 18,
-    padding: "14px 18px",
+    padding: isMobile ? "13px 16px" : "14px 18px",
     border: "1px solid rgba(255,255,255,0.1)",
     fontWeight: 600,
-  },
-  contactLine: {
+    width: isMobile ? "100%" : "auto",
+    boxSizing: "border-box",
+  }),
+  contactLine: (isMobile) => ({
     display: "flex",
+    flexDirection: isMobile ? "column" : "row",
     gap: 12,
     flexWrap: "wrap",
     marginTop: 26,
-  },
+  }),
   contactPill: {
     display: "inline-flex",
     alignItems: "center",
@@ -1126,6 +1086,9 @@ const styles = {
     borderRadius: 999,
     padding: "10px 14px",
     fontSize: 14,
+    width: "fit-content",
+    maxWidth: "100%",
+    boxSizing: "border-box",
   },
   statsGrid: {
     display: "grid",
@@ -1154,13 +1117,13 @@ const styles = {
     fontSize: 13,
     lineHeight: 1.6,
   },
-  sectionTop: {
+  sectionTop: (isMobile) => ({
     display: "grid",
-    gridTemplateColumns: "1fr minmax(220px, 280px)",
+    gridTemplateColumns: isMobile ? "1fr" : "1fr minmax(220px, 280px)",
     gap: 18,
     alignItems: "end",
     marginBottom: 26,
-  },
+  }),
   sectionEyebrow: {
     fontSize: 12,
     letterSpacing: "0.24em",
@@ -1188,6 +1151,8 @@ const styles = {
     border: "1px solid rgba(255,255,255,0.12)",
     padding: "0 16px",
     outline: "none",
+    width: "100%",
+    boxSizing: "border-box",
   },
   projectGrid: {
     display: "grid",
@@ -1215,37 +1180,35 @@ const styles = {
     background: "#0f172a",
     flexShrink: 0,
   },
-
   projectCardImage: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
     display: "block",
   },
-
-  projectCardBody: {
-    padding: 20,
+  projectCardBody: (isMobile) => ({
+    padding: isMobile ? 16 : 20,
     display: "flex",
     flexDirection: "column",
     flex: 1,
-  },
+  }),
   projectCategory: {
     color: "#c4b5fd",
     fontSize: 13,
     marginBottom: 10,
     fontWeight: 600,
   },
-  projectTitle: {
-    fontSize: 22,
+  projectTitle: (isMobile) => ({
+    fontSize: isMobile ? 18 : 22,
     lineHeight: 1.35,
     fontWeight: 700,
     marginBottom: 10,
-  },
-  projectOneLiner: {
+  }),
+  projectOneLiner: (isMobile) => ({
     color: "#cbd5e1",
     lineHeight: 1.65,
-    fontSize: 15,
-  },
+    fontSize: isMobile ? 14 : 15,
+  }),
   tagWrap: {
     display: "flex",
     gap: 8,
@@ -1262,21 +1225,19 @@ const styles = {
     padding: "8px 11px",
   },
   timelineWrap: {
-  marginTop: 28,
-  display: "grid",
-  gap: 20,
-  },
-
-  timelineRow: {
+    marginTop: 28,
     display: "grid",
-    gridTemplateColumns: "260px 56px 1fr",
-    gap: 18,
+    gap: 20,
   },
-
-  timelineLeft: {
+  timelineRow: (isMobile) => ({
+    display: "grid",
+    gridTemplateColumns: isMobile ? "1fr" : "260px 56px 1fr",
+    gap: isMobile ? 12 : 18,
+  }),
+  timelineLeft: (isMobile) => ({
     paddingTop: 8,
-  },
-
+    order: isMobile ? 1 : 0,
+  }),
   timelinePeriodBadge: {
     borderRadius: 999,
     background: "rgba(124,58,237,0.10)",
@@ -1286,25 +1247,23 @@ const styles = {
     fontSize: 12,
     fontWeight: 700,
     marginBottom: 14,
+    display: "inline-flex",
   },
-
-  timelineCompanyName: {
-    fontSize: 24,
+  timelineCompanyName: (isMobile) => ({
+    fontSize: isMobile ? 22 : 24,
     fontWeight: 700,
     marginBottom: 6,
-  },
-
+    lineHeight: 1.3,
+  }),
   timelineRoleText: {
     color: "#94a3b8",
     fontSize: 14,
   },
-
-  timelineCenter: {
+  timelineCenter: (isMobile) => ({
     position: "relative",
-    display: "flex",
+    display: isMobile ? "none" : "flex",
     justifyContent: "center",
-  },
-
+  }),
   timelineLine: {
     position: "absolute",
     top: 0,
@@ -1312,7 +1271,6 @@ const styles = {
     width: 2,
     background: "rgba(124,58,237,0.4)",
   },
-
   timelineDot: {
     width: 34,
     height: 34,
@@ -1324,99 +1282,33 @@ const styles = {
     color: "white",
     fontWeight: 700,
   },
-
-  timelineRight: {},
-
+  timelineRight: (isMobile) => ({
+    order: isMobile ? 2 : 0,
+  }),
   timelineContentCard: {
     borderRadius: 26,
     padding: 24,
     background: "rgba(255,255,255,0.05)",
     border: "1px solid rgba(255,255,255,0.08)",
   },
-
-  timelineHeadline: {
-    fontSize: 22,
+  timelineHeadline: (isMobile) => ({
+    fontSize: isMobile ? 18 : 22,
     fontWeight: 700,
     marginBottom: 12,
-  },
-
+    lineHeight: 1.4,
+  }),
   timelineDescription: {
     color: "#cbd5e1",
     marginBottom: 14,
+    lineHeight: 1.7,
   },
-
   timelineList: {
     paddingLeft: 18,
+    margin: 0,
   },
-
   timelineListItem: {
     marginBottom: 6,
-  },
-  experienceGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: 18,
-    marginTop: 26,
-  },
-  experienceCard: {
-    padding: 22,
-    borderRadius: 26,
-    background: "rgba(255,255,255,0.05)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    textAlign: "left",
-    color: "white",
-    cursor: "pointer",
-  },
-  experienceCardTop: {
-    display: "flex",
-    justifyContent: "space-between",
-    gap: 16,
-    marginBottom: 14,
-  },
-  experienceCompany: {
-    fontSize: 22,
-    fontWeight: 700,
-    marginBottom: 6,
-  },
-  experienceRole: {
-    color: "#cbd5e1",
-    fontSize: 14,
-  },
-  experienceIcon: {
-    width: 42,
-    height: 42,
-    borderRadius: 12,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    background: "rgba(124,58,237,0.14)",
-    color: "#ddd6fe",
-    flexShrink: 0,
-  },
-  experienceHeadline: {
-    fontSize: 18,
-    fontWeight: 700,
-    lineHeight: 1.5,
-    marginBottom: 12,
-  },
-  experienceBulletList: {
-    margin: 0,
-    paddingLeft: 18,
-    color: "#cbd5e1",
-    lineHeight: 1.8,
-    minHeight: 116,
-  },
-  experienceBullet: {
-    marginBottom: 6,
-  },
-  experienceLink: {
-    marginTop: 14,
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 8,
-    color: "#c4b5fd",
-    fontWeight: 600,
-    fontSize: 14,
+    lineHeight: 1.7,
   },
   strengthGrid: {
     display: "grid",
@@ -1448,171 +1340,17 @@ const styles = {
     border: "1px solid rgba(255,255,255,0.08)",
     color: "#e2e8f0",
   },
-  educationGrid: {
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gap: 24,
-  marginTop: 28,
-  },
-  educationOnlyGrid: {
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gap: 24,
-  marginTop: 28,
-  },
-
+  educationOnlyGrid: (isMobile) => ({
+    display: "grid",
+    gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+    gap: 24,
+    marginTop: 28,
+  }),
   educationDetailCard: {
     borderRadius: 24,
     padding: 24,
     background: "rgba(255,255,255,0.05)",
     border: "1px solid rgba(255,255,255,0.08)",
-  },
-
-  eduBulletList: {
-    marginTop: 14,
-    marginBottom: 0,
-    paddingLeft: 18,
-    color: "#cbd5e1",
-    lineHeight: 1.8,
-    fontSize: 14,
-  },
-
-  credentialsGrid: {
-    display: "grid",
-    gridTemplateColumns: "1fr",
-    gap: 24,
-    marginTop: 28,
-  },
-
-  credentialsCard: {
-    borderRadius: 24,
-    padding: 24,
-    background: "rgba(255,255,255,0.05)",
-    border: "1px solid rgba(255,255,255,0.08)",
-  },
-
-  credentialBlock: {
-    marginBottom: 6,
-  },
-
-  credentialTitle: {
-    fontSize: 16,
-    fontWeight: 700,
-    color: "#c4b5fd",
-    marginBottom: 12,
-  },
-
-  credentialTags: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 10,
-  },
-
-  credentialList: {
-    margin: 0,
-    paddingLeft: 18,
-    color: "#e2e8f0",
-    lineHeight: 1.9,
-    fontSize: 14,
-  },
-
-  credentialDivider: {
-    height: 1,
-    background: "rgba(255,255,255,0.08)",
-    margin: "18px 0",
-  },
-  educationCard: {
-    borderRadius: 24,
-    padding: 24,
-    background: "rgba(255,255,255,0.05)",
-    border: "1px solid rgba(255,255,255,0.08)",
-  },
-
-  eduItem: {
-    marginBottom: 12,
-  },
-
-  eduPeriod: {
-    fontSize: 12,
-    color: "#94a3b8",
-    marginBottom: 6,
-  },
-
-  eduTitle: {
-    fontSize: 20,
-    fontWeight: 700,
-    marginBottom: 4,
-  },
-
-  eduDesc: {
-    color: "#cbd5e1",
-    fontSize: 14,
-  },
-
-  eduDivider: {
-    height: 1,
-    background: "rgba(255,255,255,0.08)",
-    margin: "18px 0",
-  },
-
-  certSection: {
-    marginBottom: 18,
-  },
-
-  certSectionTitle: {
-    fontSize: 14,
-    fontWeight: 700,
-    marginBottom: 10,
-    color: "#c4b5fd",
-  },
-
-  certList: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 10,
-  },
-
-  certTag: {
-    padding: "8px 12px",
-    borderRadius: 999,
-    background: "rgba(255,255,255,0.06)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    fontSize: 13,
-  },
-
-  certHighlight: {
-    padding: "10px 14px",
-    borderRadius: 999,
-    background: "rgba(124,58,237,0.15)",
-    border: "1px solid rgba(124,58,237,0.35)",
-    fontSize: 13,
-    fontWeight: 600,
-  },
-  eduGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: 18,
-    marginTop: 26,
-  },
-  eduCard: {
-    borderRadius: 24,
-    padding: 24,
-    background: "rgba(255,255,255,0.05)",
-    border: "1px solid rgba(255,255,255,0.08)",
-  },
-  eduIcon: {
-    width: 42,
-    height: 42,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 12,
-    background: "rgba(124,58,237,0.14)",
-    color: "#ddd6fe",
-    marginBottom: 18,
-  },
-  eduItem: {
-    marginBottom: 18,
   },
   eduPeriod: {
     fontSize: 13,
@@ -1621,80 +1359,152 @@ const styles = {
     marginBottom: 6,
   },
   eduTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 700,
-    marginBottom: 6,
+    marginBottom: 4,
   },
   eduSubtitle: {
     color: "#cbd5e1",
     lineHeight: 1.7,
     fontSize: 14,
   },
-  docsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-    gap: 14,
-    marginTop: 24,
+  eduBulletList: {
+    marginTop: 14,
+    marginBottom: 0,
+    paddingLeft: 18,
+    color: "#cbd5e1",
+    lineHeight: 1.8,
+    fontSize: 14,
   },
-  docCard: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: 12,
-    padding: 18,
-    textDecoration: "none",
-    color: "#fff",
-    borderRadius: 20,
+  credentialsGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr",
+    gap: 24,
+    marginTop: 28,
+  },
+  credentialsCard: {
+    borderRadius: 24,
+    padding: 24,
     background: "rgba(255,255,255,0.05)",
     border: "1px solid rgba(255,255,255,0.08)",
   },
-  contactBox: {
-    borderRadius: 30,
-    padding: 28,
-    background: "linear-gradient(180deg, rgba(124,58,237,0.12) 0%, rgba(255,255,255,0.04) 100%)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    display: "grid",
-    gridTemplateColumns: "1.2fr 1fr",
-    gap: 20,
-    alignItems: "center",
+  credentialBlock: {
+    marginBottom: 6,
   },
-  contactItems: {
-    display: "grid",
-    gap: 12,
+  credentialTitle: {
+    fontSize: 16,
+    fontWeight: 700,
+    color: "#c4b5fd",
+    marginBottom: 12,
   },
-  contactItem: {
-    display: "inline-flex",
-    alignItems: "center",
+  credentialTags: {
+    display: "flex",
+    flexWrap: "wrap",
     gap: 10,
-    color: "#fff",
-    textDecoration: "none",
-    padding: "14px 16px",
-    borderRadius: 18,
+  },
+  credentialList: {
+    margin: 0,
+    paddingLeft: 18,
+    color: "#e2e8f0",
+    lineHeight: 1.9,
+    fontSize: 14,
+  },
+  credentialDivider: {
+    height: 1,
+    background: "rgba(255,255,255,0.08)",
+    margin: "18px 0",
+  },
+  certTag: {
+    padding: "8px 12px",
+    borderRadius: 999,
     background: "rgba(255,255,255,0.06)",
     border: "1px solid rgba(255,255,255,0.08)",
+    fontSize: 13,
   },
-  modalOverlay: {
+  additionalListGrid: (isMobile) => ({
+    display: "grid",
+    gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+    gap: 16,
+    marginTop: 24,
+  }),
+  additionalListCard: {
+    borderRadius: 20,
+    padding: 18,
+    background: "rgba(255,255,255,0.04)",
+    border: "1px solid rgba(255,255,255,0.08)",
+  },
+  additionalListTitle: {
+    fontSize: 17,
+    fontWeight: 700,
+    marginBottom: 8,
+  },
+  additionalListDesc: {
+    color: "#cbd5e1",
+    fontSize: 14,
+    lineHeight: 1.6,
+    marginBottom: 12,
+  },
+  additionalListTags: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 8,
+  },
+  additionalListTag: {
+    fontSize: 12,
+    color: "#e2e8f0",
+    background: "rgba(255,255,255,0.06)",
+    border: "1px solid rgba(255,255,255,0.08)",
+    borderRadius: 999,
+    padding: "6px 10px",
+  },
+  contactCtaWrap: {
+    textAlign: "center",
+    padding: "72px 0 0 0",
+    borderTop: "1px solid rgba(255,255,255,0.06)",
+  },
+  contactCtaTitle: {
+    fontSize: "clamp(2rem, 4vw, 3rem)",
+    fontWeight: 700,
+    margin: 0,
+    marginBottom: 16,
+  },
+  contactCtaDesc: {
+    color: "#cbd5e1",
+    fontSize: 16,
+    lineHeight: 1.8,
+    maxWidth: 680,
+    margin: "0 auto 28px auto",
+  },
+  contactCtaButtons: {
+    display: "flex",
+    justifyContent: "center",
+    gap: 14,
+    flexWrap: "wrap",
+  },
+  modalOverlay: (isMobile) => ({
     position: "fixed",
     inset: 0,
     background: "rgba(2,6,23,0.84)",
     zIndex: 40,
-    padding: 24,
+    padding: isMobile ? 0 : 24,
     overflowY: "auto",
-  },
-  modalCard: {
+  }),
+  modalCard: (isMobile) => ({
     maxWidth: 1180,
-    margin: "20px auto",
-    borderRadius: 30,
+    margin: isMobile ? "0 auto" : "20px auto",
+    minHeight: isMobile ? "100vh" : "auto",
+    borderRadius: isMobile ? 0 : 30,
     background: "#0b1220",
-    border: "1px solid rgba(255,255,255,0.08)",
-    boxShadow: "0 20px 60px rgba(0,0,0,0.45)",
+    border: isMobile ? "none" : "1px solid rgba(255,255,255,0.08)",
+    boxShadow: isMobile ? "none" : "0 20px 60px rgba(0,0,0,0.45)",
     position: "relative",
-    padding: 24,
-  },
-  closeButton: {
+    padding: isMobile ? 16 : 24,
+    boxSizing: "border-box",
+  }),
+  closeButton: (isMobile) => ({
     position: "absolute",
-    top: 18,
-    right: 18,
+    top: 12,
+    right: 12,
     width: 40,
     height: 40,
     borderRadius: 999,
@@ -1705,40 +1515,42 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-  },
-  modalHeader: {
-    paddingRight: 48,
+    zIndex: 2,
+  }),
+  modalHeader: (isMobile) => ({
+    paddingRight: isMobile ? 48 : 56,
     marginBottom: 20,
-  },
-  modalTitle: {
+    paddingTop: isMobile ? 36 : 0,
+  }),
+  modalTitle: (isMobile) => ({
     margin: 0,
-    fontSize: "clamp(1.7rem, 3vw, 2.5rem)",
+    fontSize: isMobile ? "1.7rem" : "clamp(1.7rem, 3vw, 2.5rem)",
     lineHeight: 1.25,
-  },
+  }),
   modalDesc: {
     color: "#cbd5e1",
     lineHeight: 1.8,
     marginTop: 12,
     marginBottom: 0,
   },
-  modalGrid: {
+  modalGrid: (isTablet) => ({
     display: "grid",
-    gridTemplateColumns: "1.1fr 0.9fr",
+    gridTemplateColumns: isTablet ? "1fr" : "1.1fr 0.9fr",
     gap: 24,
-  },
-  viewerWrap: {
+  }),
+  viewerWrap: (isMobile) => ({
     position: "relative",
     overflow: "hidden",
     borderRadius: 24,
     border: "1px solid rgba(255,255,255,0.08)",
     background: "#111827",
-    height: 420,
+    height: isMobile ? 260 : 420,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    padding: 20,
-  },
-
+    padding: isMobile ? 12 : 20,
+    boxSizing: "border-box",
+  }),
   viewerImage: {
     width: "100%",
     height: "100%",
@@ -1767,12 +1579,11 @@ const styles = {
     overflowX: "auto",
     paddingBottom: 4,
   },
-
-  thumbButton: {
-    minWidth: 92,
-    width: 92,
-    height: 64,
-    borderRadius: 14,
+  thumbButton: (isMobile) => ({
+    minWidth: isMobile ? 72 : 92,
+    width: isMobile ? 72 : 92,
+    height: isMobile ? 52 : 64,
+    borderRadius: isMobile ? 12 : 14,
     overflow: "hidden",
     border: "1px solid rgba(255,255,255,0.12)",
     background: "#111827",
@@ -1781,8 +1592,8 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-  },
-
+    flexShrink: 0,
+  }),
   thumbImage: {
     width: "100%",
     height: "100%",
@@ -1838,7 +1649,6 @@ const styles = {
     display: "grid",
     gap: 10,
   },
-
   linkButton: {
     display: "inline-flex",
     alignItems: "center",
@@ -1851,5 +1661,4 @@ const styles = {
     background: "rgba(255,255,255,0.06)",
     border: "1px solid rgba(255,255,255,0.08)",
   },
-
 };
