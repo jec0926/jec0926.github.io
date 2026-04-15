@@ -14,46 +14,70 @@ import {
 } from "lucide-react";
 
 const profile = {
-  name: "Business Analyst & Data Strategist",
+  name: "AI AX/DT Strategy | Business Analytics | Data Transformation",
   title: "Jason EunChan Jang",
   subtitle:
-    "운영 데이터, KPI, 자동화, AI Agent 기획을 연결해 조직이 실행할 수 있는 판단 구조를 만드는 기획자",
+    "운영 현장의 문제를 데이터와 프로세스로 구조화하고, AI·AX·DT 전략으로 전환하는 비즈니스 데이터 분석가",
   summary:
-    "운영 데이터와 KPI를 기반으로 조직의 판단 기준을 설계하고, 자동화와 분석을 통해 실제 실행으로 이어지도록 구조화를 해왔습니다. AI Agent 및 데이터 전략 프로젝트를 통해, 데이터 활용을 넘어 의사결정 방식 자체를 개선하는 방향으로 확장하고 있습니다.",
+    "비욘드에서 운영·정산·전략 업무를 경험하며 현장 문제를 숫자와 프로세스로 정리하는 역량을 쌓았습니다. 이후 경영 환경의 변화를 직접 보며 커리어 확장의 필요성을 느꼈고, 고려대학교 MSBA 과정에서 데이터 분석, AI, 대시보드, 사업 적용 역량을 집중적으로 강화했습니다. 대학원 이후에는 서브원 RA 인턴으로 실무 감각을 되살리며, 현재는 AI AX/DT 전략 전문가를 목표로 포트폴리오를 확장하고 있습니다.",
   email: "dmscks940926@naver.com",
   phone: "010-2595-1395",
   location: "Seoul, Korea",
   linkedin: "https://www.linkedin.com/in/eunchanjang",
+  github: "https://github.com/jec0926",
 };
 
 const stats = [
-  { label: "Strategy Impact", value: "+ 20%", sub: "제안 채택 후 성과 개선" },
-  { label: "Process Efficiency", value: "6 배 개선", sub: "자동화 기반 운영 개선" },
-  { label: "Business Model", value: "300% +", sub: "초기 구조 개선 기반 성과" },
-  { label: "AI / Analytics", value: "4 +", sub: "데이터 분석 및 AI 프로젝트" },
+  { label: "Business / Operations", value: "2+ yrs", sub: "비욘드 운영·정산·전략기획 경험" },
+  { label: "Process Efficiency", value: "6x", sub: "Python 기반 정산 업무 자동화 성과" },
+  { label: "AI / Data Projects", value: "5+", sub: "위험탐지, 세그먼트, AI Agent 프로젝트" },
+  { label: "Career Direction", value: "AX/DT", sub: "AI 기반 업무 전환과 전략 실행 설계" },
+];
+
+const roleFit = [
+  {
+    title: "Business Analysis",
+    desc: "운영 현장에서 출발해 매출 Driver, 고객 행동, 시장 규모를 분석하며 문제를 숫자와 구조로 정의하는 역량을 쌓았습니다.",
+    tags: ["Market Sizing", "KPI", "Feasibility"],
+  },
+  {
+    title: "IT Service Planning",
+    desc: "KPI와 업무 프로세스를 다루며 현장의 반복 업무를 실행 가능한 운영 기준과 서비스 흐름으로 연결해왔습니다.",
+    tags: ["Process Design", "Requirements", "Use Case"],
+  },
+  {
+    title: "Data & AI Transformation",
+    desc: "반복 업무 자동화 경험을 바탕으로 RAG, AI Agent, 분석 모델을 활용한 업무 전환 시나리오로 확장하고 있습니다.",
+    tags: ["RAG", "AI Agent", "Automation"],
+  },
+  {
+    title: "Consulting Artifacts",
+    desc: "전략 컨설팅형 RA와 대학원 프로젝트를 통해 문제 정의, 분석 근거, 실행안을 보고서와 PPT 산출물로 정리해왔습니다.",
+    tags: ["Storyline", "Case Study", "Executive Report"],
+  },
 ];
 
 const projects = [
   {
     slug: "serveone-tamsam",
     section: "real-business",
-    category: "실무 사례 · Business Transformation",
-    title: "헬스케어 MRO 시장 구조화 및 TAM/SAM 기반 영업 전략 설계",
+    category: "전략 컨설팅형 실무 사례 · New Business / M&A",
+    title: "헬스케어 MRO 신사업 M&A 추진 TF 사업성 분석",
     oneLiner:
-      "분산된 병원 데이터를 통합·구조화하여 시장 규모와 타겟 병원을 정의하고, 데이터 기반 영업 전략 수립이 가능한 TAM/SAM 분석 체계를 설계했습니다.",
-    tags: ["Strategy", "Market Sizing", "Data Structuring", "Healthcare"],
+      "헬스케어 MRO 신사업 M&A 추진 TF에서 병원·제품·물류 데이터를 구조화하고, 시장 규모와 사업성 판단을 위한 TAM/SAM 분석 체계를 설계했습니다.",
+    tags: ["Strategy Consulting", "M&A", "Market Sizing", "Business Feasibility"],
     cover: "/projects/serveone-tamsam/cover.png",
     details: ["/projects/serveone-tamsam/detail-1.png"],
     summary: {
       problem:
-        "병원 정보가 분산되어 있어 시장 규모 산정과 우선 타겟 병원 선정이 어려운 비정형 데이터 환경이었습니다.",
+        "헬스케어 MRO 신사업 및 M&A 검토 과정에서 시장 규모, 타겟 병원, 제품군, 물류 비용을 일관된 기준으로 판단할 수 있는 분석 데이터 구조가 필요했습니다.",
       approach: [
-        "Captive 병원 협력 네트워크를 기반으로 대상 병원 리스트를 정의했습니다.",
-        "병원 회계공시 데이터 수집 및 Python 기반 정제를 수행했습니다.",
-        "지오코딩을 결합해 병원 단위 통합 마스터 데이터를 구축했습니다.",
+        "M&A 추진 TF의 사업성 분석 프로젝트에 RA로 투입되어 시장·병원·제품 데이터를 수집하고 분석 기준을 정리했습니다.",
+        "병원 회계공시 데이터와 Captive 병원 네트워크를 기반으로 TAM/SAM 산정에 필요한 병원 단위 데이터를 구조화했습니다.",
+        "치료재료 제품군 분류, 지오코딩, 물류 거리·통행료 계산을 결합해 사업성 판단에 활용할 수 있는 통합 분석 구조를 설계했습니다.",
       ],
       impact:
-        "TAM/SAM 산출과 영업 타겟 선정이 가능한 구조화된 데이터 기반을 마련했고, 병원 특성 기반 세분화를 통해 영업 전략 수립이 가능하도록 했습니다.",
+        "신사업 진입 및 M&A 검토에 필요한 시장 규모, 잠재 매출, 물류 비용, 타겟 병원 판단 근거를 구조화해 전략 의사결정에 활용 가능한 분석 기반을 마련했습니다.",
     },
     downloads: [],
     links: [
@@ -62,34 +86,6 @@ const projects = [
         href: "https://www.medipana.com/news/articleView.html?idxno=314328",
       },
     ],
-  },
-  {
-    slug: "idhealthcare-potential-sales-kpi",
-    section: "real-business",
-    category: "실무 사례 · KPI / Performance",
-    title: "잠재 매출 관리 KPI 설계 및 조직 실행 체계 구축",
-    oneLiner:
-      "미전환 수술건을 관리하는 KPI를 설계하고, 이를 경영진 관리 지표와 조직 운영 프로세스로 연결해 잠재 매출 관리 체계를 구축했습니다.",
-    tags: ["KPI", "BizOps", "Performance", "Healthcare"],
-    cover: "/projects/idhealthcare-potential-sales-kpi/cover.png",
-    details: [
-      "/projects/idhealthcare-potential-sales-kpi/detail-1.png",
-      "/projects/idhealthcare-potential-sales-kpi/detail-2.png",
-    ],
-    summary: {
-      problem:
-        "상담 후 확정 및 가예약금 납부 이후 수술로 이어지지 않는 고객에 대한 관리 기준과 대응 체계가 부재한 상태였습니다.",
-      approach: [
-        "BI 데이터를 기반으로 미전환 수술건을 식별하는 KPI를 정의했습니다.",
-        "병원장 보고를 통해 해당 지표를 경영진 관심 지표로 확장했습니다.",
-        "재컨택, 취소 확정, 재예약 등 대응 프로세스를 수립했습니다.",
-        "월간 정기 회의 필수 보고 항목으로 편입해 지속 모니터링 체계를 운영했습니다.",
-      ],
-      impact:
-        "잠재 매출을 구조적으로 관리할 수 있는 KPI와 조직 실행 체계를 구축했고, 경영진 중심 관리 지표로 운영되며 매출 회수 및 상담 프로세스 개선 기반을 마련했습니다.",
-    },
-    downloads: [],
-    links: [{ label: "관련 링크", href: "https://www.idhospital.com/" }],
   },
   {
     slug: "beyond-strategy-growth",
@@ -188,11 +184,11 @@ const projects = [
   {
     slug: "lgcns-ai-agent",
     section: "ai-analytics",
-    category: "산학협력 프로젝트 · AI Enablement",
-    title: "PI 컨설팅 의사결정 지원 AI Agent 설계",
+    category: "산학협력 프로젝트 · AI / IT Service Planning",
+    title: "PI 컨설턴트를 위한 AI Agent 및 PPT 초안 생성 구조 설계",
     oneLiner:
-      "프로세스 탐색과 비교가 어려운 문제를 해결하기 위해 AI Agent를 설계했고, Best Practice 비교 및 개선 방향 도출이 가능한 구조로 확장했습니다.",
-    tags: ["AI", "RAG", "Decision Support", "Consulting"],
+      "BPMN 기반 프로세스 문서를 탐색·비교하고, Best Practice와 개선 방향을 바탕으로 PI 컨설팅 최종 산출물인 PPT 초안 작성까지 지원하는 AI Agent로 고도화하고 있습니다.",
+    tags: ["AI Agent", "RAG", "BPMN", "PI Consulting", "PPT Draft"],
     cover: "/projects/lgcns/cover.png",
     details: [
       "/projects/lgcns/detail-1.png",
@@ -201,15 +197,15 @@ const projects = [
     ],
     summary: {
       problem:
-        "기존 프로세스 관리 방식은 키워드 검색 중심이어서 전체 흐름 파악, 관련 사례 비교, 개선 방향 도출에 한계가 있었습니다.",
+        "PI 컨설팅 과정에서 프로세스 문서 탐색, 유사 사례 비교, 개선 방향 정리, 최종 보고서 초안 작성이 분절되어 있어 컨설턴트의 반복 작업 부담이 컸습니다.",
       approach: [
-        "컨설턴트 인터뷰를 통해 실제 검색·비교·개선 과정의 불편을 정의했습니다.",
-        "프로세스 문서를 AI가 탐색하고 맥락 기반으로 답변할 수 있는 Agent 구조를 설계했습니다.",
-        "Best Practice 비교와 개선 방향 제안 시나리오를 구체화했습니다.",
-        "정량 평가와 사용자 피드백을 통해 업무 적용 가능성을 검증했습니다.",
+        "컨설턴트 인터뷰를 통해 프로세스 검색·비교·보고서 작성 흐름의 Pain Point를 정의했습니다.",
+        "BPMN과 프로세스 문서를 AI가 탐색하고 맥락 기반으로 답변할 수 있는 RAG 기반 Agent 구조를 설계했습니다.",
+        "Best Practice 비교, As-Is/To-Be 개선 방향 제안, 컨설팅 보고서 목차 구성 시나리오를 구체화했습니다.",
+        "고도화 단계에서는 PI 컨설턴트가 바로 수정 가능한 PPT 초안 생성까지 연결하는 산출물 구조를 설계하고 있습니다.",
       ],
       impact:
-        "AI를 단순 질의응답이 아니라 컨설팅 업무의 탐색·비교·개선 의사결정 보조 도구로 설계했고, 실제 업무 생산성 향상 가능성을 검증하는 PoC 기반을 마련했습니다.",
+        "AI를 단순 질의응답 도구가 아니라 PI 컨설팅의 탐색·비교·개선안 도출·PPT 초안 작성까지 지원하는 업무 보조 Agent로 확장했고, 실제 컨설팅 산출물 생산성 향상 가능성을 검증하는 PoC 기반을 마련했습니다.",
     },
     downloads: [
       {
@@ -217,7 +213,12 @@ const projects = [
         href: "/projects/lgcns/LG_CNS_캡스톤_발표자료.pdf",
       },
     ],
-    links: [],
+    links: [
+      {
+        label: "GitHub 준비 중",
+        href: "https://github.com/jec0926",
+      },
+    ],
   },
   {
     slug: "card-segmentation-strategy",
@@ -292,28 +293,28 @@ const experiences = [
   {
     period: "2026.02 - 2026.03",
     company: "서브원",
-    role: "헬스케어 MRO 신사업 M&A 프로젝트 | RA",
-    headline: "시장 구조화 및 사업성 분석 체계 설계",
+    role: "헬스케어 MRO 신사업 M&A 추진 TF | RA",
+    headline: "전략 컨설팅형 사업성 분석 및 시장 구조화",
     description:
-      "헬스케어 MRO 신사업 M&A 프로젝트에 참여하여, 시장·제품·물류 데이터를 구조화하고 사업성 판단을 위한 의사결정 프레임을 설계했습니다.",
+      "단기 RA로 헬스케어 MRO 신사업 M&A 추진 TF의 사업성 분석 프로젝트에 투입되어, 시장·제품·물류 데이터를 구조화하고 투자·진입 판단에 필요한 분석 프레임을 설계했습니다.",
     bullets: [
-      "병원 단위 TAM/SAM 데이터 구축",
-      "Top-line 산출 근거 데이터 구조 설계",
-      "치료재료 제품군 분류 마스터 데이터 구조 설계",
+      "병원 단위 TAM/SAM 산정 기준 및 분석 데이터 구축",
+      "Top-line 추정과 사업성 판단을 위한 데이터 구조 설계",
+      "치료재료 제품군 분류 마스터와 타겟 병원 기준 정리",
       "물류 거리·통행료 자동화 기반 비용 산출 구조 설계",
     ],
   },
   {
-    period: "2024.05 - 2025.02",
-    company: "아이디헬스케어그룹",
-    role: "경영기획팀 | 사원",
-    headline: "KPI 기반 성과관리 및 운영 구조 설계",
+    period: "2024.09 - 2026.02",
+    company: "고려대학교 일반대학원",
+    role: "MSBA | Business Analytics",
+    headline: "커리어 확장을 위한 데이터·AI 기반 문제 해결 역량 강화",
     description:
-      "병원 운영 데이터 기반 KPI 설계와 성과관리 체계를 구축하고, 마케팅 예산 통제 및 잠재 매출 관리 구조를 조직 운영 프로세스로 연결했습니다.",
+      "비욘드에서 현장 운영과 전략 업무를 경험한 뒤 커리어 확장의 필요성을 느끼고 대학원에 진학해 데이터 분석, 대시보드, 머신러닝, AI Agent 프로젝트를 수행했습니다.",
     bullets: [
-      "잠재 매출 관리 KPI 설계 및 운영 체계 구축",
-      "ROAS 기반 마케팅 예산 통제 구조 설계",
-      "전사 KPI 운영 및 성과관리 지원",
+      "비즈니스 애널리틱스, 데이터 분석, 대시보드 설계 역량 강화",
+      "전세사기 위험탐지, 고객 세그먼트 전략, 공공데이터 분석 프로젝트 수행",
+      "BPMN/RAG 기반 AI Agent 프로젝트로 AX/DT 전략 적용 방향 구체화",
     ],
   },
   {
@@ -373,6 +374,49 @@ const additionalExperience = [
   },
 ];
 
+const proofArtifacts = [
+  {
+    title: "LG CNS PI Consulting AI Agent",
+    type: "Graduate Project",
+    desc: "BPMN/RAG 기반 프로세스 탐색과 Best Practice 비교, 개선안 도출, PPT 초안 생성으로 확장 중인 핵심 프로젝트입니다.",
+    tags: ["AI Agent", "RAG", "BPMN", "Consulting PPT"],
+    primaryLabel: "GitHub",
+    primaryHref: profile.github,
+    secondaryLabel: "발표자료 PDF",
+    secondaryHref: "/projects/lgcns/LG_CNS_캡스톤_발표자료.pdf",
+  },
+  {
+    title: "전세사기 리스크 탐지 모델",
+    type: "Academic Project",
+    desc: "공공데이터를 결합해 지역 단위 위험 신호를 설계하고, B2G/B2C 활용 가능한 리스크 대시보드 구조로 정리했습니다.",
+    tags: ["Risk Analytics", "Public Data", "Dashboard"],
+    primaryLabel: "GitHub",
+    primaryHref: "https://github.com/jec0926/Jeonsae-risk-detecting-dashboard",
+    secondaryLabel: "프로젝트 보기",
+    secondaryHref: "#projects",
+  },
+  {
+    title: "고객 세그먼트 전략 분석",
+    type: "Academic Project",
+    desc: "불균형 고객 데이터를 재해석해 세그먼트의 의미를 정의하고, 실행 가능한 마케팅 전략으로 연결한 분석 프로젝트입니다.",
+    tags: ["Segmentation", "ML", "Strategy"],
+    primaryLabel: "GitHub",
+    primaryHref: "https://github.com/jec0926/credit-card-customer-segmentation",
+    secondaryLabel: "보고서 PDF",
+    secondaryHref: "/projects/card-segment/신용카드_고객세그먼트_분류_프로젝트.pdf",
+  },
+  {
+    title: "실무 Case Study Decks",
+    type: "Confidential Work",
+    desc: "업무 프로젝트의 원본 데이터와 코드는 공개하지 않고, 문제 정의·접근 방식·산출물 구조·성과를 비식별 PPT로 추가할 예정입니다.",
+    tags: ["Case Study", "PPT", "Sanitized Output"],
+    primaryLabel: "추가 예정",
+    primaryHref: "#projects",
+    secondaryLabel: "프로젝트 보기",
+    secondaryHref: "#projects",
+  },
+];
+
 const fallbackImage =
   "data:image/svg+xml;utf8," +
   encodeURIComponent(`
@@ -422,13 +466,26 @@ export default function EunchanPortfolioRefined() {
 
   const filteredProjects = useMemo(() => {
     const q = keyword.trim().toLowerCase();
-    if (!q) return projects;
-    return projects.filter((project) =>
+    const featuredOrder = [
+      "lgcns-ai-agent",
+      "serveone-tamsam",
+      "beyond-settlement-automation",
+      "jeonse-risk-dashboard",
+      "card-segmentation-strategy",
+    ];
+    const rank = (slug) => {
+      const index = featuredOrder.indexOf(slug);
+      return index === -1 ? featuredOrder.length : index;
+    };
+    const matched = q
+      ? projects.filter((project) =>
       [project.title, project.category, project.oneLiner, ...(project.tags || [])]
         .join(" ")
         .toLowerCase()
         .includes(q)
-    );
+      )
+      : projects;
+    return [...matched].sort((a, b) => rank(a.slug) - rank(b.slug));
   }, [keyword]);
 
   const openProject = (project) => {
@@ -467,6 +524,7 @@ export default function EunchanPortfolioRefined() {
           </a>
           <nav style={styles.nav}>
             <a href="#projects" style={styles.navLink}>프로젝트</a>
+            <a href="#proof" style={styles.navLink}>증거자료</a>
             <a href="#experience" style={styles.navLink}>경력</a>
             <a href="#strengths" style={styles.navLink}>강점</a>
             <a href="#education" style={styles.navLink}>학력</a>
@@ -482,9 +540,9 @@ export default function EunchanPortfolioRefined() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div style={styles.heroName}>Business Analyst & Data Strategy</div>
+            <div style={styles.heroName}>{profile.name}</div>
             <h1 style={styles.heroRole(isMobile)}>
-              데이터와 AI를 활용해 의사결정을 설계하는 Business Analyst
+              운영의 문제를 데이터로 정의하고, 전략과 IT 서비스로 확장해왔습니다
             </h1>
             <p style={styles.heroDesc(isMobile)}>{profile.summary}</p>
 
@@ -500,6 +558,14 @@ export default function EunchanPortfolioRefined() {
               >
                 이력서 다운로드 <Download size={16} />
               </a>
+              <a
+                href={profile.github}
+                style={styles.secondaryButton(isMobile)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FolderOpen size={16} /> GitHub
+              </a>
             </div>
 
             <div style={styles.contactLine(isMobile)}>
@@ -512,6 +578,9 @@ export default function EunchanPortfolioRefined() {
               <span style={styles.contactPill}>
                 <MapPin size={15} /> {profile.location}
               </span>
+              <a href={profile.github} target="_blank" rel="noreferrer" style={styles.contactPill}>
+                <FolderOpen size={15} /> GitHub
+              </a>
             </div>
           </motion.div>
         </section>
@@ -528,15 +597,39 @@ export default function EunchanPortfolioRefined() {
           </div>
         </section>
 
+        <section style={{ ...sectionStyle, paddingBottom: isMobile ? 80 : 110 }}>
+          <div style={styles.sectionEyebrow}>WHAT I DO</div>
+          <h2 style={styles.sectionTitle}>Business Analyst에서 IT Service Planning과 AI Transformation으로 확장 중입니다</h2>
+          <p style={styles.sectionDesc}>
+            첫 커리어에서는 운영 데이터를 다루며 병목과 매출 Driver를 찾았고, 이후 경영기획에서 KPI와 성과관리 체계를 설계했습니다. 최근에는 신사업 M&A 추진 TF의 사업성 분석 RA와 Business Analytics 석사 프로젝트를 통해 전략 컨설팅, IT 서비스 기획, AI 활용 영역으로 역할을 확장하고 있습니다.
+          </p>
+
+          <div style={styles.roleFitGrid}>
+            {roleFit.map((item) => (
+              <div key={item.title} style={styles.roleFitCard}>
+                <div style={styles.roleFitTitle}>{item.title}</div>
+                <div style={styles.roleFitDesc}>{item.desc}</div>
+                <div style={styles.tagWrap}>
+                  {item.tags.map((tag) => (
+                    <span key={tag} style={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section id="projects" style={{ ...sectionStyle, paddingBottom: isMobile ? 80 : 110 }}>
           <div style={styles.sectionTop(isMobile)}>
             <div>
               <div style={styles.sectionEyebrow}>FEATURED PROJECTS</div>
               <h2 style={styles.sectionTitle}>
-                Data-Driven 기반 BT(Business Transformation) 프로젝트 및 문제 해결 사례
+                실무 Case Study와 검증 가능한 학업 프로젝트를 함께 보여줍니다
               </h2>
               <p style={styles.sectionDesc}>
-                실무와 프로젝트에서 데이터, 전략, AI를 활용해 비즈니스 문제를 정의하고 실행 구조까지 설계한 주요 사례입니다.
+                프로젝트는 제가 어떤 방식으로 문제를 정의하고, 데이터를 구조화하고, 실행 가능한 산출물로 연결해왔는지를 보여주는 흐름입니다. 실무 프로젝트는 대외비를 제외한 Case Study로, 대학원 및 개인 프로젝트는 GitHub와 PDF 산출물로 보완합니다.
               </p>
             </div>
             <input
@@ -583,11 +676,46 @@ export default function EunchanPortfolioRefined() {
           </div>
         </section>
 
+        <section id="proof" style={{ ...sectionStyle, paddingBottom: isMobile ? 80 : 110 }}>
+          <div style={styles.sectionEyebrow}>GITHUB & ARTIFACTS</div>
+          <h2 style={styles.sectionTitle}>공개 가능한 증거는 GitHub와 PPT 산출물로 분리해 보여줍니다</h2>
+          <p style={styles.sectionDesc}>
+            실무 코드와 원본 데이터는 공개하지 않고, 문제 정의와 분석 구조, 결과 해석은 비식별 PPT Case Study로 정리합니다. GitHub는 대학원·개인 프로젝트를 중심으로 분석, 모델링, AI Agent 설계 역량을 확인할 수 있는 공간으로 활용합니다.
+          </p>
+
+          <div style={styles.artifactGrid}>
+            {proofArtifacts.map((item) => (
+              <div key={item.title} style={styles.artifactCard}>
+                <div style={styles.artifactType}>{item.type}</div>
+                <div style={styles.artifactTitle}>{item.title}</div>
+                <div style={styles.artifactDesc}>{item.desc}</div>
+                <div style={styles.tagWrap}>
+                  {item.tags.map((tag) => (
+                    <span key={tag} style={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div style={styles.artifactActions}>
+                  <a href={item.primaryHref} target="_blank" rel="noreferrer" style={styles.linkButton}>
+                    <FolderOpen size={15} />
+                    <span>{item.primaryLabel}</span>
+                  </a>
+                  <a href={item.secondaryHref} target="_blank" rel="noreferrer" style={styles.linkButton}>
+                    <FileText size={15} />
+                    <span>{item.secondaryLabel}</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section id="experience" style={{ ...sectionStyle, paddingBottom: isMobile ? 80 : 110 }}>
           <div style={styles.sectionEyebrow}>EXPERIENCE</div>
           <h2 style={styles.sectionTitle}>실무 경험 및 역할 확장 과정</h2>
           <p style={styles.sectionDesc}>
-            운영과 데이터 분석을 기반으로 커리어를 시작해, KPI와 성과관리 체계를 설계하고 이후 사업성 분석과 전략 의사결정 영역까지 단계적으로 역할을 확장해왔습니다.
+            운영 효율화와 자동화에서 출발해 경영기획의 KPI·성과관리 체계로 확장했고, 이후 전략 컨설팅형 RA 경험을 통해 시장 규모, 사업성, M&A 판단 근거를 다루는 방향으로 커리어의 분석 단위를 넓혀왔습니다.
           </p>
 
           <div style={styles.timelineWrap}>
@@ -626,7 +754,7 @@ export default function EunchanPortfolioRefined() {
           <div style={styles.sectionEyebrow}>CORE CAPABILITIES</div>
           <h2 style={styles.sectionTitle}>비즈니스 문제를 해결하기 위해 활용한 핵심 역량</h2>
           <p style={styles.sectionDesc}>
-            데이터를 분석하는 데 그치지 않고, 전략 수립·성과관리·운영 개선까지 연결하는 구조를 설계해왔습니다.
+            커리어 전반에서 반복적으로 쌓아온 역량은 데이터를 읽는 능력보다 한 단계 더 나아가, 판단 기준을 만들고 조직이 실행할 수 있는 구조로 바꾸는 능력입니다.
           </p>
 
           <div style={styles.strengthGrid}>
@@ -649,7 +777,7 @@ export default function EunchanPortfolioRefined() {
           <div style={styles.sectionEyebrow}>EDUCATION</div>
           <h2 style={styles.sectionTitle}>학업 배경</h2>
           <p style={styles.sectionDesc}>
-            경제학을 기반으로 통계·재무·핀테크 관련 학습을 확장해왔고, 이후 Business Analytics 석사과정을 통해 데이터 기반 의사결정과 AI 활용 역량으로 연결해왔습니다.
+            경제학에서 쌓은 정량적 사고를 바탕으로 통계·재무·핀테크를 학습했고, Business Analytics 석사과정에서는 데이터 기반 의사결정과 AI 활용을 실제 비즈니스 문제 해결 프로젝트로 연결하고 있습니다.
           </p>
 
           <div style={styles.educationOnlyGrid(isMobile)}>
@@ -679,7 +807,7 @@ export default function EunchanPortfolioRefined() {
           <div style={styles.sectionEyebrow}>CERTIFICATIONS & TRAINING COURSES</div>
           <h2 style={styles.sectionTitle}>자격증, 교육 이수 및 수상 내역</h2>
           <p style={styles.sectionDesc}>
-            데이터 기반 역량을 확장하기 위해 자격 취득과 교육, 프로젝트를 통해 지속적으로 전문성을 보완해왔습니다.
+            실무에서 필요한 분석 언어와 검증 기준을 보완하기 위해 SQL, 데이터 분석, 테스트, 시각화, AI 교육을 꾸준히 쌓았고, 프로젝트 성과는 수상과 산출물로 검증해왔습니다.
           </p>
 
           <div style={styles.credentialsGrid}>
@@ -699,6 +827,8 @@ export default function EunchanPortfolioRefined() {
                 <div style={styles.credentialTitle}>교육 이수</div>
                 <ul style={styles.credentialList}>
                   <li>Tableau 데이터 시각화 부트캠프 수료 (Salesforce)</li>
+                  <li>비즈니스 애널리틱스: 비즈니스 데이터 분석, 대시보드, 사업 적용 과정 수료</li>
+                  <li>SQL Basic Certificate 수료</li>
                   <li>K-Digital Training · 핀테크 AI 알고리즘 개발자 과정 수료 (비트컴퓨터)</li>
                   <li>공공빅데이터 인턴십 수료 (NIA)</li>
                 </ul>
@@ -721,7 +851,7 @@ export default function EunchanPortfolioRefined() {
           <div style={styles.sectionEyebrow}>ADDITIONAL EXPERIENCE</div>
           <h2 style={styles.sectionTitle}>추가 업무경험</h2>
           <p style={styles.sectionDesc}>
-            전략 실행을 뒷받침하는 운영, 품질, 프로젝트 관리 경험도 함께 보유하고 있습니다.
+            전략과 분석이 현장에서 작동하려면 운영, 품질, 일정, 커뮤니케이션을 함께 이해해야 한다고 생각합니다. 이 경험들은 프로젝트를 끝까지 실행 가능한 형태로 만드는 기반이 되었습니다.
           </p>
 
           <div style={styles.additionalListGrid(isMobile)}>
@@ -745,7 +875,7 @@ export default function EunchanPortfolioRefined() {
           <div style={styles.contactCtaWrap}>
             <h2 style={styles.contactCtaTitle}>포트폴리오를 봐주셔서 감사합니다</h2>
             <p style={styles.contactCtaDesc}>
-              데이터·전략·AI를 연결하는 역할과 관련해 편하게 연락 주시면 감사하겠습니다.
+              운영 개선에서 시작해 경영기획, 전략 분석, AI 기반 서비스 기획으로 확장해온 경험을 바탕으로 더 큰 문제를 풀어가고 싶습니다.
             </p>
 
             <div style={styles.contactCtaButtons}>
@@ -760,6 +890,15 @@ export default function EunchanPortfolioRefined() {
                 style={styles.secondaryButton(isMobile)}
               >
                 LinkedIn
+              </a>
+
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noreferrer"
+                style={styles.secondaryButton(isMobile)}
+              >
+                <FolderOpen size={16} /> GitHub
               </a>
 
               <a
@@ -882,51 +1021,54 @@ export default function EunchanPortfolioRefined() {
                     <div style={styles.infoText}>{selectedProject.summary.impact}</div>
                   </div>
 
-                  {selectedProject.section === "real-business" ? (
+                  {selectedProject.links?.length > 0 && (
                     <div style={styles.infoBlock}>
                       <div style={styles.infoLabel}>관련 링크</div>
-                      {selectedProject.links?.length > 0 ? (
-                        <div style={styles.linkList}>
-                          {selectedProject.links.map((link) => (
-                            <a
-                              key={link.href}
-                              href={link.href}
-                              target="_blank"
-                              rel="noreferrer"
-                              style={styles.linkButton}
-                            >
-                              <span>{link.label}</span>
-                              <ArrowRight size={15} />
-                            </a>
-                          ))}
-                        </div>
-                      ) : (
-                        <div style={styles.infoText}>
-                          외부에 공개 가능한 참고 링크가 없는 실무 사례입니다.
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    selectedProject.downloads?.length > 0 && (
-                      <div style={styles.infoBlock}>
-                        <div style={styles.infoLabel}>첨부 자료</div>
-                        <div style={styles.downloadList}>
-                          {selectedProject.downloads.map((file) => (
-                            <a
-                              key={file.href}
-                              href={file.href}
-                              target="_blank"
-                              rel="noreferrer"
-                              style={styles.downloadButton}
-                            >
-                              <FileText size={16} />
-                              <span>{file.label}</span>
-                              <Download size={15} />
-                            </a>
-                          ))}
-                        </div>
+                      <div style={styles.linkList}>
+                        {selectedProject.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={styles.linkButton}
+                          >
+                            <span>{link.label}</span>
+                            <ArrowRight size={15} />
+                          </a>
+                        ))}
                       </div>
-                    )
+                    </div>
+                  )}
+
+                  {selectedProject.downloads?.length > 0 && (
+                    <div style={styles.infoBlock}>
+                      <div style={styles.infoLabel}>첨부 자료</div>
+                      <div style={styles.downloadList}>
+                        {selectedProject.downloads.map((file) => (
+                          <a
+                            key={file.href}
+                            href={file.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={styles.downloadButton}
+                          >
+                            <FileText size={16} />
+                            <span>{file.label}</span>
+                            <Download size={15} />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {selectedProject.section === "real-business" && !selectedProject.links?.length && (
+                    <div style={styles.infoBlock}>
+                      <div style={styles.infoLabel}>공개 범위</div>
+                      <div style={styles.infoText}>
+                        실무 프로젝트의 원본 데이터와 코드는 공개하지 않고, 추후 비식별 Case Study PDF로 보완할 예정입니다.
+                      </div>
+                    </div>
                   )}
                 </div>
               </div>
@@ -1153,6 +1295,30 @@ const styles = {
     outline: "none",
     width: "100%",
     boxSizing: "border-box",
+  },
+  roleFitGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+    gap: 18,
+    marginTop: 28,
+  },
+  roleFitCard: {
+    borderRadius: 24,
+    padding: 22,
+    background: "rgba(255,255,255,0.05)",
+    border: "1px solid rgba(255,255,255,0.08)",
+    display: "flex",
+    flexDirection: "column",
+    gap: 12,
+  },
+  roleFitTitle: {
+    fontSize: 20,
+    fontWeight: 800,
+  },
+  roleFitDesc: {
+    color: "#cbd5e1",
+    lineHeight: 1.7,
+    fontSize: 14,
   },
   projectGrid: {
     display: "grid",
@@ -1456,6 +1622,44 @@ const styles = {
     border: "1px solid rgba(255,255,255,0.08)",
     borderRadius: 999,
     padding: "6px 10px",
+  },
+  artifactGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+    gap: 18,
+    marginTop: 28,
+  },
+  artifactCard: {
+    borderRadius: 24,
+    padding: 22,
+    background: "rgba(255,255,255,0.05)",
+    border: "1px solid rgba(255,255,255,0.08)",
+    display: "flex",
+    flexDirection: "column",
+    minHeight: 320,
+  },
+  artifactType: {
+    color: "#c4b5fd",
+    fontSize: 13,
+    fontWeight: 700,
+    marginBottom: 10,
+  },
+  artifactTitle: {
+    fontSize: 20,
+    fontWeight: 800,
+    lineHeight: 1.35,
+    marginBottom: 10,
+  },
+  artifactDesc: {
+    color: "#cbd5e1",
+    lineHeight: 1.7,
+    fontSize: 14,
+  },
+  artifactActions: {
+    display: "grid",
+    gap: 10,
+    marginTop: "auto",
+    paddingTop: 18,
   },
   contactCtaWrap: {
     textAlign: "center",

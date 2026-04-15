@@ -6,8 +6,8 @@ export const portfolioData = {
   },
 
   stats: [
-    { value: "3+년", label: "실무 경력" },
-    { value: "4개", label: "핵심 조직 경험" },
+    { value: "2+년", label: "실무 경력" },
+    { value: "3개", label: "핵심 전환 경험" },
     { value: "5+", label: "주요 프로젝트" },
     { value: "4h → 40m", label: "자동화 성과" },
   ],
@@ -43,9 +43,9 @@ export const portfolioData = {
       desc: "MRO 사업 데이터 기반 분석",
     },
     {
-      period: "2024~2025",
-      company: "아이디헬스케어",
-      desc: "KPI 기반 성과관리",
+      period: "2024~2026",
+      company: "고려대학교 MSBA",
+      desc: "데이터 분석·AI·대시보드 기반 커리어 전환",
     },
     {
       period: "2022~2024",
