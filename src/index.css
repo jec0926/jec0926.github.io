@@ -1,8 +1,102 @@
-body {
+﻿body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Inter, Pretendard, Apple SD Gothic Neo, Arial, sans-serif;
   background: #0f172a;
-  color: white;
+  color: #f8fafc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.motion-orb,
+.motion-cluster,
+.motion-cylinder,
+.motion-core {
+  position: absolute;
+}
+
+.motion-orb {
+  width: 38vw;
+  min-width: 340px;
+  max-width: 640px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255,255,255,0.42), rgba(255,255,255,0.08) 24%, rgba(0,0,0,0.78) 60%),
+    linear-gradient(135deg, rgba(167,139,250,0.2), rgba(14,165,233,0.08));
+  box-shadow: inset -36px -42px 94px rgba(0,0,0,0.92), 0 36px 120px rgba(0,0,0,0.62);
+  filter: blur(0.2px);
+  opacity: 0.72;
+  animation: floatOrb 10s ease-in-out infinite alternate;
+}
+
+.motion-orb-left {
+  left: -10vw;
+  top: 14vh;
+}
+
+.motion-orb-right {
+  right: -8vw;
+  top: -5vh;
+  animation-delay: -4s;
+}
+
+.motion-cluster {
+  width: min(62vw, 860px);
+  height: min(62vw, 860px);
+  min-width: 460px;
+  min-height: 460px;
+  left: 56%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+  animation: slowRotate 26s linear infinite;
+}
+
+.motion-cylinder {
+  left: 50%;
+  top: 50%;
+  width: 46%;
+  height: 16%;
+  border-radius: 999px;
+  transform-origin: 0 50%;
+  background:
+    radial-gradient(circle at 18% 42%, rgba(255,255,255,0.42), transparent 17%),
+    linear-gradient(90deg, rgba(255,255,255,0.18), rgba(3,7,18,0.95) 45%, rgba(255,255,255,0.13));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset -24px -20px 54px rgba(0,0,0,0.88), 0 28px 88px rgba(0,0,0,0.68);
+}
+
+.motion-cylinder-a { transform: rotate(16deg) translateX(-6%); }
+.motion-cylinder-b { transform: rotate(76deg) translateX(-6%); }
+.motion-cylinder-c { transform: rotate(136deg) translateX(-6%); }
+.motion-cylinder-d { transform: rotate(196deg) translateX(-6%); }
+
+.motion-core {
+  left: 50%;
+  top: 50%;
+  width: 28%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 34% 26%, rgba(255,255,255,0.34), rgba(3,7,18,0.94) 62%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset -24px -30px 72px rgba(0,0,0,0.92), 0 32px 108px rgba(0,0,0,0.72);
+}
+
+@keyframes slowRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes floatOrb {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(22px, -18px, 0) scale(1.04); }
 }
 
 .container {
@@ -59,3 +153,5 @@ body {
   padding: 20px;
   border-radius: 10px;
 }
+
+

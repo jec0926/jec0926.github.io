@@ -10,7 +10,13 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.vite
 *.local
+
+# Local reference work materials not intended for public hosting
+beyond - Financial modeling.png
+beyond - Test Scenario.png
+ID hospital - Access 전산화 WBS.png
 
 # Editor directories and files
 .vscode/*
