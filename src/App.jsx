@@ -9,6 +9,7 @@ import {
   MapPin,
   FolderOpen,
   FileText,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   BarChart3,
@@ -76,8 +77,9 @@ const projects = [
   {
     slug: "serveone-tamsam",
     section: "real-business",
-    category: "단기 프로젝트 RA · Data Support / RPA",
+    category: "프로젝트 RA · Data Support / RPA",
     title: "Non-Captive 병원 TAM/SAM 데이터 구축",
+    period: "2026.02",
     oneLiner:
       "Non-Captive 시장 확장을 위한 TAM/SAM 정의와 우선 영업 타겟 선정을 위해 병원 회계공시 데이터, 협력 네트워크, 지오코딩 데이터를 결합했습니다.",
     tags: ["TAM/SAM", "RPA", "Market Sizing", "Geocoding"],
@@ -105,8 +107,9 @@ const projects = [
   {
     slug: "serveone-topline-backup",
     section: "real-business",
-    category: "단기 프로젝트 RA · Business Data Support",
+    category: "프로젝트 RA · Financial Model Support",
     title: "Financial Model Top-line 산출 Back-up 데이터 구축",
+    period: "2026.03",
     oneLiner:
       "Top-line 산출의 객관성을 확보하기 위해 거시지표, 의료기관 종별 통계, 병원 단위 데이터를 분리·구조화해 재사용 가능한 분석 기반을 구축했습니다.",
     tags: ["Top-line", "SQL Server", "Data Pipeline", "Revenue Estimate"],
@@ -129,8 +132,9 @@ const projects = [
   {
     slug: "serveone-gp-estimation",
     section: "real-business",
-    category: "단기 프로젝트 RA · Financial Model Support",
+    category: "프로젝트 RA · Business Data Support",
     title: "제품군별 GP 추정 로직 설계",
+    period: "2026.02",
     oneLiner:
       "내부 제품 데이터와 심평원 치료재료 데이터를 연계하기 위해 제품명 정규화와 텍스트 유사도 기반 매핑 로직을 설계했습니다.",
     tags: ["GP", "Text Matching", "Data Standardization", "Profitability"],
@@ -153,8 +157,9 @@ const projects = [
   {
     slug: "serveone-logistics-rpa",
     section: "real-business",
-    category: "단기 프로젝트 RA · RPA / Data Automation",
+    category: "프로젝트 RA · RPA / Data Automation",
     title: "물류 경로 거리·통행료 산출 RPA 개발",
+    period: "2026.03",
     oneLiner:
       "주소 정규화와 지오코딩 기반으로 물류 경로별 거리·통행료를 자동 산출하는 RPA를 개발하고 현업 적용 프로세스를 설계했습니다.",
     tags: ["RPA", "Logistics", "Geocoding", "Productivity"],
@@ -179,6 +184,7 @@ const projects = [
     section: "real-business",
     category: "실무 사례 · KPI / Web-based Performance Management",
     title: "아이디헬스케어 웹 기반 KPI 성과관리 시스템 설계 지원",
+    period: "2024.06 - 2024.09",
     oneLiner:
       "전사 및 그룹사 성과 데이터를 통합 관리하기 위해 KPI 정의, 계산 로직, 화면 설계, 데이터 정합성 QA, 조회 권한 구조를 구체화했습니다.",
     tags: ["KPI", "Web System", "Performance Management", "QA"],
@@ -203,6 +209,7 @@ const projects = [
     section: "real-business",
     category: "실무 사례 · KPI / Growth Operations",
     title: "미전환 수술건 KPI 확장 및 잠재 매출 관리 프로세스 구축",
+    period: "2024.10 - 2024.11",
     oneLiner:
       "상담 이후 수술로 이어지지 않는 고객 흐름을 잠재 매출 관점의 KPI로 정의하고, 부서 협업 기반의 재컨택·취소·재예약 운영 프로세스로 연결했습니다.",
     tags: ["KPI", "Potential Revenue", "Operations", "Stakeholder Alignment"],
@@ -225,23 +232,27 @@ const projects = [
   {
     slug: "idhealthcare-business-plan",
     section: "real-business",
-    category: "실무 사례 · Business Planning / Budget",
-    title: "전사 및 그룹사 연간·중장기 사업계획 수립 지원",
+    category: "실무 사례 · Executive Meeting / Organization Operations",
+    title: "전사 정기 실적회의 주관 및 회의체 관리",
+    period: "2024.05 - 2025.02",
     oneLiner:
-      "전사와 자회사 단위의 사업계획 보고서 작성, 마케팅 예산 수립, 실적 기준 정리를 지원하며 경영진 의사결정에 필요한 사업 성과 구조를 정리했습니다.",
-    tags: ["Business Planning", "Budget", "Management Report", "KPI"],
+      "약 500명 규모 조직의 전사 정기 실적회의와 팀장 워크샵 등 주요 회의체를 주관하며 실적 공유, 안건 정리, 후속 실행 관리 흐름을 운영했습니다.",
+    tags: ["Executive Meeting", "Organization Operations", "Performance Review", "Communication"],
     cover: "/projects/idhealthcare-business-plan/cover.png",
     details: ["/projects/idhealthcare-business-plan/detail-1.png"],
     summary: {
       problem:
-        "본부별 실적, 예산, 마케팅 비용과 성과가 분산되어 있어 연간·중장기 사업계획 수립 시 일관된 기준으로 정리할 필요가 있었습니다.",
+        "전사 및 그룹사 성과를 정기적으로 공유하고 주요 안건을 논의하기 위한 회의체 운영 기준과 준비·진행·후속 관리 흐름이 필요했습니다.",
+      hypothesis:
+        "약 500명 규모 조직의 정기 실적회의와 팀장 워크샵을 체계적으로 운영하면, 경영진과 실무 조직이 같은 기준으로 성과와 이슈를 확인하고 후속 실행을 정렬할 수 있다고 보았습니다.",
       approach: [
-        "전사 및 그룹사 연간·중장기 사업계획 보고서 작성 업무를 지원했습니다.",
-        "마케팅본부 광고비 예산 수립과 효율성 평가 관리에 필요한 데이터를 정리했습니다.",
-        "목표 대비, 전월·전년 대비 실적 증감 사유를 분석해 보고 자료에 반영했습니다.",
+        "전사 정기 실적회의의 일정, 참석 대상, 안건, 자료 취합 흐름을 관리했습니다.",
+        "회의 전 실적 자료와 주요 논의 안건을 취합하고, 회의 진행에 필요한 커뮤니케이션을 조율했습니다.",
+        "팀장 워크샵 등 조직 단위 회의체 운영을 지원하며 발표 자료, 참석자, 진행 흐름을 관리했습니다.",
+        "회의 이후 논의 사항과 후속 요청이 누락되지 않도록 관련 부서와 커뮤니케이션했습니다.",
       ],
       impact:
-        "사업계획 수립에 필요한 실적과 예산 데이터를 같은 기준으로 정리하고, 경영진이 판단할 수 있는 보고 자료 구성에 기여했습니다.",
+        "전사 성과와 주요 안건을 같은 회의 구조에서 공유할 수 있도록 회의체 운영 기반을 안정화했고, 경영진 의사결정과 부서 간 실행 정렬을 지원했습니다.",
     },
     downloads: [],
     links: [],
@@ -251,6 +262,7 @@ const projects = [
     section: "real-business",
     category: "실무 사례 · Financial Model / Revenue Target",
     title: "전사 사업부별 매출목표 Financial Model 설계 지원",
+    period: "2024.12 - 2025.01",
     oneLiner:
       "전사 본부별 차기년도 월간 매출목표를 사업 구조와 성과 흐름에 맞춰 정리하고, 목표 설정을 위한 Financial Model 기반을 지원했습니다.",
     tags: ["Financial Model", "Revenue Target", "Performance Management", "Planning"],
@@ -275,6 +287,7 @@ const projects = [
     section: "real-business",
     category: "실무 사례 · Marketing Performance / ROAS",
     title: "마케팅 채널별 비용 대비 성과관리",
+    period: "2024.09 - 2025.02",
     oneLiner:
       "마케팅 채널별 광고비와 실적 데이터를 연결해 비용 대비 성과를 점검하고, 예산 운영과 효율성 평가에 활용할 수 있는 관리 기준을 정리했습니다.",
     tags: ["ROAS", "Marketing", "Performance Analysis", "Budget"],
@@ -299,8 +312,9 @@ const projects = [
     section: "real-business",
     category: "성과 사례 · Product Metrics / Growth Strategy",
     title: "Driver 기반 프로덕트 실적 저조 원인 분석 및 개선 전략 제안",
+    period: "2024.03 - 2024.04",
     oneLiner:
-      "운영 현장에서 파악한 문제를 주문량, 수행률, 점포 수, 제휴사 확장 등 핵심 Driver로 구조화하고 실적 저조 원인과 개선 전략을 제안했습니다.",
+      "실적 모니터링 과정에서 신규 B2B 브랜드 합류 이후에도 수요 저하와 배달 수행건수 부진으로 예상 대비 매출이 낮아진 원인을 Driver 관점으로 구조화하고 개선 전략을 제안했습니다.",
     tags: ["Product Metrics", "Financial Model", "Growth", "Platform Operations"],
     cover: "/projects/beyond-strategy-growth/cover.png",
     details: [
@@ -310,15 +324,15 @@ const projects = [
     ],
     summary: {
       problem:
-        "우리동네 딜리버리-우친 및 주문중개 운영 과정에서 B2B 제휴 물량 수행 저조와 일정 지연으로 실적 부진이 지속됐지만, 원인을 설명하고 개선 우선순위를 판단할 수 있는 정량적 구조가 부족했습니다.",
+        "신규 B2B 브랜드가 합류했음에도 실적 모니터링 결과 예상 대비 매출이 낮게 나타났고, 배달 수행건수 자체가 계획보다 부족한 상황이었습니다. 단순 운영 이슈인지, 근본적인 수요 저하인지, 제휴 구조와 수행률의 문제인지 구분해 개선 전략을 세울 필요가 있었습니다.",
       approach: [
-        "앱 VOC, 앱스토어 리뷰, B2B 고객 문의, 정산·주문중개 운영 이슈를 통해 서비스 운영의 주요 마찰 지점을 파악했습니다.",
-        "주문량, 수행률, 점포 수, 제휴사 확장, 비용 구조 등 실적을 설명하는 핵심 Driver를 정의하고 Financial Model 구조로 연결했습니다.",
-        "Driver별 계획 대비 실적을 비교해 실적 저조 원인을 구조적으로 진단하고, 수행률과 매출 간 영향 관계를 분석했습니다.",
-        "기존 계획만으로는 목표 달성이 어렵다고 판단해 운영 개선과 전략적 제휴 확대를 포함한 매출 회복 시나리오를 제안했습니다.",
+        "실적 모니터링 데이터를 기준으로 계획 대비 매출, 주문수요, 배달 수행건수, 수행률, 제휴 브랜드별 물량 흐름을 분리해 확인했습니다.",
+        "매출 저하를 단일 결과값으로 보지 않고 수요 발생, 수행 가능 물량, 점포·제휴사 확장, 운영 커버리지 등 Driver 단위로 로직트리화했습니다.",
+        "Driver별 계획 대비 실적을 비교해 신규 브랜드 합류 효과가 매출로 충분히 전환되지 못한 원인을 구조적으로 진단했습니다.",
+        "기존 운영 계획만으로는 목표 달성이 어렵다고 판단해 수요 확보, 제휴사 확대, 운영 커버리지 개선을 포함한 실적 개선 전략을 제안했습니다.",
       ],
       impact:
-        "프로덕트 실적 저조 원인을 데이터 기반으로 설명할 수 있는 구조를 만들고, 개선 의견과 성장 전략을 제안했습니다. 이후 관련 제휴 전략 실행을 통해 매출이 약 20% 이상 성장한 사례로 이어진 것으로 확인했습니다.",
+        "예상 대비 매출 저하를 단순 결과가 아니라 수요와 수행건수 중심의 Driver 문제로 설명할 수 있는 구조를 만들고, 실적 개선을 위한 전략적 제안을 도출했습니다. 이후 관련 제휴 전략 실행을 통해 매출이 약 20% 이상 성장한 사례로 이어진 것으로 확인했습니다.",
     },
     downloads: [],
     links: [
@@ -333,21 +347,25 @@ const projects = [
     section: "real-business",
     category: "실무 사례 · Service Operations / Metrics",
     title: "데이터 기반 운영 모니터링 및 수행 효율 개선 대응",
+    period: "2024.01 - 2024.05",
     oneLiner:
-      "지역별 주문량, 수행률, 라이더 수 데이터를 지속적으로 모니터링하며 수행률 저하 구간과 운영 병목을 식별하고 개선 방향을 제안했습니다.",
+      "브랜드 기준 관리 지표를 새롭게 구성하고, 지역별 수행률·VOC·라이더 불만을 함께 분석해 수요와 공급의 불일치 지역을 식별했습니다.",
     tags: ["Service Operations", "Metrics", "Monitoring", "Issue Tracking"],
     cover: "/projects/beyond-ops-monitoring/cover.png",
     details: ["/projects/beyond-ops-monitoring/detail-1.png"],
     summary: {
       problem:
-        "성과관리 과정에서 지역별 수행률 불균형과 라이더 수급 문제로 운영 비효율이 발생했고, 문제 지역을 빠르게 식별할 기준이 필요했습니다.",
+        "브랜드 기준으로 운영 현황을 새롭게 모니터링한 결과 수행률이 저조했고, 단순 평균 지표만으로는 특정 지역의 수요·공급 불일치 원인을 설명하기 어려웠습니다.",
+      hypothesis:
+        "브랜드 기준 관리 지표를 만든 뒤 세부 지역, VOC, 라이더 불만을 함께 보면 수행률 저조 원인이 단순 수요 부족인지 라이더 공급 문제인지 더 정확히 파악할 수 있다고 보았습니다.",
       approach: [
-        "지역별 주문량, 수행률, 라이더 수 데이터를 기반으로 운영 현황을 지속적으로 모니터링했습니다.",
-        "수행률 저하 구간과 병목 지역을 식별하고, 수행률과 매출 간 영향 관계를 분석했습니다.",
-        "저조 지역을 대상으로 라이더 수급과 운영 개선 방안을 제안했습니다.",
+        "해당 브랜드 기준으로 주문량, 수행률, 지역별 운영 현황을 확인할 수 있는 관리 지표를 새롭게 구성했습니다.",
+        "전체 수행률 저조 현상을 세부 지역 단위로 나누어 미시적으로 분석했습니다.",
+        "VOC와 라이더 불만을 함께 검토해, 일부 지역에서는 배달 요청은 있으나 수행 가능한 라이더가 부족한 반면 라이더는 콜 부족을 호소하는 불일치 현상을 발견했습니다.",
+        "특정 지역 라이더 프로모션, 공급 재배치, 운영 개선 방안 검토가 필요하다는 인사이트를 GS리테일 담당 부서에 공유했습니다.",
       ],
       impact:
-        "운영 데이터 기반으로 문제 원인을 구조적으로 식별하고, 수행률 개선과 서비스 안정성 확보를 위한 운영 대응 체계를 지원했습니다.",
+        "수행률 저조를 단순 실적 문제로 보지 않고 지역 단위 수요·공급 미스매치로 해석할 수 있는 근거를 제시했고, 담당 부서가 지역별 라이더 확보와 운영 개선 방안을 검토할 수 있도록 지원했습니다.",
     },
     downloads: [],
     links: [],
@@ -357,21 +375,23 @@ const projects = [
     section: "real-business",
     category: "실무 사례 · Financial Model / Business Structure",
     title: "Driver 기반 Financial Model 설계 및 사업 구조 정의",
+    period: "2023.11 - 2024.01",
     oneLiner:
-      "수행건수, 점포 수, 제휴사 확장 등 핵심 Driver를 정의하고 GS Retail·B2B 사업 구조를 반영한 매출 및 수익 구조 모델을 설계했습니다.",
+      "로직트리 방식으로 전사 매출을 구성하는 요인을 구조화하고, 산출 스케줄과 관리회계 기반 P&L·Cashflow를 연결해 전사 사업계획 수립을 지원했습니다.",
     tags: ["Financial Model", "Business Structure", "Driver", "Strategy"],
     cover: "/projects/beyond-financial-model-structure/cover.png",
     details: ["/projects/beyond-financial-model-structure/detail-1.png"],
     summary: {
       problem:
-        "사업 성장 전략과 매출 목표 설정을 위한 정량적 기준이 부족해, 성과관리와 전략 수립을 같은 구조로 설명하기 어려웠습니다.",
+        "전사 사업계획 수립을 위해 매출을 구성하는 Driver와 비용·현금흐름을 같은 구조에서 설명할 필요가 있었지만, 수행건수·점포 수·제휴사 확장·신규 솔루션 비즈니스 등 여러 사업 요인이 분산되어 있었습니다.",
       approach: [
-        "수행건수, 점포 수, 제휴사 확장 등 핵심 Driver를 정의했습니다.",
-        "GS Retail 및 B2B 사업 구조를 반영해 매출과 수익 구조를 모델링했습니다.",
-        "Driver 간 관계를 기반으로 매출 산출 구조를 설계했습니다.",
+        "로직트리 방식으로 전사 매출을 구성하는 사업 Driver를 분해하고 각 Driver의 산출 관계를 정의했습니다.",
+        "수행건수, 점포 수, 제휴사 확장, 신규 솔루션 비즈니스 등 사업별 매출 발생 구조와 스케줄을 모델링했습니다.",
+        "Driver 기반 매출 산출 로직을 관리회계 기반 P&L과 Cashflow 구조에 연결했습니다.",
+        "사업별 가정과 산출 로직을 바탕으로 전사 사업계획 수립에 활용 가능한 Financial Model을 설계했습니다.",
       ],
       impact:
-        "사업 구조를 정량적으로 설명할 수 있는 Financial Model을 설계하고, 성과관리와 전략 수립의 기준 프레임을 구축했습니다.",
+        "전사 매출과 손익, 현금흐름을 사업 Driver 기반으로 설명할 수 있는 모델을 설계해 사업계획 수립과 성과관리의 공통 기준을 마련했습니다.",
     },
     downloads: [],
     links: [],
@@ -381,21 +401,25 @@ const projects = [
     section: "real-business",
     category: "실무 사례 · IR / Governance Process",
     title: "이사회·주주총회 운영 프로세스 구축 및 Governance 체계 수립",
+    period: "2024.02 - 2024.05",
     oneLiner:
-      "투자사 대응을 위한 이사회와 주주총회 운영 프로세스를 설계하고, 안건 구성부터 후속 관리까지 의사결정·보고 체계를 표준화했습니다.",
+      "투자사 요청으로 IR 업무 필요성이 생긴 조직에서 외부 투자사 IR 수행 매뉴얼을 참고해 비욘드 맞춤형 IR·Governance 운영 체계를 구축했습니다.",
     tags: ["IR", "Governance", "Process Design", "Executive Communication"],
     cover: "/projects/beyond-governance-ir/cover.png",
     details: ["/projects/beyond-governance-ir/detail-1.png"],
     summary: {
       problem:
-        "투자사 대응을 위한 이사회 및 주주총회 운영 프로세스가 정립되어 있지 않아 의사결정과 보고 체계를 표준화할 필요가 있었습니다.",
+        "투자사의 요청으로 IR 및 관련 법인 관점의 대응 업무를 수행해야 했지만, 회사 내부에는 해당 업무 경험과 운영 체계가 부족했습니다.",
+      hypothesis:
+        "외부 투자사의 IR 업무 수행 매뉴얼을 기반으로 비욘드의 조직 상황과 의사결정 구조에 맞게 재구성하면, 체계가 없던 회사에서도 투자사 대응과 Governance 업무를 안정적으로 운영할 수 있다고 보았습니다.",
       approach: [
-        "이사회 및 주주총회 운영 프로세스를 설계했습니다.",
-        "안건 구성, 보고 체계, 운영 매뉴얼을 구축했습니다.",
-        "회의 준비와 진행, 후속 관리까지 전체 프로세스 운영을 지원했습니다.",
+        "투자사 요청사항과 회사 내부의 기존 운영 방식을 비교해 필요한 IR·Governance 업무 범위를 정리했습니다.",
+        "다른 투자사의 IR 업무 수행 매뉴얼을 참고해 비욘드 상황에 맞는 운영 기준과 절차로 재구성했습니다.",
+        "이사회·주주총회 안건 구성, 자료 준비, 보고 체계, 후속 관리 흐름을 정리했습니다.",
+        "회의 준비와 진행, 후속 커뮤니케이션까지 전반적인 운영 체계를 구축했습니다.",
       ],
       impact:
-        "조직 최초의 Governance 체계를 구축해 의사결정 구조를 정립하고, 투자사 대응을 위한 의사결정 및 보고 프로세스를 표준화했습니다.",
+        "IR 업무 경험과 체계가 부족했던 조직에서 투자사 대응과 Governance 운영을 위한 기본 체계를 만들었고, 이후 유사 업무를 수행할 수 있는 내부 기준을 마련했습니다.",
     },
     downloads: [],
     links: [],
@@ -404,10 +428,11 @@ const projects = [
     slug: "traffic-info-bigdata",
     section: "real-business",
     category: "공공빅데이터 인턴십 · Public Data / System Planning",
-    title: "도로교통공단 교통정보 빅데이터화 및 제보접수 시스템 구축",
+    title: "교통정보 빅데이터화 및 제보접수 시스템 구축",
+    period: "2020.10 - 2020.12",
     oneLiner:
-      "도로교통공단 파견 프로젝트에서 텍스트 기반 교통 제보 데이터를 위치·유형 기준으로 구조화하고, 조회·수정·다운로드가 가능한 업무 시스템 방향을 설계했습니다.",
-    tags: ["Public Data", "Traffic Data", "System Planning", "Data Structuring"],
+      "전국 지부 인턴 약 30명 규모의 협업 체계를 운영하며 교통 제보 데이터를 구조화하고, 개발 인력 부재 상황에서 외부 개발자를 확보해 제보접수 시스템 PoC 개발까지 이끈 프로젝트입니다.",
+    tags: ["Project Management", "Public Data", "PoC", "System Planning"],
     cover: "/projects/traffic-info-bigdata/cover.png",
     details: [
       "/projects/traffic-info-bigdata/detail-1.png",
@@ -416,15 +441,16 @@ const projects = [
     ],
     summary: {
       problem:
-        "교통 제보와 방송 활용 정보가 텍스트·파일 중심으로 관리되어 위치 기반 검색, 이력 관리, 데이터 재사용, 실시간 업무 활용에 한계가 있었습니다.",
+        "교통 제보와 방송 활용 정보가 텍스트·파일 중심으로 관리되어 위치 기반 검색, 이력 관리, 데이터 재사용에 한계가 있었습니다. 동시에 개발자 인력이 부재해 시스템 PoC 구현이 어려웠고, 전국 지부 인턴들이 프로젝트에 기여할 수 있는 역할 구조도 필요했습니다.",
       approach: [
-        "제보 접수 데이터의 주요 항목을 정의하고 교통정보 유형, 위치, 처리 상태 중심으로 구조화했습니다.",
-        "업무 담당자가 제보 정보를 조회·수정하고 CSV로 다운로드할 수 있는 관리 화면 흐름을 설계했습니다.",
-        "제보 데이터와 도로·위치 정보를 연결해 교통정보를 빅데이터화할 수 있는 데이터베이스 구조와 운영 프로세스를 정리했습니다.",
-        "실시간 교통정보 제공과 내부 업무 효율화를 함께 고려해 시스템 활용 시나리오를 제안했습니다.",
+        "전국 지부 인턴까지 약 30명 규모의 참여자를 대상으로 정기 회의체를 운영하고 일정, 역할, 이슈를 관리했습니다.",
+        "인턴십 운영 과정에서 발생하는 커뮤니케이션 이슈와 참여자별 기여도 문제를 트러블슈팅했습니다.",
+        "개발자 인력이 부재한 상황에서 외부 개발자를 물색해 프로젝트 인력을 보충하고 PoC 구현 가능성을 확보했습니다.",
+        "기여가 어려웠던 인턴들이 각자 아이디어를 제안하고 실행할 수 있도록 인턴십 담당자를 설득해 추가 프로젝트가 진행되도록 조율했습니다.",
+        "제보 접수 데이터의 주요 항목을 정의하고 교통정보 유형, 위치, 처리 상태 중심으로 구조화한 뒤 조회·수정·다운로드가 가능한 시스템 PoC 개발을 마무리했습니다.",
       ],
       impact:
-        "비정형 교통 제보를 검색·관리 가능한 데이터 자산으로 전환하는 방향을 제시했고, 공공기관 현장에서 데이터 구조화와 업무 시스템 기획을 경험한 대표 프로젝트로 정리할 수 있습니다.",
+        "비정형 교통 제보를 검색·관리 가능한 데이터 자산으로 전환하는 방향을 제시했고, 개발 인력 확보와 회의체 운영, 이해관계자 설득을 통해 시스템 PoC 개발까지 완료했습니다. 초기 PM 경험으로서 프로젝트 구조화, 리소스 확보, 참여자 관리, 공공기관 협업을 동시에 경험한 사례입니다.",
     },
     downloads: [
       {
@@ -439,21 +465,23 @@ const projects = [
     section: "real-business",
     category: "공공빅데이터 인턴십 · Map Prototype / Spatial Data",
     title: "TBN FM 방송구역 전파지도 시각화 프로토타입 개발",
+    period: "2020.11 - 2020.12",
     oneLiner:
-      "전국 TBN FM 송신소 및 중계소 KML 데이터를 수집·정제하고, 방송구역 내 전파 강도 분포를 지도 기반으로 시각화하는 웹 프로토타입을 설계했습니다.",
-    tags: ["Spatial Data", "Map Prototype", "KML", "Visualization"],
+      "기존 교통정보 시스템 프로젝트에 직접 기여하기 어려웠던 인턴들이 아이디어를 제안하고 실행할 수 있도록 조율해, TBN FM 방송구역 전파지도 시각화 PoC를 추진했습니다.",
+    tags: ["Project Management", "Spatial Data", "Map Prototype", "PoC"],
     cover: "/projects/traffic-radio-map-prototype/cover.png",
     details: ["/projects/traffic-radio-map-prototype/detail-1.png"],
     summary: {
       problem:
-        "방송구역 전파 데이터가 시각적으로 표현되지 않아 구역 분석과 의사결정 활용에 제약이 있었습니다.",
+        "일부 인턴들이 기존 교통정보 시스템 구축 프로젝트에 기여하기 어려운 상황이었고, 동시에 방송구역 전파 데이터가 시각적으로 표현되지 않아 구역 분석과 의사결정 활용에도 제약이 있었습니다.",
       approach: [
-        "전국 TBN FM 송신소 및 중계소 KML 데이터를 수집하고 분석했습니다.",
-        "KML 데이터를 CSV/XLS 형태로 변환하고 좌표 데이터를 정제했습니다.",
-        "지도 기반 전파 강도 시각화 웹 프로토타입을 설계하고 구현했습니다.",
+        "인턴들이 각자 아이디어를 제안하고 프로젝트화할 수 있도록 논의 구조를 만들었습니다.",
+        "인턴십 담당자를 설득해 전파지도 시각화 프로토타입을 별도 프로젝트로 진행할 수 있도록 조율했습니다.",
+        "전국 TBN FM 송신소 및 중계소 KML 데이터를 수집하고 CSV/XLS 형태로 변환했습니다.",
+        "좌표 데이터를 정제하고 지도 기반 전파 강도 시각화 웹 프로토타입을 설계·구현했습니다.",
       ],
       impact:
-        "방송 구역과 전파 강도 분석 효율을 높일 수 있는 시각화 구조를 제안했고, 위치 기반 데이터 처리와 공간 데이터 시각화 경험을 확보했습니다.",
+        "참여자들이 기여할 수 있는 별도 프로젝트를 만들어 팀 전체의 실행 가능성을 높였고, 방송구역과 전파 강도 분석 효율을 높일 수 있는 시각화 PoC를 완성했습니다.",
     },
     downloads: [],
     links: [],
@@ -463,6 +491,7 @@ const projects = [
     section: "real-business",
     category: "실무 사례 · Web Renewal / Project Management",
     title: "비욘드아이앤씨 기업 홈페이지 리뉴얼 PM",
+    period: "2023.06 - 2023.08",
     oneLiner:
       "기업 홈페이지 리뉴얼 프로젝트의 PM으로 정보 구조, 콘텐츠 구성, 일정 및 협업 커뮤니케이션을 관리하며 대외 서비스 채널을 재정비했습니다.",
     tags: ["PM", "Web Renewal", "Information Architecture", "Stakeholder Management"],
@@ -497,6 +526,7 @@ const projects = [
     section: "real-business",
     category: "실무 사례 · SI Project QA / Service Validation",
     title: "마이셰프 SI 프로젝트 QA 수행",
+    period: "2022.11 - 2023.05",
     oneLiner:
       "SI 프로젝트에서 BO/FO 페이지와 Web/App 환경 전반을 대상으로 테스트 케이스를 작성하고, 주요 기능과 화면 흐름의 품질 리스크를 점검했습니다.",
     tags: ["SI Project", "QA", "Test Case", "Web/App"],
@@ -508,15 +538,17 @@ const projects = [
     ],
     summary: {
       problem:
-        "SI 프로젝트에서 BO/FO 페이지와 Web/App 환경의 사용자·운영자 흐름이 요구사항대로 작동하는지 검증할 필요가 있었습니다.",
+        "SI 프로젝트에서 기능·정책·세부 기능별 오류를 체계적으로 검증하고, 오류 수정 이력과 검증 누락사항을 관리할 수 있는 테스트 설계가 필요했습니다.",
+      hypothesis:
+        "기능과 정책 단위로 테스트 시나리오를 세분화하고 오류 수정 이력과 검증 누락사항을 함께 관리하면, SW 품질 리스크를 줄이고 출시 전 안정성을 높일 수 있다고 보았습니다.",
       approach: [
-        "BO/FO 페이지별 주요 기능과 사용자·운영자 흐름을 기준으로 테스트 케이스를 작성했습니다.",
-        "Web/App 환경에서 회원, 상품 탐색, 주문, 결제, 운영 관리 흐름을 반복 검증했습니다.",
-        "발견된 버그를 정리해 보고하고, 수정 여부를 재확인했습니다.",
-        "주요 기능과 화면 흐름의 품질 리스크를 점검했습니다.",
+        "BO/FO 페이지와 Web/App 환경의 기능, 정책, 세부 기능 단위로 테스트 케이스를 작성했습니다.",
+        "회원, 상품 탐색, 주문, 결제, 운영 관리 등 주요 흐름의 오류를 반복 검증했습니다.",
+        "발견된 오류를 기능별로 정리하고 수정 이력과 재검증 여부를 관리했습니다.",
+        "검증 누락사항을 점검하며 출시 전 SW 품질 리스크를 줄이기 위한 테스트 상세 설계를 수행했습니다.",
       ],
       impact:
-        "SI 프로젝트 QA를 통해 사용자 경험과 운영자 기능의 품질 리스크를 점검했고, 요구사항 기반 검증과 이슈 리포팅 경험을 쌓았습니다.",
+        "기능·정책 단위의 테스트 설계와 오류 이력 관리를 통해 사용자 경험과 운영자 기능의 품질 리스크를 줄였고, 요구사항 기반 QA 수행 경험을 쌓았습니다.",
     },
     downloads: [],
     links: [
@@ -531,6 +563,7 @@ const projects = [
     section: "real-business",
     category: "개인 프로젝트 · Business Model / Automation",
     title: "디지털 콘텐츠 자동화 유통 시스템 구축",
+    period: "2024.06",
     oneLiner:
       "콘텐츠 생성부터 전달까지 End-to-End 자동화 시스템을 설계하고, 실제 판매를 통해 비즈니스 모델의 수익화 가능성을 검증했습니다.",
     tags: ["Business Model", "Automation", "Revenue", "Platform"],
@@ -559,10 +592,88 @@ const projects = [
     ],
   },
   {
+    slug: "personal-inventory-asset-service",
+    section: "training",
+    category: "Training Project · Service Planning / Project Management",
+    title: "기업 조직별 재고·자산관리 서비스 기획 및 프로젝트 운영",
+    period: "2023.03 - 2023.05",
+    oneLiner:
+      "디자이너·기획자·개발자로 구성된 미니 제품팀에서 Figma 기반 IA·화면설계, Notion 기반 일정 관리, 개발 협업, 서비스 호스팅, 운영·홍보마케팅까지 경험했습니다.",
+    tags: ["Service Planning", "Figma", "Scrum", "Project Management"],
+    cover: "/projects/personal-inventory-asset-service/cover.png",
+    details: ["/projects/personal-inventory-asset-service/detail-1.png"],
+    summary: {
+      problem:
+        "조직별 재고와 자산이 분산 관리되면 현황 파악, 책임 소재, 입출고 이력 관리가 어려워질 수 있다고 보고, 이를 해결하는 미니 프로덕트를 기획했습니다.",
+      approach: [
+        "디자이너, 기획자, 개발자로 구성된 팀에서 서비스 기획 단계부터 역할을 나누고 협업 구조를 만들었습니다.",
+        "Figma 기반으로 IA, 화면 흐름, 주요 기능 요구사항을 설계했습니다.",
+        "Notion 기반으로 일정, 업무 분장, 회의 내용, 이슈를 관리했습니다.",
+        "스크럼 회의를 운영하며 개발 일정과 구현 범위를 조율하고 서비스 호스팅까지 진행했습니다.",
+        "서비스 공개 이후 운영, 홍보, 마케팅 관점까지 포함해 미니 프로덕트의 전체 실행 흐름을 경험했습니다.",
+      ],
+      impact:
+        "가시적인 사업 성과보다는 서비스 기획의 기초 프로세스, Figma 기반 IA·화면설계, Notion 기반 프로젝트 관리, 개발 협업, 운영·홍보까지 제품 실행 흐름을 배운 Training Project입니다.",
+    },
+    downloads: [],
+    links: [],
+  },
+  {
+    slug: "news-sentiment-stock-direction",
+    section: "training",
+    category: "Training Project · NLP / Prediction Model",
+    title: "뉴스 감성분석 기반 주가방향 예측 모델 개발",
+    period: "2021.11 - 2022.01",
+    oneLiner:
+      "뉴스 텍스트의 감성 정보를 활용해 주가 방향 예측 가능성을 탐색한 초기 데이터 분석 프로젝트입니다.",
+    tags: ["NLP", "Sentiment Analysis", "Prediction", "Python"],
+    cover: "/projects/news-sentiment-stock-direction/cover.png",
+    details: ["/projects/news-sentiment-stock-direction/detail-1.png"],
+    summary: {
+      problem:
+        "뉴스 텍스트의 감성 신호가 단기 주가 방향성과 연결될 수 있는지 탐색해보고자 했습니다.",
+      approach: [
+        "뉴스 텍스트 데이터를 수집하고 분석 가능한 형태로 정리했습니다.",
+        "감성분석 결과와 주가 방향 데이터를 연결해 예측 모델을 구성했습니다.",
+        "모델 결과를 통해 텍스트 기반 신호의 활용 가능성과 한계를 확인했습니다.",
+      ],
+      impact:
+        "교육과정에서 수행한 프로젝트로, 데이터 수집·전처리·모델링·결과 해석의 기본 흐름을 익히며 이후 데이터 기반 문제 해결 역량의 출발점이 되었습니다.",
+    },
+    downloads: [],
+    links: [],
+  },
+  {
+    slug: "megacoffee-growth-factor-analysis",
+    section: "training",
+    category: "Training Project · Market Analysis / Growth Factor",
+    title: "메가커피 성장요인 분석",
+    period: "2021.10",
+    oneLiner:
+      "저가 커피 브랜드의 성장 요인을 시장 포지셔닝, 가격, 점포 확장, 소비자 니즈 관점에서 분석한 초기 비즈니스 분석 프로젝트입니다.",
+    tags: ["Market Analysis", "Growth Factor", "Business Strategy"],
+    cover: "/projects/megacoffee-growth-factor-analysis/cover.png",
+    details: ["/projects/megacoffee-growth-factor-analysis/detail-1.png"],
+    summary: {
+      problem:
+        "메가커피가 경쟁이 치열한 커피 시장에서 빠르게 성장할 수 있었던 핵심 요인을 구조적으로 설명하고자 했습니다.",
+      approach: [
+        "브랜드 포지셔닝, 가격 전략, 점포 확장, 소비자 수요를 중심으로 분석 프레임을 구성했습니다.",
+        "경쟁 브랜드와의 차이점과 성장 요인을 정리했습니다.",
+        "시장 구조와 소비자 니즈 변화 관점에서 성장 가능성을 해석했습니다.",
+      ],
+      impact:
+        "교육과정에서 수행한 초기 비즈니스 분석 프로젝트로, 시장과 브랜드 성장 요인을 구조화해 보는 훈련을 통해 이후 Driver 기반 분석 관점으로 확장되는 기반이 되었습니다.",
+    },
+    downloads: [],
+    links: [],
+  },
+  {
     slug: "beyond-settlement-automation",
     section: "real-business",
     category: "실무 사례 · Process Improvement / Data Preprocessing",
     title: "정산 업무 프로세스 구조화 및 전처리 효율화",
+    period: "2023.05",
     oneLiner:
       "정산 업무 흐름을 분석해 반복 전처리 병목을 정의하고, Python 코드로 업무 보조 도구를 만들어 4시간 소요 작업을 약 40분 수준으로 단축했습니다.",
     tags: ["Process Improvement", "Data Preprocessing", "Python", "Productivity"],
@@ -571,6 +682,8 @@ const projects = [
     summary: {
       problem:
         "주문중개 서비스 운영 과정에서 정산 프로세스가 수작업 중심으로 운영되어 시간 소요가 크고, 반복 업무 부담과 오류 리스크가 높은 구조였습니다.",
+      hypothesis:
+        "Process Improvement와 Data Preprocessing 관점에서 정산 업무를 다시 정의하면, 반복 전처리 병목을 줄이고 업무 효율성을 개선할 방법을 찾을 수 있다고 보았습니다.",
       approach: [
         "정산 담당자로서 기존 업무 흐름을 단계별로 파악하고, 시간 소요가 큰 반복 전처리 병목을 정의했습니다.",
         "Python 스크립트로 정산 데이터 정리, 변환, 검증에 필요한 전처리 과정을 효율화했습니다.",
@@ -592,6 +705,7 @@ const projects = [
     section: "ai-analytics",
     category: "산학협력 프로젝트 · AI Agent / Service PoC",
     title: "PI 컨설팅 업무 생산성 개선을 위한 AI Agent 서비스 PoC 기획",
+    period: "2025.07 - 2026.01",
     oneLiner:
       "PI 컨설턴트의 프로세스 탐색·비교 업무를 구조화하고, BPMN 기반 GraphDB와 RAG를 활용해 개선 의사결정을 지원하는 AI Agent 서비스 PoC를 기획했습니다.",
     tags: ["AI Agent", "Service PoC", "RAG", "Process Intelligence"],
@@ -632,6 +746,7 @@ const projects = [
     section: "ai-analytics",
     category: "학업 프로젝트 · Analytics / Strategy",
     title: "고객 세그먼트 재정의 및 데이터 기반 전략 설계",
+    period: "2025.03 - 2025.04",
     oneLiner:
       "불균형 데이터 환경에서 고객군을 재정의하고 행동 기반으로 해석해, 세그먼트별 실행 가능한 마케팅 전략으로 연결했습니다.",
     tags: ["Analytics", "Segmentation", "Strategy", "ML"],
@@ -670,6 +785,7 @@ const projects = [
     section: "ai-analytics",
     category: "공모전 프로젝트 · Public Data / Location Analytics",
     title: "법정동 단위 생활편의 입지 평가 스코어링 모델",
+    period: "2025.05 - 2025.06",
     oneLiner:
       "공공·통계 데이터를 법정동 단위로 결합하고, 카드 소비 기반 가중치를 적용해 생활편의 인프라와 소비 접근성을 평가하는 스코어링 모델을 설계했습니다.",
     tags: ["Public Data", "Scoring Model", "Location Analytics", "Policy Insight"],
@@ -709,6 +825,7 @@ const projects = [
     section: "ai-analytics",
     category: "공모전 프로젝트 · Public Data / Risk Analytics",
     title: "전세사기 조기 리스크 탐지 모델 및 대시보드 설계",
+    period: "2025.06 - 2025.10",
     oneLiner:
       "공공데이터를 결합해 지역 단위 전세사기 위험을 조기 탐지하고, B2G·B2C 활용이 가능한 리스크 평가 대시보드 구조를 설계했습니다.",
     tags: ["Risk Model", "Public Data", "Dashboard", "B2G", "Early Warning"],
@@ -748,6 +865,7 @@ const projects = [
     section: "ai-analytics",
     category: "학업 프로젝트 · Empirical Analytics / Policy Strategy",
     title: "근무제도 변화에 대한 기업의 대응 전략 실증분석",
+    period: "2025.06",
     oneLiner:
       "주 5일제 도입기 데이터를 준실험적 분석 틀로 재구성해, 향후 주 4일제 논의에서 기업의 보상·초과근로·고용 전략 대응 시사점을 도출했습니다.",
     tags: ["Empirical Analytics", "DID", "Policy Strategy", "Labor Data"],
@@ -783,7 +901,7 @@ const experiences = [
   {
     period: "2025.03 - 2026.08",
     company: "고려대학교 일반대학원",
-    role: "MSBA | 경영학 Business Analytics 석사과정",
+    role: "Business Analytics 석사과정",
     headline: "데이터와 AI를 제품 문제 해결에 활용하는 역량 강화",
     description:
       "운영과 경영기획 경험을 바탕으로 Business Analytics 석사과정에 진학해 데이터 분석, 대시보드, 머신러닝, AI Agent 프로젝트를 수행했습니다. 특히 업무 프로세스 탐색과 생산성 개선을 AI Agent 서비스 PoC로 연결하는 경험을 쌓았습니다.",
@@ -799,12 +917,12 @@ const experiences = [
     role: "Business Analyst",
     headline: "전사 KPI·웹 성과관리·관리회계 기반 성과관리 핵심 실무",
     description:
-      "전사 및 그룹사의 성과관리, 사업계획, KPI, 비용 구조를 데이터 기반으로 운영하며 경영 의사결정을 지원했습니다. PO/PM 관점에서 중요한 지표 정의, 웹 기반 성과관리 시스템 QA, 부서별 실행 프로세스, 경영진 보고 체계를 실제 업무로 경험한 핵심 경력입니다.",
+      "전사 및 그룹사의 성과관리, 정기 실적회의, KPI, 비용 구조를 데이터 기반으로 운영하며 경영 의사결정을 지원했습니다. PO/PM 관점에서 중요한 지표 정의, 웹 기반 성과관리 시스템 QA, 회의체 운영, 경영진 보고 체계를 실제 업무로 경험한 핵심 경력입니다.",
     bullets: [
       "웹 기반 성과관리 시스템 설계 지원, KPI 계산 로직 구체화, 데이터 정합성 QA 수행",
       "미전환 수술건 KPI를 정의하고 잠재 매출 관리 프로세스를 월간 보고 체계로 편입",
       "ROAS 기반 마케팅 예산 통제 및 진료과·시술 단위 성과관리 체계 구축",
-      "사업계획, 예산관리, 비용 코드 정비, 전사 실적 및 비용 데이터 질의 대응",
+      "전사 정기 실적회의 및 팀장 워크샵 등 약 500명 규모 조직의 주요 회의체 운영",
     ],
   },
   {
@@ -864,8 +982,8 @@ const additionalExperience = [
   },
   {
     title: "Executive Reporting",
-    desc: "전사 실적관리, 병원장 보고, 월간 회의 보고 항목 운영 등 경영진 판단에 필요한 지표와 메시지 정리 경험",
-    tags: ["KPI", "Reporting", "Decision Support"],
+    desc: "전사 실적관리, 병원장 보고, 정기 실적회의 운영 등 경영진 판단에 필요한 지표와 회의체 운영 경험",
+    tags: ["KPI", "Meeting Operations", "Decision Support"],
   },
   {
     title: "Quality Assurance",
@@ -874,7 +992,7 @@ const additionalExperience = [
   },
   {
     title: "Governance & Corporate Planning",
-    desc: "이사회·주주총회 운영 프로세스, IR 대응, M&A 추진 지원, 사업계획 및 예산관리 등 비즈니스 판단 구조에 가까운 업무 경험",
+    desc: "투자사 요청 기반 IR 대응, 이사회·주주총회 운영 프로세스, Governance 체계 구축 등 비즈니스 판단 구조에 가까운 업무 경험",
     tags: ["IR", "M&A Support", "Governance"],
   },
 ];
@@ -927,7 +1045,7 @@ const careerProfiles = [
     id: "msba",
     title: "고려대학교 일반대학원",
     period: "2025.03 - 2026.08",
-    role: "MSBA | 경영학 Business Analytics 석사과정",
+    role: "Business Analytics 석사과정",
     summary:
       "데이터 분석, 모델링, AI Agent 개발 역량을 강화하며 데이터와 AI를 비즈니스 문제 해결에 적용하는 역량을 강화했습니다.",
     bullets: [
@@ -953,7 +1071,7 @@ const careerProfiles = [
       "전사 KPI, 웹 기반 성과관리 시스템, 관리회계, 마케팅 성과관리 업무를 통해 제품과 사업 성과를 연결해 보는 관점을 쌓았습니다.",
     bullets: [
       "전사 및 그룹사 KPI 운영, 주간/월간 실적 모니터링",
-      "전사 및 그룹사 연간·중장기 사업계획 보고서 작성 지원",
+      "전사 정기 실적회의 및 팀장 워크샵 등 주요 회의체 주관",
       "웹 기반 성과관리 시스템 설계 지원 및 데이터 정합성 QA",
       "미전환 수술건 KPI 정의 및 월간 보고 체계 운영",
       "ROAS 기반 마케팅 예산 대비 성과 분석",
@@ -984,6 +1102,7 @@ const careerProfiles = [
       "Driver 기반 Financial Model을 활용한 실적 저조 원인 분석 및 개선안 제안",
       "이사회·주주총회 운영 프로세스 설계 및 Governance 체계 구축 지원",
       "홈페이지 리뉴얼 PM 및 SI 프로젝트 BO/FO·Web/App QA 수행",
+      "우친 보험료 정산 기능 개선 QA, 점포 데이터 정합성 테스트, POS·라이더 프로그램 테스트, 주문중개 운영 매뉴얼 및 VOC 대응 체계 정리",
     ],
     projects: [
       "beyond-ops-monitoring",
@@ -1001,10 +1120,12 @@ const careerProfiles = [
     period: "2020.08 - 2020.12",
     role: "Project Manager",
     summary:
-      "비정형 교통 제보 데이터를 구조화하고 웹 기반 시스템으로 활용할 수 있도록 설계·구현한 초기 데이터 프로젝트 경험입니다.",
+      "도로교통공단 파견 기간 동안 전국 지부 인턴 약 30명 규모의 협업 회의체를 운영하고, 개발 인력 부재 상황에서 외부 개발자를 물색해 교통정보 시스템과 전파지도 PoC 개발을 마무리한 초기 PM 경험입니다.",
     bullets: [
       "빅데이터 분석 방법론 교육 이수 및 고령친화도시 지표 분석 프로젝트 수행",
-      "전국 지부 소속 인턴 약 30명 프로젝트 관리, 일정 관리, 성과 보고 및 트러블슈팅",
+      "전국 지부 소속 인턴 약 30명 규모의 정기 회의체 운영, 일정 관리, 성과 보고 및 트러블슈팅",
+      "개발자 인력 부재 상황에서 외부 개발자를 물색해 프로젝트 인력 보충",
+      "기여가 어려웠던 인턴들이 아이디어를 제안하고 별도 프로젝트로 실행할 수 있도록 담당자 설득 및 조율",
       "교통정보 빅데이터화 및 제보접수 시스템 구축 프로젝트 PM 수행",
       "비정형 교통 제보 데이터 정규화, 위치 기반 데이터 모델링 및 DB 구축",
       "검색, 조회, 편집 기능을 포함한 웹 기반 시스템 설계 및 구현",
@@ -1014,58 +1135,100 @@ const careerProfiles = [
   },
 ];
 
-const hardSkills = [
-  ["문제 정의", "VOC·운영·비즈니스 관점에서 문제를 정의"],
-  ["KPI 설계", "성과관리 지표 정의, 계산 기준 구체화"],
-  ["데이터 핸들링", "Python, SQL, Excel 기반 정제·통합·검증"],
-  ["요구사항 구체화", "화면 흐름, 데이터 기준, QA 체크포인트 정리"],
-  ["AI", "RAG, Agent, ML 모델을 업무 문제에 연결"],
-];
-
-const softSkills = [
-  ["비즈니스 친화적 사고", "고객 문제를 매출, 비용, KPI, 우선순위로 번역"],
-  ["운영 감각", "VOC, B2B 대응, 정산, 주문중개 등 실제 서비스 운영 이해"],
-  ["구조화 커뮤니케이션", "경영진과 현업이 판단 가능한 언어로 정리"],
-  ["검증 지향", "데이터 정합성, QA, 리포팅 기준을 꼼꼼히 확인"],
-];
-
-const toolCatalog = [
+const skillGroups = [
   {
-    name: "Python",
-    desc: "데이터 정제, API활용, 자동화, AI 개발",
+    title: "Product & Business",
+    desc: "고객·운영 문제를 비즈니스 지표와 실행 가능한 요구사항으로 전환합니다.",
+    items: [
+      ["문제 정의", "VOC·운영·비즈니스 관점에서 해결해야 할 문제를 구조화"],
+      ["KPI 설계", "성과관리 지표와 계산 기준을 의사결정 가능한 형태로 구체화"],
+      ["비즈니스 모델 이해", "매출 Driver, 비용 구조, 운영 효율 관점으로 우선순위 판단"],
+      ["요구사항 구체화", "화면 흐름, 데이터 기준, QA 체크포인트까지 실행 단위로 정리"],
+      ["운영 프로세스 개선", "현업 흐름과 병목을 파악해 제품·업무 개선 과제로 전환"],
+    ],
   },
   {
-    name: "SQL",
-    desc: "데이터 추출, 조건별 쿼리 설계",
+    title: "Data & AI Leverage",
+    desc: "데이터와 AI를 제품·사업 문제를 검증하고 설명하는 도구로 활용합니다.",
+    items: [
+      ["데이터 정제·분석", "Python, SQL, Excel 기반 데이터 정제·통합·검증"],
+      ["대시보드·리포팅", "성과 모니터링과 경영진 보고에 필요한 지표 구조 설계"],
+      ["AI Agent / RAG PoC", "RAG, Agent, ML 모델을 업무 생산성 개선 시나리오에 연결"],
+      ["자동화", "반복 수집·정리 업무를 RPA와 스크립트 기반 흐름으로 전환"],
+    ],
   },
   {
-    name: "Excel",
-    desc: "Financial Modeling, Test Scenario 설계",
-  },
-  {
-    name: "RPA",
-    desc: "업무 프로세스 자동화 설계",
-  },
-  {
-    name: "Codex",
-    desc: "AI 바이브 코딩, 프로토타입 구현",
-  },
-  {
-    name: "GitHub",
-    desc: "프로젝트 산출물 관리와 개발 협업 이해",
-  },
-  {
-    name: "Figma",
-    desc: "화면 흐름, IA, 서비스 와이어프레임 정리",
+    title: "Execution",
+    desc: "협업자가 판단하고 실행할 수 있도록 기준, 문서, 검증 흐름을 정리합니다.",
+    items: [
+      ["QA / 테스트 시나리오", "데이터 정합성, 화면 흐름, 예외 케이스 기준 점검"],
+      ["이해관계자 커뮤니케이션", "경영진·현업·개발자가 이해 가능한 언어로 문제와 근거 정리"],
+      ["문서화", "결정 기준, 운영 프로세스, 협업 요청사항을 재사용 가능한 형태로 기록"],
+      ["프로젝트 관리", "일정, 범위, 산출물, 리스크를 추적하며 실행 흐름 관리"],
+    ],
   },
 ];
 
-const tools = toolCatalog.map((tool) => tool.name);
+const tools = [
+  { name: "Python", logo: "Py", tone: "#3776ab" },
+  { name: "SQL", logo: "SQL", tone: "#8fb7ff" },
+  { name: "Excel", logo: "X", tone: "#217346" },
+  { name: "PowerPoint", logo: "P", tone: "#d24726" },
+  { name: "Tableau", logo: "T", tone: "#4e79a7" },
+  { name: "Figma", logo: "F", tone: "#a259ff" },
+  { name: "GitHub", logo: "GH", tone: "#f5f5f5" },
+  { name: "Codex", logo: "AI", tone: "#7dd3fc" },
+  { name: "RPA", logo: "RPA", tone: "#cfd8c8" },
+];
+
+const toolNames = tools.map((tool) => tool.name);
 
 const projectPeriodPlaceholder = "수행기간 입력 예정";
 
 function getProjectPeriod(project) {
   return project.period || project.duration || projectPeriodPlaceholder;
+}
+
+function getProjectPeriodSortValue(project) {
+  const matches = getProjectPeriod(project).match(/\d{4}\.\d{2}/g);
+  if (!matches?.length) return 0;
+  const [year, month] = matches[matches.length - 1].split(".").map(Number);
+  return year * 100 + month;
+}
+
+function sortProjectsByPeriodDesc(items) {
+  return [...items].sort((a, b) => {
+    const periodDiff = getProjectPeriodSortValue(b) - getProjectPeriodSortValue(a);
+    if (periodDiff !== 0) return periodDiff;
+    return a.title.localeCompare(b.title, "ko");
+  });
+}
+
+function getResumeBullets(career) {
+  const resumeBullets = {
+    msba: [
+      "Business Analytics 석사과정에서 데이터 분석, 머신러닝, 대시보드, AI Agent PoC 프로젝트 수행",
+      "고객 세그먼트 재정의, 리스크 스코어링, 공공데이터 입지 평가 등 분석 결과를 전략·서비스 시나리오로 연결",
+      "LG CNS 산학협력 프로젝트에서 PI 컨설팅 업무 생산성 개선을 위한 AI Agent 서비스 PoC 기획",
+    ],
+    idhealthcare: [
+      "전사 및 그룹사 KPI 운영, 주간·월간 실적 모니터링, 경영진 보고자료 작성 지원",
+      "웹 기반 성과관리 시스템 설계 지원, KPI 계산 로직 구체화, 데이터 정합성 QA 수행",
+      "전사 정기 실적회의와 팀장 워크샵 등 주요 회의체 운영, 미전환 수술건 KPI와 마케팅 ROAS 관리",
+    ],
+    beyond: [
+      "우친 앱 VOC, 앱스토어 리뷰, B2B 고객 이슈, 주문중개·정산 운영 등 서비스 운영 업무 수행",
+      "실적 모니터링 기반으로 수요·수행건수·제휴 확장 Driver를 구조화하고 개선 전략 제안",
+      "Financial Model, Governance, 홈페이지 리뉴얼, SI 프로젝트 QA 등 운영과 사업기획 연결 업무 수행",
+    ],
+    "public-data": [
+      "도로교통공단 파견 프로젝트에서 전국 지부 인턴 약 30명 규모의 정기 회의체 운영 및 프로젝트 관리",
+      "개발 인력 부재 상황에서 외부 개발자를 물색해 프로젝트 리소스를 보충하고 시스템 PoC 개발 지원",
+      "교통정보 빅데이터화, 제보접수 시스템, 전파지도 시각화 프로토타입 프로젝트 PM 수행",
+    ],
+  };
+
+  return resumeBullets[career.id] || career.bullets.slice(0, 3);
 }
 
 function getProjectNarrative(project) {
@@ -1149,7 +1312,7 @@ const howIWork = [
     desc: "비즈니스의 수익 구조와 성과 체계를 먼저 구조화한 뒤, 핵심 Driver를 찾아 어떤 요인이 성과를 움직이는지 데이터로 분석하고 해결방안을 찾습니다.",
   },
   {
-    icon: "🧩",
+    icon: "👥",
     title: "동료와 함께",
     desc: "혼자 빠르게 가는 것보다 동료와 함께 더 좋은 판단을 만드는 것을 선호합니다. 팀으로 일할 때 더 큰 결과를 낼 수 있다고 믿습니다.",
   },
@@ -1162,23 +1325,41 @@ const howIWork = [
 
 const aboutStrengths = [
   {
-    title: "숫자와 운영을 함께 봅니다",
-    desc: "VOC와 운영 이슈를 단순 불편으로 보지 않고, KPI와 비용 구조, 매출 Driver로 연결해 판단합니다.",
+    icon: "🔎",
+    title: "운영 현장에서 문제를 발견합니다",
+    desc: "VOC, 수행률, 정산, 고객사 이슈처럼 실제 서비스가 움직이는 지점에서 문제의 징후를 빠르게 포착합니다.",
   },
   {
-    title: "데이터를 직접 다룰 수 있습니다",
-    desc: "PM/PO 관점에서 필요한 만큼 데이터를 정제하고 검증해 의사결정 근거로 전환할 수 있습니다.",
+    icon: "📊",
+    title: "숫자를 실행 판단으로 바꿉니다",
+    desc: "KPI와 비용 구조, 매출 Driver를 함께 보며 어떤 문제가 먼저 해결되어야 하는지 판단 기준을 만듭니다.",
   },
   {
-    title: "AI 활용을 제품 사고로 연결합니다",
-    desc: "AI 도구 사용에 그치지 않고, 업무 생산성과 의사결정 지원을 위한 서비스 PoC로 확장해봅니다.",
+    icon: "🧮",
+    title: "데이터를 직접 다루고 검증합니다",
+    desc: "필요한 데이터를 직접 정제·통합·검증해 회의, 보고, 제품 개선에 활용 가능한 근거로 전환합니다.",
+  },
+  {
+    icon: "🧩",
+    title: "프로세스를 구조화합니다",
+    desc: "정산, QA, IR, 회의체처럼 기준이 없거나 흩어진 업무를 재사용 가능한 운영 흐름과 문서로 정리합니다.",
+  },
+  {
+    icon: "✨",
+    title: "AI를 업무 생산성 관점으로 봅니다",
+    desc: "AI를 단순 도구가 아니라 반복 탐색과 의사결정을 줄이는 서비스 PoC와 업무 개선 구조로 연결합니다.",
+  },
+  {
+    icon: "🗂️",
+    title: "협업자가 움직일 수 있게 정리합니다",
+    desc: "경영진, 현업, 개발자가 같은 맥락에서 판단할 수 있도록 기준과 이슈, 후속 실행을 명확히 전달합니다.",
   },
 ];
 
 const etcExperiences = [
   {
     title: "서브원",
-    role: "헬스케어사업총괄 | Project RA",
+    role: "Project Research Assistant",
     period: "2026.02 - 2026.03",
     desc: "헬스케어 MRO 신사업 M&A 추진 검토에 필요한 병원·제품 데이터 수집 체계를 정리하고, 물류 좌표·통행료·거리 데이터 수집 RPA를 개발했습니다.",
     href: "#/career/serveone",
@@ -1186,7 +1367,7 @@ const etcExperiences = [
   {
     title: "헤세드음악연구소",
     role: "Personal Business | Co-Founder",
-    period: "2024.06 -",
+    period: "2024.06 - ",
     desc: "디지털 콘텐츠 생성부터 전달까지 자동화하는 유통 구조를 함께 설계하고, 실제 판매를 통해 수익화 가능성을 검증했습니다.",
     href: "#/career/hesed",
   },
@@ -1217,7 +1398,7 @@ const etcCareerProfiles = [
   {
     id: "hesed",
     title: "헤세드음악연구소",
-    period: "2024.06 -",
+    period: "2024.06 - ",
     role: "Personal Business | Co-Founder",
     summary:
       "디지털 악보 콘텐츠의 제작, 판매, 전달까지 이어지는 유통 구조를 설계하고 자동화 시스템을 구현해 실제 판매 가능성을 검증했습니다.",
@@ -1290,6 +1471,7 @@ function SiteHeader({ sectionStyle, isMobile }) {
               <div style={styles.navDropdownMenu(isMobile)}>
               <a href="#/projects/company" style={styles.navDropdownLink}>Company</a>
               <a href="#/projects/academic" style={styles.navDropdownLink}>Academic Project</a>
+              <a href="#/projects/training" style={styles.navDropdownLink}>Training Project</a>
               <a href="#/projects/personal" style={styles.navDropdownLink}>Personal Project</a>
               <a href="#/projects/internship" style={styles.navDropdownLink}>Internship</a>
               </div>
@@ -1315,6 +1497,21 @@ function ResumeSection({ title, children }) {
   );
 }
 
+function ResumeProjectLinks({ projects }) {
+  if (!projects.length) return null;
+
+  return (
+    <div style={styles.resumeProjectLinks} className="no-print">
+      {projects.map((project) => (
+        <a key={project.slug} href={`#/project/${project.slug}`} style={styles.resumeProjectLink}>
+          <span>{project.title}</span>
+          <ArrowRight size={13} />
+        </a>
+      ))}
+    </div>
+  );
+}
+
 function SkillColumn({ title, items }) {
   return (
     <div style={styles.skillColumn}>
@@ -1333,7 +1530,7 @@ function ProjectGroup({ title, desc, projects, isMobile, variant = "archive" }) 
     <div style={styles.projectGroup}>
       <div style={styles.projectGroupHeader}>
         <h3>{title}</h3>
-        <p>{desc}</p>
+        {desc && <p>{desc}</p>}
       </div>
       <div style={styles.projectGrid(isMobile, variant)}>
         {projects.map((project) => (
@@ -1385,6 +1582,7 @@ export default function EunchanPortfolioRefined() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [keyword, setKeyword] = useState("");
   const [route, setRoute] = useState(() => window.location.hash);
+  const [isAtPageEnd, setIsAtPageEnd] = useState(false);
   const { isMobile, isTablet } = useBreakpoint();
 
   const sectionStyle = useMemo(
@@ -1398,36 +1596,6 @@ export default function EunchanPortfolioRefined() {
 
   const filteredProjects = useMemo(() => {
     const q = keyword.trim().toLowerCase();
-    const featuredOrder = [
-      "idhealthcare-bi-kpi",
-      "idhealthcare-potential-revenue",
-      "idhealthcare-business-plan",
-      "idhealthcare-revenue-target-model",
-      "idhealthcare-marketing-performance",
-      "beyond-ops-monitoring",
-      "beyond-financial-model-structure",
-      "beyond-strategy-growth",
-      "beyond-governance-ir",
-      "serveone-tamsam",
-      "serveone-topline-backup",
-      "serveone-gp-estimation",
-      "serveone-logistics-rpa",
-      "lgcns-ai-agent",
-      "jeonse-risk-dashboard",
-      "card-segmentation-strategy",
-      "public-data-scoring-model",
-      "work-system-empirical-analysis",
-      "mychef-launch-qa",
-      "beyond-settlement-automation",
-      "beyond-homepage-renewal",
-      "traffic-info-bigdata",
-      "traffic-radio-map-prototype",
-      "personal-digital-content-business",
-    ];
-    const rank = (slug) => {
-      const index = featuredOrder.indexOf(slug);
-      return index === -1 ? featuredOrder.length : index;
-    };
     const matched = q
       ? projects.filter((project) =>
       [project.title, project.category, project.oneLiner, ...(project.tags || [])]
@@ -1436,7 +1604,7 @@ export default function EunchanPortfolioRefined() {
         .includes(q)
       )
       : projects;
-    return [...matched].sort((a, b) => rank(a.slug) - rank(b.slug));
+    return sortProjectsByPeriodDesc(matched);
   }, [keyword]);
 
   const activeProjectSlug = route.match(/^#\/project\/(.+)$/)?.[1];
@@ -1451,17 +1619,13 @@ export default function EunchanPortfolioRefined() {
   const isResumePage = route === "#/resume";
   const getProjectGroup = (slugs) =>
     slugs.map((slug) => projects.find((project) => project.slug === slug)).filter(Boolean);
-  const recentProjects = getProjectGroup([
-    "lgcns-ai-agent",
-    "serveone-tamsam",
-    "jeonse-risk-dashboard",
-  ]);
+  const recentProjects = sortProjectsByPeriodDesc(projects).slice(0, 3);
   const coreProjects = getProjectGroup([
     "idhealthcare-bi-kpi",
     "beyond-strategy-growth",
     "lgcns-ai-agent",
   ]);
-  const companyProjects = getProjectGroup([
+  const companyProjects = sortProjectsByPeriodDesc(getProjectGroup([
     "idhealthcare-bi-kpi",
     "idhealthcare-potential-revenue",
     "idhealthcare-business-plan",
@@ -1474,52 +1638,63 @@ export default function EunchanPortfolioRefined() {
     "beyond-settlement-automation",
     "beyond-homepage-renewal",
     "mychef-launch-qa",
-  ]);
-  const academicProjects = getProjectGroup([
+  ]));
+  const academicProjects = sortProjectsByPeriodDesc(getProjectGroup([
     "lgcns-ai-agent",
     "jeonse-risk-dashboard",
     "card-segmentation-strategy",
     "public-data-scoring-model",
     "work-system-empirical-analysis",
-  ]);
+  ]));
   const personalProjects = getProjectGroup(["personal-digital-content-business"]);
-  const internshipProjects = getProjectGroup([
+  const trainingProjects = sortProjectsByPeriodDesc(getProjectGroup([
+    "personal-inventory-asset-service",
+    "news-sentiment-stock-direction",
+    "megacoffee-growth-factor-analysis",
+  ]));
+  const internshipProjects = sortProjectsByPeriodDesc(getProjectGroup([
     "serveone-tamsam",
     "serveone-topline-backup",
     "serveone-gp-estimation",
     "serveone-logistics-rpa",
     "traffic-info-bigdata",
     "traffic-radio-map-prototype",
-  ]);
+  ]));
   const projectCollections = {
     all: {
       eyebrow: "All Project",
       title: "전체 프로젝트",
-      desc: "회사, 대학원, 개인 프로젝트, 인턴십에서 수행한 프로젝트를 한 페이지에서 확인할 수 있습니다.",
+      desc: "",
       projects: filteredProjects,
     },
     company: {
       eyebrow: "Company",
       title: "회사에서 수행한 업무와 성과 사례",
-      desc: "수행한 업무를 모았습니다.",
+      desc: "",
       projects: companyProjects,
     },
     academic: {
       eyebrow: "Academic Project",
-      title: "대학원에서 확장한 AI·데이터 프로젝트",
-      desc: "고려대학교 MSBA 과정에서 수행한 AI Agent, 데이터 분석, 서비스 기획, 전략 설계 프로젝트입니다.",
+      title: "대학원에서 확장한 AI·데이터 활용 프로젝트",
+      desc: "",
       projects: academicProjects,
     },
     personal: {
       eyebrow: "Personal Project",
       title: "개인적으로 실험하고 확장한 프로젝트",
-      desc: "개인 사업, 콘텐츠, 제품화 실험처럼 회사와 학교 밖에서 진행한 프로젝트를 이 영역에 쌓아갑니다.",
+      desc: "",
       projects: personalProjects,
+    },
+    training: {
+      eyebrow: "Training Project",
+      title: "교육과정에서 수행한 기초 프로젝트",
+      desc: "",
+      projects: trainingProjects,
     },
     internship: {
       eyebrow: "Internship",
-      title: "인턴십 및 단기 프로젝트 기반 경험",
-      desc: "서브원 단기 프로젝트 RA와 도로교통공단 파견 인턴 기간에 수행한 데이터 정리·분석 지원 프로젝트입니다.",
+      title: "인턴십 및 RA 기반 경험",
+      desc: "",
       projects: internshipProjects,
     },
   };
@@ -1529,6 +1704,7 @@ export default function EunchanPortfolioRefined() {
   const getProjectCollectionKey = (project) => {
     if (internshipProjects.some((item) => item.slug === project.slug)) return "internship";
     if (personalProjects.some((item) => item.slug === project.slug)) return "personal";
+    if (trainingProjects.some((item) => item.slug === project.slug)) return "training";
     if (academicProjects.some((item) => item.slug === project.slug)) return "academic";
     return "company";
   };
@@ -1544,12 +1720,12 @@ export default function EunchanPortfolioRefined() {
       return acc;
     }, {});
 
-    return ["company", "academic", "personal", "internship"]
+    return ["company", "academic", "training", "personal", "internship"]
       .filter((key) => grouped[key]?.length)
       .map((key) => ({
         key,
         ...projectCollections[key],
-        projects: grouped[key],
+        projects: sortProjectsByPeriodDesc(grouped[key]),
       }));
   };
 
@@ -1564,6 +1740,28 @@ export default function EunchanPortfolioRefined() {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollBottom = window.scrollY + window.innerHeight;
+      setIsAtPageEnd(scrollBottom >= document.documentElement.scrollHeight - 80);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  const scrollToNextView = () => {
+    window.scrollBy({
+      top: Math.max(window.innerHeight * 0.82, 520),
+      behavior: "smooth",
+    });
+  };
+
   const moveImage = (direction) => {
     if (!activeProject?.details?.length) return;
     const total = activeProject.details.length;
@@ -1575,10 +1773,10 @@ export default function EunchanPortfolioRefined() {
     const projectScope = allCareerProfiles.find((career) =>
       career.projects?.includes(activeProject.slug)
     );
-    const relatedProjects = projectScope
+    const relatedProjects = sortProjectsByPeriodDesc(projectScope
       ? getProjectGroup(projectScope.projects).filter((project) => project.slug !== activeProject.slug)
       : projectCollections[getProjectCollectionKey(activeProject)]?.projects
-        .filter((project) => project.slug !== activeProject.slug) || [];
+        .filter((project) => project.slug !== activeProject.slug) || []);
 
     return (
       <div style={styles.page}>
@@ -1737,7 +1935,7 @@ export default function EunchanPortfolioRefined() {
             <div style={styles.nextProjectBand(isTablet)}>
               <div>
                 <div style={styles.sectionEyebrow}>NEXT CASES</div>
-                <h2 style={styles.stripTitle}>다른 성과 사례도 이어서 확인할 수 있습니다.</h2>
+                <h2 style={styles.stripTitle}>다른 수행 사례</h2>
               </div>
               <div style={styles.nextProjectLinks}>
                 {relatedProjects
@@ -1757,9 +1955,9 @@ export default function EunchanPortfolioRefined() {
   }
 
   if (activeCareer) {
-    const careerProjects = activeCareer.projects
+    const careerProjects = sortProjectsByPeriodDesc(activeCareer.projects
       .map((slug) => projects.find((project) => project.slug === slug))
-      .filter(Boolean);
+      .filter(Boolean));
     const careerProjectGroups = groupProjectsByCollection(careerProjects);
 
     return (
@@ -1809,14 +2007,16 @@ export default function EunchanPortfolioRefined() {
           )}
 
           <section style={{ ...sectionStyle, paddingBottom: isMobile ? 72 : 104 }}>
-            <div style={styles.infoBlock}>
-              <div style={styles.infoLabel}>수행 업무</div>
-              <ul style={styles.infoList}>
-                {activeCareer.bullets.map((item) => (
-                  <li key={item} style={styles.infoListItem}>{item}</li>
-                ))}
-              </ul>
-            </div>
+            {activeCareer.id !== "msba" && (
+              <div style={styles.infoBlock}>
+                <div style={styles.infoLabel}>수행 업무</div>
+                <ul style={styles.infoList}>
+                  {activeCareer.bullets.map((item) => (
+                    <li key={item} style={styles.infoListItem}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             <div style={styles.careerProjectHistory}>
               <div style={styles.sectionEyebrow}>Project History</div>
@@ -1847,13 +2047,15 @@ export default function EunchanPortfolioRefined() {
             </a>
             <div style={styles.sectionEyebrow}>{activeProjectCollection.eyebrow}</div>
             <h1 style={styles.detailTitle(isMobile)}>{activeProjectCollection.title}</h1>
-            <p style={styles.detailLead}>{activeProjectCollection.desc}</p>
+            {activeProjectCollection.desc && (
+              <p style={styles.detailLead}>{activeProjectCollection.desc}</p>
+            )}
           </section>
 
           <section style={{ ...sectionStyle, paddingBottom: isMobile ? 72 : 104 }}>
             <ProjectGroup
               title="Project Archive"
-              desc="각 사례를 클릭하면 수행 내용과 산출물 중심의 상세 페이지로 이동합니다."
+              desc=""
               projects={activeProjectCollection.projects}
               isMobile={isMobile}
             />
@@ -1864,8 +2066,14 @@ export default function EunchanPortfolioRefined() {
   }
 
   if (isResumePage) {
+    const resumeCareers = careerProfiles.map((career) => ({
+      ...career,
+      resumeBullets: getResumeBullets(career),
+      resumeProjects: sortProjectsByPeriodDesc(getProjectGroup(career.projects || [])),
+    }));
+
     return (
-      <div style={styles.page}>
+      <div style={styles.page} className="resume-print-page">
         <SiteHeader sectionStyle={sectionStyle} isMobile={isMobile} />
         <main>
           <section style={{ ...sectionStyle, ...styles.detailHero(isMobile) }}>
@@ -1875,6 +2083,20 @@ export default function EunchanPortfolioRefined() {
                 <h1 style={styles.detailTitle(isMobile)}>장은찬</h1>
                 <p style={styles.detailLead}>Business-oriented, Data-capable PO/PM</p>
                 <p style={styles.sectionDesc}>{profile.email} · {profile.phone}</p>
+                <div style={styles.resumeActionRow} className="no-print">
+                  <a
+                    href="/resume/Jang_Eunchan_Resume.pdf"
+                    download
+                    style={styles.resumeDownloadButton}
+                  >
+                    <Download size={16} />
+                    PDF 다운로드
+                  </a>
+                  <a href="#" style={styles.resumeHomeLink}>
+                    Portfolio Home
+                    <ArrowRight size={14} />
+                  </a>
+                </div>
               </div>
               <img src={heroImage} alt="장은찬 프로필" style={styles.resumeImage} />
             </div>
@@ -1882,46 +2104,48 @@ export default function EunchanPortfolioRefined() {
 
           <section style={{ ...sectionStyle, paddingBottom: isMobile ? 72 : 104 }}>
             <ResumeSection title="업무 경험">
-              {careerProfiles.map((career) => (
-                <div key={career.id} style={styles.resumeItem}>
+              {resumeCareers.map((career) => (
+                <div key={career.id} style={styles.resumeItem} className="resume-print-item">
                   <a href={`#/career/${career.id}`} style={styles.resumeItemTitle}>
                     {career.id === "msba" ? "고려대학교 MSBA" : career.title}
                   </a>
                   <div style={styles.resumeMeta}>{career.period} · {career.role}</div>
                   <ul style={styles.resumeList}>
-                    {career.bullets.slice(0, 6).map((item) => (
+                    {career.resumeBullets.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
+                  <ResumeProjectLinks projects={career.resumeProjects} />
                 </div>
               ))}
             </ResumeSection>
 
             <ResumeSection title="전문 분야">
               <div style={styles.resumeSkillGrid}>
-                <SkillColumn title="Hard Skills" items={hardSkills.map(([title]) => title)} />
-                <SkillColumn title="Soft Skills" items={softSkills.map(([title]) => title)} />
-                <SkillColumn title="Tools" items={tools} />
+                {skillGroups.map((group) => (
+                <SkillColumn key={group.title} title={group.title} items={group.items.map(([title]) => title)} />
+              ))}
+                <SkillColumn title="Tools" items={toolNames} />
               </div>
             </ResumeSection>
 
             <ResumeSection title="학력">
-              <div style={styles.resumeItem}>
+              <div style={styles.resumeItem} className="resume-print-item">
                 <div style={styles.resumeItemTitle}>고려대학교 일반대학원</div>
-                <div style={styles.resumeMeta}>2025.03 ~ 2026.08 · 경영학과 Business Analytics 석사과정</div>
+                <div style={styles.resumeMeta}>2025.03 ~ 2026.08 · 경영학 Business Analytics 석사과정</div>
               </div>
-              <div style={styles.resumeItem}>
+              <div style={styles.resumeItem} className="resume-print-item">
                 <div style={styles.resumeItemTitle}>연세대학교 미래캠퍼스</div>
                 <div style={styles.resumeMeta}>2015.03 ~ 2021.08 · 경제학 학사</div>
               </div>
             </ResumeSection>
 
             <ResumeSection title="수상">
-              <div style={styles.resumeItem}>
+              <div style={styles.resumeItem} className="resume-print-item">
                 <div style={styles.resumeItemTitle}>2025학년도 MSBA 캡스톤프로젝트 우수상</div>
                 <div style={styles.resumeMeta}>2026.02 · 고려대학교 경영대학 CDTB</div>
               </div>
-              <div style={styles.resumeItem}>
+              <div style={styles.resumeItem} className="resume-print-item">
                 <div style={styles.resumeItemTitle}>DB GAPS 자산배분대회 본선진출</div>
                 <div style={styles.resumeMeta}>2021.09 · DB증권</div>
               </div>
@@ -1936,19 +2160,19 @@ export default function EunchanPortfolioRefined() {
             </ResumeSection>
 
             <ResumeSection title="교육">
-              <div style={styles.resumeItem}>
+              <div style={styles.resumeItem} className="resume-print-item">
                 <div style={styles.resumeItemTitle}>Tableau 데이터 시각화 부트캠프</div>
                 <div style={styles.resumeMeta}>2026.01 ~ 2026.02 · Salesforce</div>
               </div>
-              <div style={styles.resumeItem}>
+              <div style={styles.resumeItem} className="resume-print-item">
                 <div style={styles.resumeItemTitle}>SW Camp PM Course</div>
                 <div style={styles.resumeMeta}>2023.01 ~ 2023.03 · 팀스파르타</div>
               </div>
-              <div style={styles.resumeItem}>
+              <div style={styles.resumeItem} className="resume-print-item">
                 <div style={styles.resumeItemTitle}>SW Testing Foundation</div>
                 <div style={styles.resumeMeta}>2022.10 ~ 2022.10 · STA테스팅컨설팅</div>
               </div>
-              <div style={styles.resumeItem}>
+              <div style={styles.resumeItem} className="resume-print-item">
                 <div style={styles.resumeItemTitle}>K-Digital Training · 핀테크 AI 알고리즘 개발자 과정</div>
                 <div style={styles.resumeMeta}>2021.07 ~ 2022.01 · 비트컴퓨터</div>
               </div>
@@ -1965,8 +2189,6 @@ export default function EunchanPortfolioRefined() {
       <main id="top">
         <section style={styles.simpleHomeFrame(isTablet)}>
           <div style={styles.motionScene} aria-hidden="true">
-            <div className="motion-orb motion-orb-left" />
-            <div className="motion-orb motion-orb-right" />
             <div className="motion-cluster">
               <div className="motion-cylinder motion-cylinder-a" />
               <div className="motion-cylinder motion-cylinder-b" />
@@ -1976,7 +2198,9 @@ export default function EunchanPortfolioRefined() {
             </div>
           </div>
           <div style={{ ...sectionStyle, ...styles.simpleHome(isTablet) }}>
-            <img src={heroImage} alt="장은찬 프로필" style={styles.profilePortrait(isMobile)} />
+            <div style={styles.profilePortraitFrame(isMobile)}>
+              <img src={heroImage} alt="장은찬 프로필" style={styles.profilePortrait} />
+            </div>
             <div style={styles.homeCopy}>
               <div style={styles.heroName}>JANG EUNCHAN</div>
               <h1 style={styles.simpleName}>장은찬</h1>
@@ -2014,10 +2238,10 @@ export default function EunchanPortfolioRefined() {
         </section>
 
         <section id="etc" style={{ ...sectionStyle, paddingBottom: isMobile ? 72 : 104 }}>
-          <div style={styles.sectionEyebrow}>Etc Experience</div>
-          <h2 style={styles.sectionTitle}>보조 경험과 개인 실행 경험</h2>
+          <div style={styles.sectionEyebrow}>ETC</div>
+          <h2 style={styles.sectionTitle}>Experience</h2>
           <p style={styles.sectionDesc}>
-            정규 커리어 타임라인에는 크게 넣지 않되, 데이터 정리·자동화·사업 실행 감각을 보여주는 경험입니다.
+            커리어 밖에서도 문제를 구조화하고 실행으로 옮겨 왔습니다.
           </p>
           <div style={styles.etcGrid}>
             {etcExperiences.map((item) => (
@@ -2056,39 +2280,33 @@ export default function EunchanPortfolioRefined() {
 
         <section id="skills" style={{ ...sectionStyle, paddingBottom: isMobile ? 72 : 104 }}>
           <div style={styles.sectionEyebrow}>Skills</div>
-          <h2 style={styles.sectionTitle}>PM/PO로 활용 가능한 역량</h2>
+          <h2 style={styles.sectionTitle}>제품·운영·데이터·AI를 비즈니스와 연결하는 역량</h2>
           <p style={styles.sectionDesc}>
-            고객·운영 접점, 비즈니스 지표, 데이터 핸들링, AI 활용을 제품 문제 해결의 도구로 사용합니다.
+            제품과 비즈니스 문제를 정의하고, 데이터와 AI를 활용해 실행 가능한 개선안으로 전환합니다.
           </p>
           <div style={styles.skillSectionGrid}>
-            <div style={styles.skillPanel}>
-              <h3>Hard Skills</h3>
-              {hardSkills.map(([title, desc]) => (
-                <div key={title} style={styles.skillDetailItem}>
-                  <strong>{title}</strong>
-                  <span>{desc}</span>
-                </div>
-              ))}
-            </div>
-            <div style={styles.skillPanel}>
-              <h3>Soft Skills</h3>
-              {softSkills.map(([title, desc]) => (
-                <div key={title} style={styles.skillDetailItem}>
-                  <strong>{title}</strong>
-                  <span>{desc}</span>
-                </div>
-              ))}
-            </div>
-            <div style={styles.skillPanel}>
-              <h3>Tools</h3>
-              <div style={styles.toolGrid}>
-                {toolCatalog.map((tool) => (
-                  <div key={tool.name} style={styles.toolCard}>
-                    <strong>{tool.name}</strong>
-                    <span>{tool.desc}</span>
+            {skillGroups.map((group) => (
+              <div key={group.title} style={styles.skillPanel}>
+                <h3>{group.title}</h3>
+                <p style={styles.skillPanelDesc}>{group.desc}</p>
+                {group.items.map(([title, desc]) => (
+                  <div key={title} style={styles.skillDetailItem}>
+                    <strong>{title}</strong>
+                    <span>{desc}</span>
                   </div>
                 ))}
               </div>
+            ))}
+          </div>
+          <div style={styles.toolPillPanel}>
+            <h3>Tools</h3>
+            <div style={styles.toolPillGrid}>
+              {tools.map((tool) => (
+                <div key={tool.name} style={styles.toolLogoCard}>
+                  <span style={styles.toolLogoMark(tool.tone)}>{tool.logo}</span>
+                  <strong>{tool.name}</strong>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -2097,14 +2315,14 @@ export default function EunchanPortfolioRefined() {
           <div style={styles.sectionEyebrow}>Project</div>
           <ProjectGroup
             title="최근 프로젝트"
-            desc="가장 최근에 다룬 프로젝트 3가지를 먼저 보여줍니다."
+            desc="저의 최근 프로젝트 수행 경험을 소개합니다."
             projects={recentProjects}
             isMobile={isMobile}
             variant="home"
           />
           <ProjectGroup
             title="핵심 프로젝트"
-            desc="커리어 방향성과 가장 많이 연결되는 대표 사례 3가지입니다."
+            desc="커리어에서 가장 많이 성장했던 경험을 소개합니다."
             projects={coreProjects}
             isMobile={isMobile}
             variant="home"
@@ -2120,11 +2338,15 @@ export default function EunchanPortfolioRefined() {
         <section id="about" style={{ ...sectionStyle, paddingBottom: isMobile ? 72 : 104 }}>
           <div style={styles.sectionEyebrow}>About</div>
           <h2 style={styles.sectionTitle}>Strong Point</h2>
-          <div style={styles.aboutGrid}>
+          <p style={styles.sectionDesc}>
+            운영 현장에서 발견한 문제를 데이터와 프로세스로 구조화하고, 협업자가 실행할 수 있는 기준으로 정리합니다.
+          </p>
+          <div style={styles.strongPointGrid}>
             {aboutStrengths.map((item) => (
-              <div key={item.title} style={styles.roleFitCard}>
-                <div style={styles.roleFitTitle}>{item.title}</div>
-                <div style={styles.roleFitDesc}>{item.desc}</div>
+              <div key={item.title} style={styles.strongPointCard} className="interactive-card">
+                <span style={styles.strongPointIcon}>{item.icon}</span>
+                <div style={styles.strongPointTitle}>{item.title}</div>
+                <div style={styles.strongPointDesc}>{item.desc}</div>
               </div>
             ))}
           </div>
@@ -2139,7 +2361,7 @@ export default function EunchanPortfolioRefined() {
             <div style={styles.workList}>
             {howIWork.map((item, index) => (
               <div key={item.title} style={styles.workItem}>
-                <span>{item.icon}</span>
+                <span style={styles.workItemIcon}>{item.icon}</span>
                 <strong>{item.title}</strong>
                 <p>{item.desc}</p>
               </div>
@@ -2170,6 +2392,17 @@ export default function EunchanPortfolioRefined() {
           </div>
         </section>
       </main>
+      {!isAtPageEnd && (
+        <button
+          type="button"
+          style={styles.scrollNavigator(isMobile)}
+          onClick={scrollToNextView}
+          aria-label="다음 화면으로 이동"
+        >
+          {!isMobile && <span style={styles.scrollNavigatorLabel}>Scroll</span>}
+          <ChevronDown size={19} strokeWidth={1.7} />
+        </button>
+      )}
     </div>
   );
 
@@ -2622,7 +2855,7 @@ export default function EunchanPortfolioRefined() {
 
 const styles = {
   page: {
-    background: "#0f172a",
+    background: "#050505",
     color: "#f8fafc",
     minHeight: "100vh",
     fontFamily: "Inter, Pretendard, Apple SD Gothic Neo, sans-serif",
@@ -2635,7 +2868,7 @@ const styles = {
     left: -100,
     width: 420,
     height: 420,
-    background: "radial-gradient(circle, rgba(124,58,237,0.23) 0%, rgba(124,58,237,0) 70%)",
+    background: "radial-gradient(circle, rgba(207,216,200,0.11) 0%, rgba(207,216,200,0) 70%)",
     pointerEvents: "none",
   },
   bgGlowTwo: {
@@ -2669,9 +2902,9 @@ const styles = {
     margin: 0,
     padding: isMobile ? "6px 8px" : "8px 16px",
     borderRadius: 999,
-    background: "rgba(2,6,23,0.72)",
+    background: "rgba(5,5,5,0.66)",
     border: "1px solid rgba(255,255,255,0.10)",
-    boxShadow: "0 18px 50px rgba(2,6,23,0.34)",
+    boxShadow: "0 18px 50px rgba(0,0,0,0.42)",
     backdropFilter: "blur(18px)",
     pointerEvents: "auto",
   }),
@@ -2730,8 +2963,8 @@ const styles = {
     display: "grid",
     gap: 4,
     padding: 8,
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.96)",
+    border: "1px solid rgba(207,216,200,0.15)",
     borderRadius: 8,
     boxShadow: "0 16px 34px rgba(23,32,27,0.16)",
     zIndex: 30,
@@ -2758,7 +2991,7 @@ const styles = {
     fontSize: 12,
     fontWeight: 800,
     letterSpacing: "0.12em",
-    color: "#a78bfa",
+    color: "#cfd8c8",
     marginBottom: 18,
     textTransform: "uppercase",
   },
@@ -2791,7 +3024,7 @@ const styles = {
     gap: 10,
     textDecoration: "none",
     background: "#f8fafc",
-    color: "white",
+    color: "#050505",
     borderRadius: 8,
     padding: isMobile ? "13px 16px" : "13px 18px",
     fontWeight: 800,
@@ -2804,7 +3037,7 @@ const styles = {
     justifyContent: "center",
     gap: 10,
     textDecoration: "none",
-    background: "#111827",
+    background: "rgba(18,19,18,0.82)",
     color: "#f8fafc",
     borderRadius: 8,
     padding: isMobile ? "13px 16px" : "13px 18px",
@@ -2820,8 +3053,8 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     color: "#f8fafc",
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
     borderRadius: 8,
     textDecoration: "none",
   },
@@ -2838,8 +3071,8 @@ const styles = {
     gap: 8,
     color: "#cbd5e1",
     textDecoration: "none",
-    border: "1px solid rgba(255,255,255,0.08)",
-    background: "#111827",
+    border: "1px solid rgba(207,216,200,0.11)",
+    background: "rgba(18,19,18,0.82)",
     borderRadius: 8,
     padding: "9px 11px",
     fontSize: 14,
@@ -2848,8 +3081,8 @@ const styles = {
     boxSizing: "border-box",
   },
   heroPanel: {
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
     borderRadius: 8,
     padding: 20,
     boxShadow: "0 18px 40px rgba(48, 43, 35, 0.08)",
@@ -2857,7 +3090,7 @@ const styles = {
   panelLabel: {
     fontSize: 12,
     letterSpacing: "0.12em",
-    color: "#a78bfa",
+    color: "#cfd8c8",
     fontWeight: 900,
     textTransform: "uppercase",
   },
@@ -2883,7 +3116,7 @@ const styles = {
     alignItems: "center",
     gap: 10,
     border: "1px solid rgba(255,255,255,0.08)",
-    background: "#0f172a",
+    background: "rgba(8,9,8,0.72)",
     borderRadius: 8,
     padding: "11px 12px",
     fontSize: 14,
@@ -2900,67 +3133,104 @@ const styles = {
     position: "relative",
     overflow: "hidden",
     isolation: "isolate",
-    minHeight: isTablet ? 680 : 760,
+    minHeight: "100vh",
     background:
-      "linear-gradient(180deg, rgba(15,23,42,0.98) 0%, rgba(15,23,42,0.92) 68%, #0f172a 100%), radial-gradient(circle at 58% 42%, rgba(139,92,246,0.2), transparent 42%), radial-gradient(circle at 18% 72%, rgba(14,165,233,0.13), transparent 38%)",
+      "linear-gradient(180deg, rgba(5,5,5,0.98) 0%, rgba(10,12,11,0.95) 58%, #050505 100%), linear-gradient(115deg, rgba(255,255,255,0.055) 0%, transparent 34%, rgba(178,194,169,0.08) 72%, transparent 100%)",
   }),
   simpleHome: (isTablet) => ({
     display: "grid",
-    gridTemplateColumns: isTablet ? "1fr" : "360px minmax(0, 1fr)",
-    gap: isTablet ? 28 : 58,
+    gridTemplateColumns: isTablet ? "1fr" : "350px minmax(0, 1fr)",
+    gap: isTablet ? 30 : 64,
     alignItems: "center",
-    minHeight: isTablet ? 680 : 760,
-    paddingTop: isTablet ? 96 : 120,
-    paddingBottom: isTablet ? 72 : 112,
+    minHeight: "100vh",
+    paddingTop: isTablet ? 104 : 118,
+    paddingBottom: isTablet ? 104 : 118,
     position: "relative",
     zIndex: 1,
   }),
   motionScene: {
     position: "absolute",
-    inset: "-180px -18vw -160px -18vw",
+    inset: "-140px -12vw -120px -12vw",
     zIndex: 0,
     pointerEvents: "none",
-    opacity: 1,
+    opacity: 0.64,
     WebkitMaskImage:
-      "linear-gradient(90deg, transparent 0%, black 9%, black 91%, transparent 100%)",
+      "linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)",
     maskImage:
-      "linear-gradient(90deg, transparent 0%, black 9%, black 91%, transparent 100%)",
+      "linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)",
   },
-  profilePortrait: (isMobile) => ({
-    width: isMobile ? 220 : 340,
-    height: isMobile ? 220 : 340,
-    borderRadius: "50%",
-    objectFit: "cover",
-    objectPosition: "center top",
-    border: "1px solid rgba(255,255,255,0.12)",
-    background: "#111827",
+  profilePortraitFrame: (isMobile) => ({
+    width: isMobile ? 218 : 326,
+    height: isMobile ? 290 : 434,
+    justifySelf: isMobile ? "center" : "start",
+    padding: 7,
+    borderRadius: 14,
+    border: "1px solid rgba(255,255,255,0.14)",
+    background: "linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.035))",
     position: "relative",
     zIndex: 1,
-    boxShadow: "0 20px 70px rgba(2,6,23,0.45)",
+    boxShadow: "0 34px 110px rgba(0,0,0,0.55)",
   }),
+  profilePortrait: {
+    width: "100%",
+    height: "100%",
+    display: "block",
+    borderRadius: 10,
+    objectFit: "cover",
+    objectPosition: "center",
+  },
   homeCopy: {
     position: "relative",
     zIndex: 1,
+    maxWidth: 790,
   },
   simpleName: {
     margin: 0,
-    fontSize: "clamp(3.4rem, 7vw, 6.4rem)",
+    fontSize: "clamp(4.2rem, 8vw, 7.4rem)",
     lineHeight: 0.95,
     fontWeight: 900,
     letterSpacing: 0,
   },
   simpleRole: {
     marginTop: 12,
-    color: "#a78bfa",
+    color: "#d8ddd2",
     fontWeight: 900,
     fontSize: "clamp(1.05rem, 1.7vw, 1.35rem)",
   },
   simpleBelief: {
     maxWidth: 760,
     marginTop: 18,
-    color: "#cbd5e1",
+    color: "#aeb6ae",
     lineHeight: 1.75,
     fontSize: 16,
+  },
+  scrollNavigator: (isMobile) => ({
+    position: "fixed",
+    left: "50%",
+    bottom: isMobile ? 18 : 24,
+    transform: "translateX(-50%)",
+    minWidth: isMobile ? 46 : 112,
+    height: 46,
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    color: "#d8ddd2",
+    border: "1px solid rgba(255,255,255,0.15)",
+    borderRadius: 999,
+    background: "rgba(5,5,5,0.58)",
+    backdropFilter: "blur(14px)",
+    boxShadow: "0 18px 48px rgba(0,0,0,0.42)",
+    textDecoration: "none",
+    cursor: "pointer",
+    zIndex: 22,
+    animation: "scrollCueFloat 1.8s ease-in-out infinite",
+  }),
+  scrollNavigatorLabel: {
+    fontSize: 11,
+    fontWeight: 900,
+    letterSpacing: "0.12em",
+    textTransform: "uppercase",
   },
   profileCareerList: {
     display: "grid",
@@ -2973,8 +3243,8 @@ const styles = {
     gap: 18,
     alignItems: "center",
     padding: 18,
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
     borderRadius: 8,
     textDecoration: "none",
     color: "#f8fafc",
@@ -2994,7 +3264,7 @@ const styles = {
   },
   profileCareerItemRole: {
     display: "block",
-    color: "#a78bfa",
+    color: "#cfd8c8",
     fontSize: 13,
     lineHeight: 1.35,
     fontWeight: 800,
@@ -3002,7 +3272,7 @@ const styles = {
   },
   profileCareerSummary: {
     margin: 0,
-    color: "#e2e8f0",
+    color: "#c9cec6",
     lineHeight: 1.7,
     fontSize: 14,
   },
@@ -3010,7 +3280,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     gap: 10,
-    color: "#a78bfa",
+    color: "#cfd8c8",
     fontWeight: 900,
     fontSize: 13,
     whiteSpace: "nowrap",
@@ -3030,9 +3300,9 @@ const styles = {
     display: "grid",
     gap: 8,
     padding: 18,
-    border: "1px solid rgba(255,255,255,0.12)",
+    border: "1px solid rgba(207,216,200,0.15)",
     borderRadius: 8,
-    background: "#111827",
+    background: "rgba(18,19,18,0.82)",
   },
   skillSectionGrid: {
     display: "grid",
@@ -3041,18 +3311,24 @@ const styles = {
     marginTop: 26,
   },
   skillPanel: {
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
     borderRadius: 8,
     padding: 20,
+  },
+  skillPanelDesc: {
+    margin: "8px 0 18px",
+    color: "#b9c0b8",
+    fontSize: 14,
+    lineHeight: 1.65,
   },
   skillDetailItem: {
     display: "grid",
     gap: 4,
     padding: 12,
-    border: "1px solid rgba(255,255,255,0.08)",
+    border: "1px solid rgba(207,216,200,0.11)",
     borderRadius: 8,
-    background: "#0f172a",
+    background: "rgba(8,9,8,0.72)",
     marginBottom: 8,
   },
   skillPillWrap: {
@@ -3060,18 +3336,52 @@ const styles = {
     flexWrap: "wrap",
     gap: 8,
   },
-  toolGrid: {
-    display: "grid",
-    gap: 10,
-  },
-  toolCard: {
-    display: "grid",
-    gap: 4,
-    padding: 12,
-    border: "1px solid rgba(255,255,255,0.08)",
+  toolPillPanel: {
+    marginTop: 12,
+    padding: 20,
     borderRadius: 8,
-    background: "#0f172a",
+    border: "1px solid rgba(207,216,200,0.15)",
+    background: "rgba(18,19,18,0.58)",
   },
+  toolPillGrid: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 18,
+    marginTop: 18,
+  },
+  toolLogoCard: {
+    display: "inline-flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 14,
+    minWidth: 118,
+    minHeight: 132,
+    padding: "20px 18px",
+    border: "1px solid rgba(207,216,200,0.15)",
+    borderRadius: 24,
+    background: "linear-gradient(180deg, rgba(207,216,200,0.06), rgba(8,9,8,0.76))",
+    color: "#d8ddd2",
+    fontSize: 14,
+    fontWeight: 900,
+    lineHeight: 1,
+    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+  },
+  toolLogoMark: (tone) => ({
+    width: 52,
+    height: 52,
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 14,
+    color: tone,
+    background: "rgba(0,0,0,0.42)",
+    border: "1px solid rgba(255,255,255,0.08)",
+    fontSize: 18,
+    fontWeight: 950,
+    letterSpacing: "0.02em",
+    boxShadow: `0 10px 28px ${tone}24`,
+  }),
   projectGroup: {
     marginTop: 28,
   },
@@ -3089,8 +3399,8 @@ const styles = {
     justifyContent: "center",
     gap: 8,
     color: "#f8fafc",
-    background: "#0f172a",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(8,9,8,0.72)",
+    border: "1px solid rgba(207,216,200,0.15)",
     borderRadius: 8,
     padding: "11px 13px",
     textDecoration: "none",
@@ -3104,12 +3414,44 @@ const styles = {
     gap: 12,
     marginTop: 26,
   },
+  strongPointGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gap: 22,
+    marginTop: 44,
+  },
+  strongPointCard: {
+    display: "grid",
+    gap: 18,
+    minHeight: 210,
+    padding: 28,
+    background: "rgba(8,9,8,0.68)",
+    border: "1px solid rgba(207,216,200,0.13)",
+    borderRadius: 8,
+    transition: "transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease",
+  },
+  strongPointIcon: {
+    fontSize: 44,
+    lineHeight: 1,
+    marginBottom: 8,
+  },
+  strongPointTitle: {
+    fontSize: 17,
+    lineHeight: 1.45,
+    fontWeight: 900,
+    color: "#f8fafc",
+  },
+  strongPointDesc: {
+    color: "#d8ddd2",
+    lineHeight: 1.75,
+    fontSize: 14,
+  },
   workBand: (isMobile) => ({
-    background: "linear-gradient(135deg, rgba(124,58,237,0.18), rgba(15,23,42,0.98))",
+    background: "linear-gradient(135deg, rgba(207,216,200,0.08), rgba(18,19,18,0.94) 48%, rgba(5,5,5,0.96))",
     color: "#f8fafc",
     borderRadius: 8,
-    border: "1px solid rgba(167,139,250,0.24)",
-    boxShadow: "0 24px 80px rgba(2,6,23,0.32)",
+    border: "1px solid rgba(207,216,200,0.16)",
+    boxShadow: "0 24px 80px rgba(0,0,0,0.34)",
     padding: isMobile ? 24 : 56,
   }),
   workHeader: {
@@ -3123,12 +3465,17 @@ const styles = {
   },
   workItem: {
     display: "grid",
-    gap: 14,
+    gap: 18,
     minHeight: 210,
     padding: 28,
-    background: "rgba(15,23,42,0.62)",
-    border: "1px solid rgba(167,139,250,0.20)",
-    borderRadius: 18,
+    background: "rgba(8,9,8,0.68)",
+    border: "1px solid rgba(207,216,200,0.13)",
+    borderRadius: 8,
+  },
+  workItemIcon: {
+    fontSize: 44,
+    lineHeight: 1,
+    marginBottom: 8,
   },
   workSceneGrid: (isMobile) => ({
     display: "grid",
@@ -3141,9 +3488,9 @@ const styles = {
     aspectRatio: "1 / 0.92",
     borderRadius: 14,
     overflow: "hidden",
-    border: "1px solid rgba(255,255,255,0.12)",
-    background: "#05070c",
-    boxShadow: "0 18px 60px rgba(2,6,23,0.3)",
+    border: "1px solid rgba(207,216,200,0.13)",
+    background: "#050505",
+    boxShadow: "0 18px 60px rgba(0,0,0,0.32)",
   },
   workSceneImage: {
     width: "100%",
@@ -3159,13 +3506,46 @@ const styles = {
     alignItems: "center",
   }),
   resumeImage: {
-    width: 280,
-    height: 280,
+    width: 240,
+    height: 320,
     objectFit: "cover",
-    objectPosition: "center top",
+    objectPosition: "center",
     borderRadius: 8,
-    border: "1px solid rgba(255,255,255,0.12)",
+    border: "1px solid rgba(207,216,200,0.15)",
     boxShadow: "0 24px 80px rgba(2,6,23,0.38)",
+  },
+  resumeActionRow: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 10,
+    marginTop: 22,
+  },
+  resumeDownloadButton: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+    border: "1px solid rgba(207,216,200,0.42)",
+    background: "linear-gradient(135deg, #e7ebdf, #aeb6ae)",
+    color: "#050505",
+    padding: "11px 15px",
+    borderRadius: 999,
+    fontSize: 14,
+    fontWeight: 900,
+    cursor: "pointer",
+    textDecoration: "none",
+  },
+  resumeHomeLink: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+    border: "1px solid rgba(207,216,200,0.16)",
+    background: "rgba(18,19,18,0.82)",
+    color: "#f8fafc",
+    padding: "11px 15px",
+    borderRadius: 999,
+    fontSize: 14,
+    fontWeight: 800,
+    textDecoration: "none",
   },
   resumeSection: {
     display: "grid",
@@ -3202,6 +3582,27 @@ const styles = {
     paddingLeft: 18,
     lineHeight: 1.8,
   },
+  resumeProjectLinks: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 8,
+    marginTop: 4,
+  },
+  resumeProjectLink: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    maxWidth: "100%",
+    padding: "8px 10px",
+    borderRadius: 999,
+    border: "1px solid rgba(207,216,200,0.2)",
+    background: "rgba(207,216,200,0.08)",
+    color: "#d8ddd2",
+    fontSize: 12,
+    fontWeight: 800,
+    lineHeight: 1.35,
+    textDecoration: "none",
+  },
   resumeSkillGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
@@ -3215,7 +3616,7 @@ const styles = {
     margin: 0,
     fontSize: 16,
     fontWeight: 900,
-    color: "#a78bfa",
+    color: "#cfd8c8",
   },
   detailHero: (isMobile) => ({
     paddingTop: isMobile ? 34 : 54,
@@ -3247,14 +3648,14 @@ const styles = {
   }),
   detailLead: {
     maxWidth: 760,
-    color: "#cbd5e1",
+    color: "#b9c0b8",
     lineHeight: 1.75,
     fontSize: 15,
     marginTop: 14,
   },
   detailMetaCard: {
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
     borderRadius: 8,
     padding: 18,
   },
@@ -3263,8 +3664,8 @@ const styles = {
     justifyContent: "space-between",
     gap: 14,
     padding: "12px 0",
-    borderBottom: "1px solid rgba(255,255,255,0.08)",
-    color: "#cbd5e1",
+    borderBottom: "1px solid rgba(207,216,200,0.11)",
+    color: "#b9c0b8",
     fontSize: 14,
   },
   detailMediaGrid: (isTablet) => ({
@@ -3281,7 +3682,7 @@ const styles = {
     width: "100%",
     overflow: "hidden",
     borderRadius: 8,
-    border: "1px solid rgba(255,255,255,0.12)",
+    border: "1px solid rgba(207,216,200,0.15)",
     background: "#f8fafc",
     display: "flex",
     alignItems: "center",
@@ -3309,16 +3710,16 @@ const styles = {
   caseSummaryCard: {
     padding: 16,
     borderRadius: 8,
-    border: "1px solid rgba(255,255,255,0.08)",
-    background: "#0f172a",
+    border: "1px solid rgba(207,216,200,0.13)",
+    background: "rgba(18,19,18,0.82)",
   },
   workflowDiagramWrap: {
     marginTop: 18,
     padding: 28,
     borderRadius: 12,
-    border: "1px solid rgba(255,255,255,0.10)",
-    background: "linear-gradient(180deg, rgba(14,16,22,0.98), rgba(17,24,39,0.96))",
-    boxShadow: "0 24px 80px rgba(2,6,23,0.32)",
+    border: "1px solid rgba(207,216,200,0.15)",
+    background: "linear-gradient(180deg, rgba(18,19,18,0.94), rgba(8,9,8,0.96))",
+    boxShadow: "0 24px 80px rgba(0,0,0,0.34)",
   },
   diagramTopline: {
     display: "grid",
@@ -3329,7 +3730,7 @@ const styles = {
     color: "#f8fafc",
   },
   diagramEyebrow: {
-    color: "#9ca3af",
+    color: "#aeb6ae",
     fontSize: 11,
     fontWeight: 900,
     letterSpacing: "0.16em",
@@ -3346,12 +3747,12 @@ const styles = {
     margin: "0 auto 22px auto",
     padding: "14px 16px",
     borderRadius: 8,
-    background: "rgba(255,255,255,0.04)",
-    border: "1px solid rgba(255,255,255,0.08)",
+    background: "rgba(207,216,200,0.05)",
+    border: "1px solid rgba(207,216,200,0.12)",
   },
   diagramLabel: {
     display: "block",
-    color: "#a78bfa",
+    color: "#cfd8c8",
     fontSize: 11,
     fontWeight: 900,
     letterSpacing: "0.12em",
@@ -3359,7 +3760,7 @@ const styles = {
   },
   diagramText: {
     margin: 0,
-    color: "#d1d5db",
+    color: "#c9cec6",
     fontSize: 13,
     lineHeight: 1.7,
   },
@@ -3376,12 +3777,12 @@ const styles = {
     gap: 10,
     padding: 18,
     borderRadius: 8,
-    background: "linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035))",
-    border: "1px solid rgba(255,255,255,0.08)",
+    background: "linear-gradient(180deg, rgba(207,216,200,0.07), rgba(8,9,8,0.7))",
+    border: "1px solid rgba(207,216,200,0.12)",
     minHeight: 210,
   },
   diagramStepLabel: {
-    color: "#9ca3af",
+    color: "#aeb6ae",
     fontSize: 11,
     fontWeight: 900,
     letterSpacing: "0.12em",
@@ -3394,7 +3795,7 @@ const styles = {
   },
   diagramStageText: {
     margin: 0,
-    color: "#d1d5db",
+    color: "#c9cec6",
     fontSize: 12,
     lineHeight: 1.65,
     wordBreak: "keep-all",
@@ -3412,8 +3813,8 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     color: "#f8fafc",
-    background: "#1f2937",
-    border: "1px solid rgba(255,255,255,0.10)",
+    background: "rgba(18,19,18,0.96)",
+    border: "1px solid rgba(207,216,200,0.16)",
     borderRadius: 999,
     zIndex: 1,
     fontStyle: "normal",
@@ -3427,8 +3828,8 @@ const styles = {
     marginTop: 18,
     padding: "16px 18px",
     borderRadius: 8,
-    background: "rgba(167,139,250,0.12)",
-    border: "1px solid rgba(167,139,250,0.24)",
+    background: "rgba(207,216,200,0.08)",
+    border: "1px solid rgba(207,216,200,0.16)",
   }),
   diagramSignalRow: {
     display: "flex",
@@ -3443,13 +3844,13 @@ const styles = {
   },
   caseChapter: {
     padding: "22px 0",
-    borderTop: "1px solid rgba(255,255,255,0.12)",
+    borderTop: "1px solid rgba(207,216,200,0.14)",
   },
   caseChapterLabel: {
     display: "inline-flex",
-    color: "#a78bfa",
-    background: "rgba(124,58,237,0.14)",
-    border: "1px solid rgba(124,58,237,0.32)",
+    color: "#cfd8c8",
+    background: "rgba(207,216,200,0.08)",
+    border: "1px solid rgba(207,216,200,0.2)",
     borderRadius: 8,
     padding: "7px 10px",
     fontSize: 12,
@@ -3473,8 +3874,8 @@ const styles = {
     alignItems: "center",
     padding: 14,
     borderRadius: 8,
-    border: "1px solid rgba(255,255,255,0.12)",
-    background: "#111827",
+    border: "1px solid rgba(207,216,200,0.15)",
+    background: "rgba(18,19,18,0.82)",
     color: "#f8fafc",
     textDecoration: "none",
   },
@@ -3483,8 +3884,9 @@ const styles = {
     gridTemplateColumns: isTablet ? "1fr" : "0.9fr 1.1fr",
     gap: 22,
     alignItems: "start",
-    background: "#f8fafc",
-    color: "#111827",
+    background: "linear-gradient(135deg, rgba(207,216,200,0.12), rgba(18,19,18,0.9))",
+    color: "#f8fafc",
+    border: "1px solid rgba(207,216,200,0.16)",
     borderRadius: 8,
     padding: 22,
   }),
@@ -3497,10 +3899,10 @@ const styles = {
     alignItems: "center",
     justifyContent: "space-between",
     gap: 12,
-    color: "#111827",
+    color: "#f8fafc",
     textDecoration: "none",
     padding: "12px 0",
-    borderBottom: "1px solid rgba(255,253,248,0.18)",
+    borderBottom: "1px solid rgba(207,216,200,0.16)",
     fontWeight: 800,
   },
   statsGrid: {
@@ -3511,8 +3913,8 @@ const styles = {
   statCard: {
     borderRadius: 8,
     padding: 14,
-    background: "#0f172a",
-    border: "1px solid rgba(255,255,255,0.08)",
+    background: "rgba(8,9,8,0.72)",
+    border: "1px solid rgba(207,216,200,0.11)",
   },
   statValue: {
     fontSize: 24,
@@ -3549,7 +3951,7 @@ const styles = {
   sectionEyebrow: {
     fontSize: 12,
     letterSpacing: "0.14em",
-    color: "#a78bfa",
+    color: "#cfd8c8",
     marginBottom: 10,
     fontWeight: 900,
     textTransform: "uppercase",
@@ -3563,7 +3965,7 @@ const styles = {
     color: "#f8fafc",
   },
   sectionDesc: {
-    color: "#cbd5e1",
+    color: "#b9c0b8",
     lineHeight: 1.75,
     maxWidth: 920,
     marginTop: 10,
@@ -3571,9 +3973,9 @@ const styles = {
   searchInput: {
     height: 46,
     borderRadius: 8,
-    background: "#111827",
+    background: "rgba(18,19,18,0.82)",
     color: "#f8fafc",
-    border: "1px solid rgba(255,255,255,0.12)",
+    border: "1px solid rgba(207,216,200,0.15)",
     padding: "0 16px",
     outline: "none",
     width: "100%",
@@ -3586,15 +3988,16 @@ const styles = {
     alignItems: "center",
     padding: 22,
     borderRadius: 8,
-    background: "#f8fafc",
-    color: "#111827",
+    background: "linear-gradient(135deg, rgba(207,216,200,0.12), rgba(18,19,18,0.9))",
+    color: "#f8fafc",
+    border: "1px solid rgba(207,216,200,0.16)",
   }),
   brandStripMain: {
     maxWidth: 720,
   },
   stripTitle: {
     margin: 0,
-    color: "#111827",
+    color: "#f8fafc",
     fontSize: "clamp(1.2rem, 1.8vw, 1.75rem)",
     lineHeight: 1.25,
     fontWeight: 900,
@@ -3617,11 +4020,12 @@ const styles = {
   roleFitCard: {
     borderRadius: 8,
     padding: 18,
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
     display: "flex",
     flexDirection: "column",
     gap: 10,
+    transition: "transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease",
   },
   cardIndex: {
     color: "#a44a3f",
@@ -3635,7 +4039,7 @@ const styles = {
     color: "#f8fafc",
   },
   roleFitDesc: {
-    color: "#cbd5e1",
+    color: "#b9c0b8",
     lineHeight: 1.68,
     fontSize: 14,
   },
@@ -3652,8 +4056,8 @@ const styles = {
   }),
   projectCard: {
     padding: 0,
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
     borderRadius: 8,
     overflow: "hidden",
     cursor: "pointer",
@@ -3668,7 +4072,7 @@ const styles = {
     width: "100%",
     height: 168,
     overflow: "hidden",
-    background: "#0b1220",
+    background: "#080908",
     flexShrink: 0,
   },
   projectCardImage: {
@@ -3684,7 +4088,7 @@ const styles = {
     flex: 1,
   }),
   projectCategory: {
-    color: "#a78bfa",
+    color: "#cfd8c8",
     fontSize: 12,
     marginBottom: 10,
     fontWeight: 900,
@@ -3693,8 +4097,8 @@ const styles = {
     display: "inline-flex",
     width: "fit-content",
     color: "#94a3b8",
-    background: "#0f172a",
-    border: "1px solid rgba(255,255,255,0.08)",
+    background: "rgba(8,9,8,0.72)",
+    border: "1px solid rgba(207,216,200,0.11)",
     borderRadius: 8,
     padding: "6px 8px",
     marginBottom: 10,
@@ -3709,7 +4113,7 @@ const styles = {
     marginBottom: 10,
   }),
   projectOneLiner: (isMobile) => ({
-    color: "#cbd5e1",
+    color: "#b9c0b8",
     lineHeight: 1.65,
     fontSize: 14,
   }),
@@ -3722,9 +4126,9 @@ const styles = {
   },
   tag: {
     fontSize: 12,
-    color: "#e2e8f0",
-    background: "#1e293b",
-    border: "1px solid rgba(255,255,255,0.08)",
+    color: "#d8ddd2",
+    background: "rgba(8,9,8,0.72)",
+    border: "1px solid rgba(207,216,200,0.11)",
     borderRadius: 8,
     padding: "7px 9px",
     fontWeight: 700,
@@ -3745,9 +4149,9 @@ const styles = {
   }),
   timelinePeriodBadge: {
     borderRadius: 8,
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
-    color: "#a78bfa",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
+    color: "#cfd8c8",
     padding: "8px 12px",
     fontSize: 12,
     fontWeight: 700,
@@ -3774,7 +4178,7 @@ const styles = {
     top: 0,
     bottom: 0,
     width: 2,
-    background: "rgba(255,255,255,0.12)",
+    background: "rgba(207,216,200,0.16)",
   },
   timelineDot: {
     width: 34,
@@ -3783,8 +4187,8 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: "#f8fafc",
-    color: "#111827",
+    background: "#cfd8c8",
+    color: "#050505",
     fontWeight: 700,
   },
   timelineRight: (isMobile) => ({
@@ -3793,8 +4197,8 @@ const styles = {
   timelineContentCard: {
     borderRadius: 8,
     padding: 24,
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
   },
   timelineHeadline: (isMobile) => ({
     fontSize: isMobile ? 18 : 22,
@@ -3803,7 +4207,7 @@ const styles = {
     lineHeight: 1.4,
   }),
   timelineDescription: {
-    color: "#cbd5e1",
+    color: "#b9c0b8",
     marginBottom: 14,
     lineHeight: 1.7,
   },
@@ -3825,8 +4229,8 @@ const styles = {
   strengthCard: {
     borderRadius: 8,
     padding: 18,
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
   },
   strengthTitle: {
     fontSize: 18,
@@ -3843,9 +4247,9 @@ const styles = {
     fontSize: 13,
     padding: "8px 10px",
     borderRadius: 8,
-    background: "#1e293b",
-    border: "1px solid rgba(255,255,255,0.08)",
-    color: "#e2e8f0",
+    background: "rgba(8,9,8,0.72)",
+    border: "1px solid rgba(207,216,200,0.11)",
+    color: "#d8ddd2",
     fontWeight: 700,
   },
   educationOnlyGrid: (isMobile) => ({
@@ -3857,12 +4261,12 @@ const styles = {
   educationDetailCard: {
     borderRadius: 8,
     padding: 24,
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
   },
   eduPeriod: {
     fontSize: 13,
-    color: "#a78bfa",
+    color: "#cfd8c8",
     fontWeight: 900,
     marginBottom: 6,
   },
@@ -3873,7 +4277,7 @@ const styles = {
     color: "#f8fafc",
   },
   eduSubtitle: {
-    color: "#cbd5e1",
+    color: "#b9c0b8",
     lineHeight: 1.7,
     fontSize: 14,
   },
@@ -3881,7 +4285,7 @@ const styles = {
     marginTop: 14,
     marginBottom: 0,
     paddingLeft: 18,
-    color: "#e2e8f0",
+    color: "#c9cec6",
     lineHeight: 1.8,
     fontSize: 14,
   },
@@ -3894,8 +4298,8 @@ const styles = {
   credentialsCard: {
     borderRadius: 8,
     padding: 24,
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
   },
   credentialBlock: {
     marginBottom: 6,
@@ -3903,7 +4307,7 @@ const styles = {
   credentialTitle: {
     fontSize: 16,
     fontWeight: 900,
-    color: "#a78bfa",
+    color: "#cfd8c8",
     marginBottom: 12,
   },
   credentialTags: {
@@ -3914,22 +4318,22 @@ const styles = {
   credentialList: {
     margin: 0,
     paddingLeft: 18,
-    color: "#e2e8f0",
+    color: "#c9cec6",
     lineHeight: 1.9,
     fontSize: 14,
   },
   credentialDivider: {
     height: 1,
-    background: "rgba(255,255,255,0.08)",
+    background: "rgba(207,216,200,0.11)",
     margin: "18px 0",
   },
   certTag: {
     padding: "8px 10px",
     borderRadius: 8,
-    background: "#1e293b",
-    border: "1px solid rgba(255,255,255,0.08)",
+    background: "rgba(207,216,200,0.08)",
+    border: "1px solid rgba(207,216,200,0.16)",
     fontSize: 13,
-    color: "#e2e8f0",
+    color: "#d8ddd2",
     fontWeight: 700,
   },
   additionalListGrid: (isMobile) => ({
@@ -3941,8 +4345,8 @@ const styles = {
   additionalListCard: {
     borderRadius: 8,
     padding: 18,
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
   },
   additionalListTitle: {
     fontSize: 17,
@@ -3951,7 +4355,7 @@ const styles = {
     color: "#f8fafc",
   },
   additionalListDesc: {
-    color: "#cbd5e1",
+    color: "#b9c0b8",
     fontSize: 14,
     lineHeight: 1.6,
     marginBottom: 12,
@@ -3963,9 +4367,9 @@ const styles = {
   },
   additionalListTag: {
     fontSize: 12,
-    color: "#e2e8f0",
-    background: "#1e293b",
-    border: "1px solid rgba(255,255,255,0.08)",
+    color: "#d8ddd2",
+    background: "rgba(8,9,8,0.72)",
+    border: "1px solid rgba(207,216,200,0.11)",
     borderRadius: 8,
     padding: "6px 10px",
     fontWeight: 700,
@@ -3979,14 +4383,14 @@ const styles = {
   artifactCard: {
     borderRadius: 8,
     padding: 18,
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
     display: "flex",
     flexDirection: "column",
     minHeight: 320,
   },
   artifactType: {
-    color: "#a78bfa",
+    color: "#cfd8c8",
     fontSize: 13,
     fontWeight: 900,
     marginBottom: 10,
@@ -3999,7 +4403,7 @@ const styles = {
     color: "#f8fafc",
   },
   artifactDesc: {
-    color: "#cbd5e1",
+    color: "#b9c0b8",
     lineHeight: 1.7,
     fontSize: 14,
   },
@@ -4012,10 +4416,10 @@ const styles = {
   contactCtaWrap: {
     textAlign: "center",
     padding: "56px 24px",
-    border: "1px solid rgba(167,139,250,0.22)",
+    border: "1px solid rgba(207,216,200,0.16)",
     borderRadius: 8,
-    background: "linear-gradient(135deg, rgba(17,24,39,0.95), rgba(30,41,59,0.72))",
-    boxShadow: "0 20px 70px rgba(2,6,23,0.28)",
+    background: "linear-gradient(135deg, rgba(18,19,18,0.94), rgba(8,9,8,0.86))",
+    boxShadow: "0 20px 70px rgba(0,0,0,0.3)",
   },
   contactCtaTitle: {
     fontSize: "clamp(2rem, 4vw, 3rem)",
@@ -4042,7 +4446,7 @@ const styles = {
     justifyContent: "center",
     gap: 10,
     textDecoration: "none",
-    background: "#a78bfa",
+    background: "#cfd8c8",
     color: "#0f172a",
     borderRadius: 8,
     padding: isMobile ? "13px 16px" : "13px 18px",
@@ -4069,8 +4473,8 @@ const styles = {
     margin: isMobile ? "0 auto" : "20px auto",
     minHeight: isMobile ? "100vh" : "auto",
     borderRadius: isMobile ? 0 : 8,
-    background: "#111827",
-    border: isMobile ? "none" : "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.98)",
+    border: isMobile ? "none" : "1px solid rgba(207,216,200,0.15)",
     boxShadow: isMobile ? "none" : "0 20px 60px rgba(23,32,27,0.28)",
     position: "relative",
     padding: isMobile ? 16 : 24,
@@ -4083,8 +4487,8 @@ const styles = {
     width: 40,
     height: 40,
     borderRadius: 8,
-    border: "1px solid rgba(255,255,255,0.12)",
-    background: "#0f172a",
+    border: "1px solid rgba(207,216,200,0.15)",
+    background: "rgba(8,9,8,0.9)",
     color: "#f8fafc",
     cursor: "pointer",
     display: "flex",
@@ -4103,7 +4507,7 @@ const styles = {
     lineHeight: 1.25,
   }),
   modalDesc: {
-    color: "#cbd5e1",
+    color: "#b9c0b8",
     lineHeight: 1.8,
     marginTop: 12,
     marginBottom: 0,
@@ -4117,8 +4521,8 @@ const styles = {
     position: "relative",
     overflow: "hidden",
     borderRadius: 8,
-    border: "1px solid rgba(255,255,255,0.12)",
-    background: "#1e293b",
+    border: "1px solid rgba(207,216,200,0.15)",
+    background: "rgba(8,9,8,0.72)",
     height: isMobile ? 260 : 420,
     display: "flex",
     alignItems: "center",
@@ -4160,8 +4564,8 @@ const styles = {
     height: isMobile ? 52 : 64,
     borderRadius: 8,
     overflow: "hidden",
-    border: "1px solid rgba(255,255,255,0.12)",
-    background: "#1e293b",
+    border: "1px solid rgba(207,216,200,0.15)",
+    background: "rgba(8,9,8,0.72)",
     padding: 0,
     cursor: "pointer",
     display: "flex",
@@ -4178,26 +4582,26 @@ const styles = {
   infoBlock: {
     padding: 18,
     borderRadius: 8,
-    background: "#0f172a",
-    border: "1px solid rgba(255,255,255,0.08)",
+    background: "rgba(8,9,8,0.72)",
+    border: "1px solid rgba(207,216,200,0.11)",
     marginBottom: 14,
   },
   infoLabel: {
     fontSize: 13,
     fontWeight: 900,
     letterSpacing: "0.08em",
-    color: "#a78bfa",
+    color: "#cfd8c8",
     marginBottom: 10,
   },
   infoText: {
-    color: "#e2e8f0",
+    color: "#c9cec6",
     lineHeight: 1.8,
     fontSize: 14,
   },
   infoList: {
     margin: 0,
     paddingLeft: 18,
-    color: "#e2e8f0",
+    color: "#c9cec6",
     lineHeight: 1.8,
     fontSize: 14,
   },
@@ -4217,8 +4621,8 @@ const styles = {
     textDecoration: "none",
     borderRadius: 8,
     padding: "13px 14px",
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
   },
   linkList: {
     display: "grid",
@@ -4233,8 +4637,8 @@ const styles = {
     textDecoration: "none",
     borderRadius: 8,
     padding: "13px 14px",
-    background: "#111827",
-    border: "1px solid rgba(255,255,255,0.12)",
+    background: "rgba(18,19,18,0.82)",
+    border: "1px solid rgba(207,216,200,0.15)",
   },
 };
 
