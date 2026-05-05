@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useState } from "react";
+﻿import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import heroImage from "./assets/hero.png";
 import {
@@ -16,6 +16,8 @@ import {
   Workflow,
   Target,
   Sparkles,
+  Menu,
+  X,
 } from "lucide-react";
 
 const profile = {
@@ -30,6 +32,39 @@ const profile = {
   location: "Seoul, Korea",
   linkedin: "https://www.linkedin.com/in/eunchanjang/",
   github: "https://github.com/jec0926",
+};
+
+const portfolioDeck = {
+  file: "/portfolio/Jang_Eunchan_Portfolio_Deck.pdf",
+  outline: [
+    {
+      group: "OVERVIEW",
+      items: [
+        ["표지", 1],
+        ["About", 2],
+        ["Working Model", 3],
+        ["Portfolio Map", 4],
+      ],
+    },
+    {
+      group: "KEY CASES",
+      items: [
+        ["AI Agent Service PoC", 5],
+        ["전세 리스크 대시보드", 6],
+        ["KPI 성과관리 시스템", 7],
+        ["프로덕트 실적 개선", 8],
+        ["정산 프로세스 효율화", 9],
+      ],
+    },
+    {
+      group: "APPENDIX",
+      items: [
+        ["Skills & Tools", 10],
+        ["Strong Points", 11],
+        ["Contact", 12],
+      ],
+    },
+  ],
 };
 
 const workStyleImages = [
@@ -1425,18 +1460,36 @@ const fallbackImage =
 `);
 
 function useBreakpoint() {
-  const [screen, setScreen] = useState({
-    isMobile: false,
-    isTablet: false,
-  });
+  const getScreen = () => {
+    if (typeof window === "undefined") {
+      return {
+        isMobile: false,
+        isTablet: false,
+        isSmallMobile: false,
+        viewportWidth: 1200,
+      };
+    }
+
+    const widthCandidates = [
+      window.visualViewport?.width,
+      document.documentElement?.clientWidth,
+      window.innerWidth,
+      window.outerWidth,
+    ].filter((value) => Number.isFinite(value) && value > 0);
+    const width = Math.min(...widthCandidates);
+    return {
+      isMobile: width <= 768,
+      isTablet: width <= 1024,
+      isSmallMobile: width <= 480,
+      viewportWidth: width,
+    };
+  };
+
+  const [screen, setScreen] = useState(getScreen);
 
   useEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth;
-      setScreen({
-        isMobile: width <= 768,
-        isTablet: width <= 1024,
-      });
+      setScreen(getScreen());
     };
 
     handleResize();
@@ -1449,48 +1502,136 @@ function useBreakpoint() {
 
 function SiteHeader({ sectionStyle, isMobile }) {
   const [isProjectOpen, setIsProjectOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
+  const { isTablet: isCompactHeader } = useBreakpoint();
+  const useMobileHeader = isMobile || isCompactHeader;
+  const mobileNavLinks = [
+    ["Home", "#"],
+    ["Project", "#projects"],
+    ["Skills", "#skills"],
+    ["About", "#about"],
+    ["Resume", "#/resume"],
+  ];
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return undefined;
+
+    const closeOnOutside = (event) => {
+      if (mobileMenuRef.current?.contains(event.target)) return;
+      setIsMobileMenuOpen(false);
+    };
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setIsMobileMenuOpen(false);
+    };
+
+    document.addEventListener("pointerdown", closeOnOutside);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutside);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [isMobileMenuOpen]);
 
   return (
-    <header style={styles.header}>
-      <div style={{ ...sectionStyle, ...styles.headerInner(isMobile) }}>
-        <nav style={styles.nav(isMobile)}>
-          <a href="#" style={styles.navLink(isMobile)}>Home</a>
-          <div
-            style={styles.navDropdown(isMobile)}
-            onMouseEnter={() => setIsProjectOpen(true)}
-            onMouseLeave={() => setIsProjectOpen(false)}
-            onFocus={() => setIsProjectOpen(true)}
-            onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) {
-                setIsProjectOpen(false);
-              }
-            }}
-          >
-            <a href="#projects" style={styles.navDropdownSummary(isMobile)}>Project</a>
-            {isProjectOpen && (
-              <div style={styles.navDropdownMenu(isMobile)}>
-              <a href="#/projects/company" style={styles.navDropdownLink}>Company</a>
-              <a href="#/projects/academic" style={styles.navDropdownLink}>Academic Project</a>
-              <a href="#/projects/training" style={styles.navDropdownLink}>Training Project</a>
-              <a href="#/projects/personal" style={styles.navDropdownLink}>Personal Project</a>
-              <a href="#/projects/internship" style={styles.navDropdownLink}>Internship</a>
-              </div>
+    <header style={{ ...styles.header, ...(useMobileHeader ? styles.mobileHeader : {}) }}>
+      <div
+        style={{ ...sectionStyle, ...styles.headerInner(useMobileHeader) }}
+        className="site-header-inner"
+      >
+        {useMobileHeader ? (
+          <div style={styles.mobileHeaderShell} ref={mobileMenuRef}>
+            <button
+              type="button"
+              style={styles.mobileMenuButton(isMobileMenuOpen)}
+              className="mobile-menu-button"
+              onClick={() => setIsMobileMenuOpen((value) => !value)}
+              aria-label={isMobileMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+            {isMobileMenuOpen && (
+              <nav style={styles.mobileMenuPanel}>
+                {mobileNavLinks.map(([label, href]) => (
+                  <a
+                    key={label}
+                    href={href}
+                    style={styles.mobileMenuLink}
+                    className="mobile-menu-link"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {label}
+                    <ArrowRight size={14} />
+                  </a>
+                ))}
+                <div style={styles.mobileMenuSocialRow}>
+                  <a
+                    href={profile.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={styles.mobileMenuSocialLink}
+                    className="mobile-menu-social-link"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={styles.mobileMenuSocialLink}
+                    className="mobile-menu-social-link"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </nav>
             )}
           </div>
-          <a href="#skills" style={styles.navLink(isMobile)}>Skills</a>
-          <a href="#about" style={styles.navLink(isMobile)}>About</a>
-          <a href="#/resume" style={styles.navLink(isMobile)}>Resume</a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" style={styles.navLink(isMobile)}>LinkedIn</a>
-          <a href={profile.github} target="_blank" rel="noreferrer" style={styles.navLink(isMobile)}>GitHub</a>
-        </nav>
+        ) : (
+          <nav style={styles.nav(false)} className="site-nav">
+              <a href="#" style={styles.navLink(isMobile)}>Home</a>
+              <div
+                style={styles.navDropdown(isMobile)}
+                onMouseEnter={() => setIsProjectOpen(true)}
+                onMouseLeave={() => setIsProjectOpen(false)}
+                onFocus={() => setIsProjectOpen(true)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) {
+                    setIsProjectOpen(false);
+                  }
+                }}
+              >
+                <a href="#projects" style={styles.navDropdownSummary(isMobile)}>Project</a>
+                {isProjectOpen && (
+                  <div style={styles.navDropdownMenu(isMobile)}>
+                  <a href="#/projects/company" style={styles.navDropdownLink}>Company</a>
+                  <a href="#/projects/academic" style={styles.navDropdownLink}>Academic Project</a>
+                  <a href="#/projects/training" style={styles.navDropdownLink}>Training Project</a>
+                  <a href="#/projects/personal" style={styles.navDropdownLink}>Personal Project</a>
+                  <a href="#/projects/internship" style={styles.navDropdownLink}>Internship</a>
+                  </div>
+                )}
+              </div>
+              <a href="#skills" style={styles.navLink(isMobile)}>Skills</a>
+              <a href="#about" style={styles.navLink(isMobile)}>About</a>
+              <a href="#/resume" style={styles.navLink(isMobile)}>Resume</a>
+              <a href={profile.linkedin} target="_blank" rel="noreferrer" style={styles.navLink(isMobile)}>LinkedIn</a>
+              <a href={profile.github} target="_blank" rel="noreferrer" style={styles.navLink(isMobile)}>GitHub</a>
+          </nav>
+        )}
       </div>
     </header>
   );
 }
 
 function ResumeSection({ title, children }) {
+  const { isMobile } = useBreakpoint();
+
   return (
-    <section style={styles.resumeSection}>
+    <section style={styles.resumeSection(isMobile)}>
       <h2 style={styles.resumeSectionTitle}>{title}</h2>
       <div style={styles.resumeSectionBody}>{children}</div>
     </section>
@@ -1583,15 +1724,15 @@ export default function EunchanPortfolioRefined() {
   const [keyword, setKeyword] = useState("");
   const [route, setRoute] = useState(() => window.location.hash);
   const [isAtPageEnd, setIsAtPageEnd] = useState(false);
-  const { isMobile, isTablet } = useBreakpoint();
+  const { isMobile, isTablet, isSmallMobile } = useBreakpoint();
 
   const sectionStyle = useMemo(
     () => ({
       maxWidth: 1180,
       margin: "0 auto",
-      padding: isMobile ? "0 16px" : "0 24px",
+      padding: isSmallMobile ? "0 14px" : isMobile ? "0 18px" : "0 24px",
     }),
-    [isMobile]
+    [isMobile, isSmallMobile]
   );
 
   const filteredProjects = useMemo(() => {
@@ -1617,6 +1758,7 @@ export default function EunchanPortfolioRefined() {
     : null;
   const activeProjectCategory = route.match(/^#\/projects\/(.+)$/)?.[1];
   const isResumePage = route === "#/resume";
+  const isPortfolioDeckPage = route === "#/portfolio-deck";
   const getProjectGroup = (slugs) =>
     slugs.map((slug) => projects.find((project) => project.slug === slug)).filter(Boolean);
   const recentProjects = sortProjectsByPeriodDesc(projects).slice(0, 3);
@@ -1780,7 +1922,7 @@ export default function EunchanPortfolioRefined() {
 
     return (
       <div style={styles.page}>
-        <SiteHeader sectionStyle={sectionStyle} isMobile={isMobile} />
+        <SiteHeader sectionStyle={sectionStyle} isMobile={isTablet} />
 
         <main>
           <section style={{ ...sectionStyle, ...styles.detailHero(isMobile) }}>
@@ -1962,7 +2104,7 @@ export default function EunchanPortfolioRefined() {
 
     return (
       <div style={styles.page}>
-        <SiteHeader sectionStyle={sectionStyle} isMobile={isMobile} />
+        <SiteHeader sectionStyle={sectionStyle} isMobile={isTablet} />
         <main>
           <section style={{ ...sectionStyle, ...styles.detailHero(isMobile) }}>
             <a href="#" style={styles.backLink}>
@@ -2039,7 +2181,7 @@ export default function EunchanPortfolioRefined() {
   if (activeProjectCollection) {
     return (
       <div style={styles.page}>
-        <SiteHeader sectionStyle={sectionStyle} isMobile={isMobile} />
+        <SiteHeader sectionStyle={sectionStyle} isMobile={isTablet} />
         <main>
           <section style={{ ...sectionStyle, ...styles.detailHero(isMobile) }}>
             <a href="#" style={styles.backLink}>
@@ -2065,6 +2207,62 @@ export default function EunchanPortfolioRefined() {
     );
   }
 
+  if (isPortfolioDeckPage) {
+    return (
+      <div style={styles.page}>
+        <main style={styles.deckPage(isTablet)}>
+          <div style={styles.deckTopbar(isMobile)}>
+            <div style={styles.deckTitleWrap}>
+              <a href="#" style={styles.deckBackLink}>
+                <ChevronLeft size={16} /> Home
+              </a>
+              <strong>Portfolio Deck</strong>
+            </div>
+            <div style={styles.deckTopActions(isMobile)}>
+              {!isMobile && <span>PDF를 클릭한 후 ← → 키로 페이지 이동, 스크롤로 탐색</span>}
+              <a href={portfolioDeck.file} download style={styles.deckDownloadButton}>
+                <Download size={16} />
+                다운로드
+              </a>
+            </div>
+          </div>
+
+          <div style={styles.deckLayout(isTablet)}>
+            <aside style={styles.deckSidebar(isTablet)}>
+              {portfolioDeck.outline.map((group) => (
+                <div key={group.group} style={styles.deckSidebarGroup}>
+                  <div style={styles.deckSidebarLabel}>{group.group}</div>
+                  {group.items.map(([item, page]) => (
+                    <a
+                      key={item}
+                      href={`${portfolioDeck.file}#page=${page}&view=Fit&toolbar=0&navpanes=0`}
+                      target="portfolioDeckFrame"
+                      style={styles.deckSidebarLink}
+                    >
+                      {item}
+                    </a>
+                  ))}
+                </div>
+              ))}
+            </aside>
+
+            <section style={styles.deckViewerShell(isTablet)}>
+              <iframe
+                title="Jang Eunchan Portfolio Deck"
+                name="portfolioDeckFrame"
+                src={`${portfolioDeck.file}#page=1&view=Fit&toolbar=0&navpanes=0`}
+                style={styles.deckFrame(isMobile)}
+              />
+              <div style={styles.deckMobileHint(isMobile)}>
+                PDF 뷰어가 보이지 않으면 다운로드 버튼으로 파일을 열어주세요.
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   if (isResumePage) {
     const resumeCareers = careerProfiles.map((career) => ({
       ...career,
@@ -2074,7 +2272,7 @@ export default function EunchanPortfolioRefined() {
 
     return (
       <div style={styles.page} className="resume-print-page">
-        <SiteHeader sectionStyle={sectionStyle} isMobile={isMobile} />
+        <SiteHeader sectionStyle={sectionStyle} isMobile={isTablet} />
         <main>
           <section style={{ ...sectionStyle, ...styles.detailHero(isMobile) }}>
             <div style={styles.resumeHeader(isTablet)}>
@@ -2185,10 +2383,10 @@ export default function EunchanPortfolioRefined() {
 
   return (
     <div style={styles.page}>
-      <SiteHeader sectionStyle={sectionStyle} isMobile={isMobile} />
+      <SiteHeader sectionStyle={sectionStyle} isMobile={isTablet} />
       <main id="top">
-        <section style={styles.simpleHomeFrame(isTablet)}>
-          <div style={styles.motionScene} aria-hidden="true">
+        <section style={styles.simpleHomeFrame(isMobile)}>
+          <div style={styles.motionScene(isMobile)} aria-hidden="true">
             <div className="motion-cluster">
               <div className="motion-cylinder motion-cylinder-a" />
               <div className="motion-cylinder motion-cylinder-b" />
@@ -2197,15 +2395,15 @@ export default function EunchanPortfolioRefined() {
               <div className="motion-core" />
             </div>
           </div>
-          <div style={{ ...sectionStyle, ...styles.simpleHome(isTablet) }}>
+          <div style={{ ...sectionStyle, ...styles.simpleHome(isTablet, isMobile) }}>
             <div style={styles.profilePortraitFrame(isMobile)}>
               <img src={heroImage} alt="장은찬 프로필" style={styles.profilePortrait} />
             </div>
-            <div style={styles.homeCopy}>
+            <div style={styles.homeCopy(isMobile)}>
               <div style={styles.heroName}>JANG EUNCHAN</div>
-              <h1 style={styles.simpleName}>장은찬</h1>
-              <div style={styles.simpleRole}>Business-oriented, Data-capable PO/PM</div>
-              <p style={styles.simpleBelief}>
+              <h1 style={styles.simpleName(isMobile)}>장은찬</h1>
+              <div style={styles.simpleRole(isMobile)}>Business-oriented, Data-capable PO/PM</div>
+              <p style={styles.simpleBelief(isMobile)}>
                 숫자와 운영을 이해하고, 데이터와 AI를 활용해 고객 문제를 실행 가능한 제품 개선안으로 번역합니다.
               </p>
             </div>
@@ -2220,7 +2418,7 @@ export default function EunchanPortfolioRefined() {
           </p>
           <div style={styles.profileCareerList}>
             {careerProfiles.map((career) => (
-              <a key={career.id} href={`#/career/${career.id}`} style={styles.profileCareerItem}>
+              <a key={career.id} href={`#/career/${career.id}`} style={styles.profileCareerItem(isMobile)}>
                 <div>
                   <div style={styles.profileCareerHeaderText}>
                     <strong style={styles.profileCareerItemStrong}>{career.title}</strong>
@@ -2228,7 +2426,7 @@ export default function EunchanPortfolioRefined() {
                   </div>
                   <p style={styles.profileCareerSummary}>{career.summary}</p>
                 </div>
-                <div style={styles.profileCareerMeta}>
+                <div style={styles.profileCareerMeta(isMobile)}>
                   {career.period}
                   <ArrowRight size={16} />
                 </div>
@@ -2245,7 +2443,7 @@ export default function EunchanPortfolioRefined() {
           </p>
           <div style={styles.etcGrid}>
             {etcExperiences.map((item) => (
-              <a key={item.title} href={item.href} style={styles.profileCareerItem}>
+              <a key={item.title} href={item.href} style={styles.profileCareerItem(isMobile)}>
                 <div>
                   <div style={styles.profileCareerHeaderText}>
                     <strong style={styles.profileCareerItemStrong}>{item.title}</strong>
@@ -2253,7 +2451,7 @@ export default function EunchanPortfolioRefined() {
                   </div>
                   <p style={styles.profileCareerSummary}>{item.desc}</p>
                 </div>
-                <div style={styles.profileCareerMeta}>
+                <div style={styles.profileCareerMeta(isMobile)}>
                   {item.period}
                   <ArrowRight size={16} />
                 </div>
@@ -2284,15 +2482,15 @@ export default function EunchanPortfolioRefined() {
           <p style={styles.sectionDesc}>
             제품과 비즈니스 문제를 정의하고, 데이터와 AI를 활용해 실행 가능한 개선안으로 전환합니다.
           </p>
-          <div style={styles.skillSectionGrid}>
+          <div style={styles.skillSectionGrid(isMobile)}>
             {skillGroups.map((group) => (
               <div key={group.title} style={styles.skillPanel}>
                 <h3>{group.title}</h3>
                 <p style={styles.skillPanelDesc}>{group.desc}</p>
                 {group.items.map(([title, desc]) => (
                   <div key={title} style={styles.skillDetailItem}>
-                    <strong>{title}</strong>
-                    <span>{desc}</span>
+                    <strong style={styles.skillDetailTitle}>{title}</strong>
+                    <span style={styles.skillDetailDesc}>{desc}</span>
                   </div>
                 ))}
               </div>
@@ -2300,9 +2498,9 @@ export default function EunchanPortfolioRefined() {
           </div>
           <div style={styles.toolPillPanel}>
             <h3>Tools</h3>
-            <div style={styles.toolPillGrid}>
+            <div style={styles.toolPillGrid(isMobile)}>
               {tools.map((tool) => (
-                <div key={tool.name} style={styles.toolLogoCard}>
+                <div key={tool.name} style={styles.toolLogoCard(isMobile)}>
                   <span style={styles.toolLogoMark(tool.tone)}>{tool.logo}</span>
                   <strong>{tool.name}</strong>
                 </div>
@@ -2341,7 +2539,7 @@ export default function EunchanPortfolioRefined() {
           <p style={styles.sectionDesc}>
             운영 현장에서 발견한 문제를 데이터와 프로세스로 구조화하고, 협업자가 실행할 수 있는 기준으로 정리합니다.
           </p>
-          <div style={styles.strongPointGrid}>
+          <div style={styles.strongPointGrid(isMobile)}>
             {aboutStrengths.map((item) => (
               <div key={item.title} style={styles.strongPointCard} className="interactive-card">
                 <span style={styles.strongPointIcon}>{item.icon}</span>
@@ -2358,7 +2556,7 @@ export default function EunchanPortfolioRefined() {
               <h2>How I Work</h2>
               <p>'일'을 위해 필요한 태도를 갖추고 결과를 만드는 것에 집중하고 있습니다.</p>
             </div>
-            <div style={styles.workList}>
+            <div style={styles.workList(isMobile)}>
             {howIWork.map((item, index) => (
               <div key={item.title} style={styles.workItem}>
                 <span style={styles.workItemIcon}>{item.icon}</span>
@@ -2891,21 +3089,25 @@ const styles = {
     background: "transparent",
     pointerEvents: "none",
   },
+  mobileHeader: {
+    justifyContent: "flex-start",
+    paddingLeft: 16,
+  },
   headerInner: (isMobile) => ({
     display: "inline-flex",
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: isMobile ? "flex-end" : "center",
     gap: 0,
-    width: isMobile ? "calc(100vw - 24px)" : "fit-content",
+    width: isMobile ? "auto" : "fit-content",
     maxWidth: "calc(100vw - 24px)",
     margin: 0,
-    padding: isMobile ? "6px 8px" : "8px 16px",
+    padding: isMobile ? 0 : "8px 16px",
     borderRadius: 999,
-    background: "rgba(5,5,5,0.66)",
-    border: "1px solid rgba(255,255,255,0.10)",
-    boxShadow: "0 18px 50px rgba(0,0,0,0.42)",
-    backdropFilter: "blur(18px)",
+    background: isMobile ? "transparent" : "rgba(5,5,5,0.66)",
+    border: isMobile ? "none" : "1px solid rgba(255,255,255,0.10)",
+    boxShadow: isMobile ? "none" : "0 18px 50px rgba(0,0,0,0.42)",
+    backdropFilter: isMobile ? "none" : "blur(18px)",
     pointerEvents: "auto",
   }),
   logo: {
@@ -2975,6 +3177,83 @@ const styles = {
     padding: "10px 12px",
     borderRadius: 8,
     fontWeight: 800,
+  },
+  mobileHeaderShell: {
+    position: "fixed",
+    top: 14,
+    left: 16,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    width: 50,
+    height: 50,
+    zIndex: 24,
+  },
+  mobileMenuButton: (isOpen) => ({
+    position: "relative",
+    width: 50,
+    height: 50,
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexShrink: 0,
+    border: isOpen ? "1px solid rgba(207,216,200,0.32)" : "1px solid rgba(207,216,200,0.16)",
+    borderRadius: 999,
+    background: isOpen ? "rgba(207,216,200,0.12)" : "rgba(5,5,5,0.62)",
+    color: "#f8fafc",
+    cursor: "pointer",
+    boxShadow: isOpen ? "0 18px 44px rgba(0,0,0,0.5)" : "0 12px 34px rgba(0,0,0,0.42)",
+    backdropFilter: "blur(14px)",
+    transition: "background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease",
+  }),
+  mobileMenuPanel: {
+    position: "fixed",
+    top: 78,
+    left: 16,
+    width: "min(286px, calc(100vw - 32px))",
+    display: "grid",
+    gap: 4,
+    padding: 8,
+    border: "1px solid rgba(207,216,200,0.14)",
+    borderRadius: 12,
+    background: "linear-gradient(180deg, rgba(16,17,16,0.96), rgba(6,7,6,0.96))",
+    backdropFilter: "blur(20px)",
+    boxShadow: "0 24px 80px rgba(0,0,0,0.5)",
+  },
+  mobileMenuLink: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+    padding: "12px 13px",
+    color: "#f8fafc",
+    textDecoration: "none",
+    borderRadius: 8,
+    background: "transparent",
+    border: "1px solid transparent",
+    fontSize: 14,
+    fontWeight: 900,
+    transition: "background 160ms ease, border-color 160ms ease, transform 160ms ease",
+  },
+  mobileMenuSocialRow: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: 8,
+    paddingTop: 4,
+  },
+  mobileMenuSocialLink: {
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: 38,
+    color: "#d8ddd2",
+    textDecoration: "none",
+    borderRadius: 8,
+    border: "1px solid rgba(207,216,200,0.12)",
+    background: "rgba(18,19,18,0.78)",
+    fontSize: 13,
+    fontWeight: 900,
+    transition: "background 160ms ease, border-color 160ms ease, transform 160ms ease",
   },
   heroSection: (isMobile) => ({
     paddingTop: isMobile ? 48 : 76,
@@ -3129,39 +3408,44 @@ const styles = {
     gap: 8,
     marginTop: 18,
   },
-  simpleHomeFrame: (isTablet) => ({
+  simpleHomeFrame: (isMobile) => ({
     position: "relative",
     overflow: "hidden",
     isolation: "isolate",
-    minHeight: "100vh",
+    minHeight: isMobile ? "auto" : "100vh",
     background:
       "linear-gradient(180deg, rgba(5,5,5,0.98) 0%, rgba(10,12,11,0.95) 58%, #050505 100%), linear-gradient(115deg, rgba(255,255,255,0.055) 0%, transparent 34%, rgba(178,194,169,0.08) 72%, transparent 100%)",
   }),
-  simpleHome: (isTablet) => ({
+  simpleHome: (isTablet, isMobile) => ({
     display: "grid",
     gridTemplateColumns: isTablet ? "1fr" : "350px minmax(0, 1fr)",
-    gap: isTablet ? 30 : 64,
+    gap: isMobile ? 24 : isTablet ? 30 : 64,
     alignItems: "center",
-    minHeight: "100vh",
-    paddingTop: isTablet ? 104 : 118,
-    paddingBottom: isTablet ? 104 : 118,
+    minHeight: isMobile ? "auto" : "100vh",
+    paddingTop: isMobile ? 92 : isTablet ? 104 : 118,
+    paddingBottom: isMobile ? 72 : isTablet ? 104 : 118,
     position: "relative",
     zIndex: 1,
   }),
-  motionScene: {
+  motionScene: (isMobile) => ({
     position: "absolute",
-    inset: "-140px -12vw -120px -12vw",
+    inset: isMobile ? "-80px -42vw auto -42vw" : "-140px -12vw -120px -12vw",
+    height: isMobile ? 560 : "auto",
     zIndex: 0,
     pointerEvents: "none",
-    opacity: 0.64,
+    opacity: isMobile ? 0.36 : 0.64,
     WebkitMaskImage:
-      "linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)",
+      isMobile
+        ? "linear-gradient(180deg, black 0%, black 62%, transparent 100%)"
+        : "linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)",
     maskImage:
-      "linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)",
-  },
+      isMobile
+        ? "linear-gradient(180deg, black 0%, black 62%, transparent 100%)"
+        : "linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)",
+  }),
   profilePortraitFrame: (isMobile) => ({
-    width: isMobile ? 218 : 326,
-    height: isMobile ? 290 : 434,
+    width: isMobile ? "min(72vw, 248px)" : 326,
+    height: isMobile ? "min(96vw, 330px)" : 434,
     justifySelf: isMobile ? "center" : "start",
     padding: 7,
     borderRadius: 14,
@@ -3170,6 +3454,7 @@ const styles = {
     position: "relative",
     zIndex: 1,
     boxShadow: "0 34px 110px rgba(0,0,0,0.55)",
+    order: isMobile ? 2 : 0,
   }),
   profilePortrait: {
     width: "100%",
@@ -3179,31 +3464,35 @@ const styles = {
     objectFit: "cover",
     objectPosition: "center",
   },
-  homeCopy: {
+  homeCopy: (isMobile) => ({
     position: "relative",
     zIndex: 1,
     maxWidth: 790,
-  },
-  simpleName: {
+    order: isMobile ? 1 : 0,
+    textAlign: isMobile ? "left" : "left",
+  }),
+  simpleName: (isMobile) => ({
     margin: 0,
-    fontSize: "clamp(4.2rem, 8vw, 7.4rem)",
-    lineHeight: 0.95,
+    fontSize: isMobile ? "clamp(3.25rem, 20vw, 5.1rem)" : "clamp(4.2rem, 8vw, 7.4rem)",
+    lineHeight: isMobile ? 0.92 : 0.95,
     fontWeight: 900,
     letterSpacing: 0,
-  },
-  simpleRole: {
-    marginTop: 12,
+    wordBreak: "keep-all",
+  }),
+  simpleRole: (isMobile) => ({
+    marginTop: isMobile ? 10 : 12,
     color: "#d8ddd2",
     fontWeight: 900,
-    fontSize: "clamp(1.05rem, 1.7vw, 1.35rem)",
-  },
-  simpleBelief: {
+    fontSize: isMobile ? 17 : "clamp(1.05rem, 1.7vw, 1.35rem)",
+    lineHeight: 1.35,
+  }),
+  simpleBelief: (isMobile) => ({
     maxWidth: 760,
-    marginTop: 18,
+    marginTop: isMobile ? 14 : 18,
     color: "#aeb6ae",
-    lineHeight: 1.75,
-    fontSize: 16,
-  },
+    lineHeight: isMobile ? 1.72 : 1.75,
+    fontSize: isMobile ? 14 : 16,
+  }),
   scrollNavigator: (isMobile) => ({
     position: "fixed",
     left: "50%",
@@ -3237,18 +3526,18 @@ const styles = {
     gap: 10,
     marginTop: 28,
   },
-  profileCareerItem: {
+  profileCareerItem: (isMobile) => ({
     display: "grid",
-    gridTemplateColumns: "minmax(0, 1fr) auto",
-    gap: 18,
-    alignItems: "center",
-    padding: 18,
+    gridTemplateColumns: isMobile ? "1fr" : "minmax(0, 1fr) auto",
+    gap: isMobile ? 12 : 18,
+    alignItems: isMobile ? "start" : "center",
+    padding: isMobile ? 16 : 18,
     background: "rgba(18,19,18,0.82)",
     border: "1px solid rgba(207,216,200,0.15)",
     borderRadius: 8,
     textDecoration: "none",
     color: "#f8fafc",
-  },
+  }),
   profileCareerHeaderText: {
     display: "grid",
     gap: 7,
@@ -3276,15 +3565,17 @@ const styles = {
     lineHeight: 1.7,
     fontSize: 14,
   },
-  profileCareerMeta: {
+  profileCareerMeta: (isMobile) => ({
     display: "flex",
     alignItems: "center",
+    justifyContent: isMobile ? "space-between" : "flex-start",
     gap: 10,
+    width: isMobile ? "100%" : "auto",
     color: "#cfd8c8",
     fontWeight: 900,
     fontSize: 13,
     whiteSpace: "nowrap",
-  },
+  }),
   etcGrid: {
     display: "grid",
     gap: 12,
@@ -3304,12 +3595,12 @@ const styles = {
     borderRadius: 8,
     background: "rgba(18,19,18,0.82)",
   },
-  skillSectionGrid: {
+  skillSectionGrid: (isMobile) => ({
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-    gap: 12,
-    marginTop: 26,
-  },
+    gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(260px, 1fr))",
+    gap: isMobile ? 10 : 12,
+    marginTop: isMobile ? 22 : 26,
+  }),
   skillPanel: {
     background: "rgba(18,19,18,0.82)",
     border: "1px solid rgba(207,216,200,0.15)",
@@ -3324,12 +3615,24 @@ const styles = {
   },
   skillDetailItem: {
     display: "grid",
-    gap: 4,
+    gap: 5,
     padding: 12,
     border: "1px solid rgba(207,216,200,0.11)",
     borderRadius: 8,
     background: "rgba(8,9,8,0.72)",
     marginBottom: 8,
+  },
+  skillDetailTitle: {
+    color: "#f8fafc",
+    fontSize: 14,
+    lineHeight: 1.35,
+    fontWeight: 900,
+  },
+  skillDetailDesc: {
+    color: "#aeb6ae",
+    fontSize: 12,
+    lineHeight: 1.55,
+    fontWeight: 600,
   },
   skillPillWrap: {
     display: "flex",
@@ -3343,21 +3646,22 @@ const styles = {
     border: "1px solid rgba(207,216,200,0.15)",
     background: "rgba(18,19,18,0.58)",
   },
-  toolPillGrid: {
+  toolPillGrid: (isMobile) => ({
     display: "flex",
     flexWrap: "wrap",
-    gap: 18,
+    gap: isMobile ? 10 : 18,
     marginTop: 18,
-  },
-  toolLogoCard: {
+  }),
+  toolLogoCard: (isMobile) => ({
     display: "inline-flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    gap: 14,
-    minWidth: 118,
-    minHeight: 132,
-    padding: "20px 18px",
+    gap: isMobile ? 10 : 14,
+    flex: isMobile ? "1 1 calc(33.333% - 10px)" : "0 0 auto",
+    minWidth: isMobile ? 92 : 118,
+    minHeight: isMobile ? 104 : 132,
+    padding: isMobile ? "16px 12px" : "20px 18px",
     border: "1px solid rgba(207,216,200,0.15)",
     borderRadius: 24,
     background: "linear-gradient(180deg, rgba(207,216,200,0.06), rgba(8,9,8,0.76))",
@@ -3366,7 +3670,7 @@ const styles = {
     fontWeight: 900,
     lineHeight: 1,
     boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
-  },
+  }),
   toolLogoMark: (tone) => ({
     width: 52,
     height: 52,
@@ -3414,12 +3718,12 @@ const styles = {
     gap: 12,
     marginTop: 26,
   },
-  strongPointGrid: {
+  strongPointGrid: (isMobile) => ({
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: 22,
-    marginTop: 44,
-  },
+    gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(300px, 1fr))",
+    gap: isMobile ? 12 : 22,
+    marginTop: isMobile ? 24 : 44,
+  }),
   strongPointCard: {
     display: "grid",
     gap: 18,
@@ -3457,12 +3761,12 @@ const styles = {
   workHeader: {
     maxWidth: 760,
   },
-  workList: {
+  workList: (isMobile) => ({
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-    gap: 22,
-    marginTop: 44,
-  },
+    gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(260px, 1fr))",
+    gap: isMobile ? 12 : 22,
+    marginTop: isMobile ? 28 : 44,
+  }),
   workItem: {
     display: "grid",
     gap: 18,
@@ -3547,13 +3851,13 @@ const styles = {
     fontWeight: 800,
     textDecoration: "none",
   },
-  resumeSection: {
+  resumeSection: (isMobile) => ({
     display: "grid",
-    gridTemplateColumns: "220px minmax(0, 1fr)",
-    gap: 24,
-    padding: "28px 0",
+    gridTemplateColumns: isMobile ? "1fr" : "220px minmax(0, 1fr)",
+    gap: isMobile ? 14 : 24,
+    padding: isMobile ? "22px 0" : "28px 0",
     borderTop: "1px solid rgba(255,255,255,0.12)",
-  },
+  }),
   resumeSectionTitle: {
     margin: 0,
     fontSize: 20,
@@ -4413,6 +4717,125 @@ const styles = {
     marginTop: "auto",
     paddingTop: 18,
   },
+  deckPage: (isTablet) => ({
+    minHeight: "100vh",
+    padding: isTablet ? "22px 16px 32px" : "34px 34px 44px",
+    background: "#050505",
+  }),
+  deckTopbar: (isMobile) => ({
+    display: "flex",
+    alignItems: isMobile ? "flex-start" : "center",
+    justifyContent: "space-between",
+    flexDirection: isMobile ? "column" : "row",
+    gap: isMobile ? 14 : 18,
+    marginBottom: isMobile ? 18 : 28,
+  }),
+  deckTitleWrap: {
+    display: "flex",
+    alignItems: "center",
+    gap: 18,
+    color: "#f8fafc",
+    fontSize: 22,
+    fontWeight: 900,
+  },
+  deckBackLink: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    color: "#8fb7ff",
+    textDecoration: "none",
+    fontSize: 14,
+    fontWeight: 900,
+  },
+  deckTopActions: (isMobile) => ({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: isMobile ? "space-between" : "flex-end",
+    gap: 18,
+    width: isMobile ? "100%" : "auto",
+    color: "#6f776d",
+    fontSize: 12,
+    fontWeight: 800,
+  }),
+  deckDownloadButton: {
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+    minWidth: 120,
+    height: 42,
+    padding: "0 20px",
+    color: "#8fb7ff",
+    textDecoration: "none",
+    background: "rgba(18,19,18,0.88)",
+    border: "1px solid rgba(207,216,200,0.18)",
+    borderRadius: 999,
+    fontWeight: 900,
+  },
+  deckLayout: (isTablet) => ({
+    display: "grid",
+    gridTemplateColumns: isTablet ? "1fr" : "214px minmax(0, 1fr)",
+    gap: isTablet ? 18 : 24,
+    alignItems: "stretch",
+  }),
+  deckSidebar: (isTablet) => ({
+    display: isTablet ? "flex" : "block",
+    gap: isTablet ? 10 : 0,
+    overflowX: isTablet ? "auto" : "visible",
+    overflowY: isTablet ? "hidden" : "auto",
+    height: isTablet ? "auto" : "calc(100vh - 112px)",
+    padding: isTablet ? 10 : 18,
+    border: "1px solid rgba(207,216,200,0.16)",
+    borderRadius: 28,
+    background: "rgba(18,19,18,0.9)",
+    boxShadow: "0 20px 70px rgba(0,0,0,0.32)",
+  }),
+  deckSidebarGroup: {
+    minWidth: 170,
+    marginBottom: 24,
+  },
+  deckSidebarLabel: {
+    color: "#6f776d",
+    fontSize: 12,
+    fontWeight: 900,
+    letterSpacing: "0.08em",
+    margin: "10px 0 8px",
+  },
+  deckSidebarLink: {
+    display: "block",
+    color: "#aeb6ae",
+    textDecoration: "none",
+    padding: "9px 12px",
+    borderRadius: 999,
+    fontSize: 14,
+    fontWeight: 900,
+    whiteSpace: "nowrap",
+  },
+  deckViewerShell: (isTablet) => ({
+    minHeight: isTablet ? "70vh" : "calc(100vh - 112px)",
+    border: "1px solid rgba(207,216,200,0.16)",
+    borderRadius: isTablet ? 16 : 22,
+    overflow: "hidden",
+    background: "rgba(8,9,8,0.92)",
+    boxShadow: "0 26px 90px rgba(0,0,0,0.4)",
+    position: "relative",
+  }),
+  deckFrame: (isMobile) => ({
+    width: "100%",
+    height: isMobile ? "64vh" : "calc(100vh - 112px)",
+    minHeight: isMobile ? 420 : "70vh",
+    border: 0,
+    display: "block",
+    background: "#050505",
+  }),
+  deckMobileHint: (isMobile) => ({
+    display: isMobile ? "block" : "none",
+    padding: "12px 14px",
+    color: "#8f988d",
+    fontSize: 12,
+    lineHeight: 1.6,
+    borderTop: "1px solid rgba(207,216,200,0.12)",
+  }),
   contactCtaWrap: {
     textAlign: "center",
     padding: "56px 24px",

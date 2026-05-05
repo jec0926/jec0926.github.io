@@ -20,6 +20,21 @@ html {
   box-shadow: 0 22px 64px rgba(0,0,0,0.34);
 }
 
+.site-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-social-link:hover {
+  background: rgba(207,216,200,0.08) !important;
+  border-color: rgba(207,216,200,0.18) !important;
+  transform: translateY(-1px);
+}
+
+.mobile-header-content {
+  display: none !important;
+}
+
 .motion-cluster,
 .motion-cylinder,
 .motion-core {
@@ -77,6 +92,49 @@ html {
 @keyframes scrollCueFloat {
   0%, 100% { transform: translate(-50%, 0); opacity: 0.62; }
   50% { transform: translate(-50%, 8px); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .motion-cluster {
+    width: 520px;
+    height: 520px;
+    min-width: 520px;
+    min-height: 520px;
+    left: 54%;
+    top: 44%;
+  }
+
+  .interactive-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .site-header-inner {
+    display: flex !important;
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-header-content {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .motion-cluster {
+    width: 430px;
+    height: 430px;
+    min-width: 430px;
+    min-height: 430px;
+    left: 58%;
+    top: 38%;
+  }
 }
 
 .container {
